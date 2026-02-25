@@ -287,11 +287,26 @@ export default function OfferSection() {
                   borderRadius: "10px",
                   textDecoration: "none",
                   boxShadow: "0 0 30px rgba(79,142,247,0.25)",
-                  marginBottom: "16px",
+                  marginBottom: "12px",
                 }}
               >
                 Claim Your Spot
               </Link>
+
+              <ul
+                style={{
+                  fontSize: "11px",
+                  color: "var(--gg-text3)",
+                  margin: "0 0 14px",
+                  paddingLeft: "18px",
+                  lineHeight: 1.55,
+                  listStyle: "disc",
+                }}
+              >
+                <li>Deposit reserves your 72-hour build spot</li>
+                <li>You only need 5 basics: name, phone, services, service area, logo/photos</li>
+                <li>Clock starts when assets are in</li>
+              </ul>
 
               <p style={{ fontSize: "11px", color: "var(--gg-text3)", margin: 0, lineHeight: 1.5 }}>
                 50% upfront, 50% on delivery.

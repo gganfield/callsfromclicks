@@ -229,10 +229,10 @@ export default function DemoSection() {
               </div>
             </div>
 
-            {/* Link below phone */}
+            {/* Link below phone — same URL as iframe so /demo shows identical content (including gallery) */}
             <div style={{ marginTop: "16px", display: "flex", justifyContent: "center" }}>
               <Link
-                href="/demo"
+                href={`/demo?px=${DEMO_SCROLL_PX_PER_FRAME}`}
                 target="_blank"
                 className="gg-btn-accent"
                 style={{

@@ -17,11 +17,7 @@ const faqs = [
   },
   {
     q: "What happens if we stop paying?",
-    a: "We hand you the full codebase and walk you through deploying it yourself for free on Vercel. No hard feelings.",
-  },
-  {
-    q: "Do we own the site?",
-    a: "Yes. Once you pay the build fee, the code is yours. The monthly fee is for the Managed Website Plan (hosting, updates, debugging) \u2014 not a subscription that locks you in.",
+    a: "You own the code and the site. If you ever leave the managed plan, we'll provide a handoff option so you can host it wherever you prefer.",
   },
   {
     q: "What's not included?",

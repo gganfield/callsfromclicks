@@ -4,7 +4,7 @@ import { BETA_SPOTS_TOTAL, BETA_SPOTS_TAKEN } from "@/app/config/beta";
 
 const stats = [
   { value: "72 hrs", label: "Delivery guarantee" },
-  { value: "100%", label: "Custom — no templates" },
+  { value: "100%", label: "Custom-built for your business" },
   { value: "$0", label: "Monthly tools you don't need" },
   { value: "2 min", label: "To request your free audit" },
 ];
