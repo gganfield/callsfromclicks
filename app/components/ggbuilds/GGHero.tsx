@@ -197,65 +197,6 @@ export default function GGHero() {
           </a>
         </div>
 
-        {/* Demo preview video — drop demo-preview.mp4 + demo-poster.jpg into /public to activate */}
-        <div
-          className="gg-fade-up-4"
-          style={{
-            width: "100%",
-            maxWidth: "640px",
-            margin: "0 auto 48px",
-            borderRadius: "18px",
-            overflow: "hidden",
-            border: "1px solid var(--gg-border-strong)",
-            boxShadow: "0 24px 80px rgba(0,0,0,0.35)",
-            background: "var(--gg-card-bg)",
-          }}
-        >
-          {/* Browser chrome */}
-          <div
-            style={{
-              background: "rgba(255,255,255,0.04)",
-              borderBottom: "1px solid var(--gg-border)",
-              padding: "8px 14px",
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-            }}
-          >
-            <div style={{ display: "flex", gap: "5px" }}>
-              {["#f26464", "#f5a623", "#27c93f"].map((c) => (
-                <div key={c} style={{ width: "8px", height: "8px", borderRadius: "50%", background: c, opacity: 0.85 }} />
-              ))}
-            </div>
-            <div
-              style={{
-                flex: 1,
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid var(--gg-border)",
-                borderRadius: "5px",
-                padding: "3px 10px",
-                fontSize: "10px",
-                color: "var(--gg-text3)",
-                fontFamily: "monospace",
-                textAlign: "center",
-              }}
-            >
-              callsfromclicks.com/demo
-            </div>
-          </div>
-          {/* Video — poster shows immediately; video plays when loaded */}
-          <video
-            src="/demo-preview.mp4"
-            poster="/demo-poster.jpg"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="none"
-            style={{ display: "block", width: "100%", aspectRatio: "16/9", objectFit: "cover" }}
-          />
-        </div>
-
         {/* Stats row */}
         <div
           className="gg-fade-up-5"
@@ -296,9 +237,47 @@ export default function GGHero() {
             </div>
           ))}
         </div>
+
+        {/* Demo link — scroll to What you'll notice */}
+        <div
+          className="gg-fade-up-5"
+          style={{ marginTop: "24px", textAlign: "center" }}
+        >
+          <a
+            href="#demo"
+            className="gg-demo-link"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              fontSize: "17px",
+              fontWeight: 600,
+              color: "var(--gg-accent)",
+              textDecoration: "none",
+            }}
+          >
+            See the demo in action →
+          </a>
+        </div>
       </div>
 
       <style>{`
+        .gg-demo-link {
+          position: relative;
+        }
+        .gg-demo-link::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 2px;
+          height: 2px;
+          background: var(--gg-accent);
+          width: 0;
+          transition: width 0.2s ease;
+        }
+        .gg-demo-link:hover::after {
+          width: 100%;
+        }
         @media (max-width: 600px) {
           .gg-hero-stats { grid-template-columns: 1fr 1fr !important; }
         }

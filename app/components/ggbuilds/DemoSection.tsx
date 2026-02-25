@@ -1,4 +1,5 @@
 "use client";
+import { useState, useRef } from "react";
 import Link from "next/link";
 
 const outcomeIcons = [
@@ -38,7 +39,12 @@ const outcomes = [
   { label: "Outranks the competition", sub: "Site + GBP combo beats most local competitors" },
 ];
 
+const DEMO_SCROLL_PX_PER_FRAME = 2.4;
+
 export default function DemoSection() {
+  const [iframeActive, setIframeActive] = useState(false);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
   return (
     <section
       id="demo"
@@ -108,106 +114,146 @@ export default function DemoSection() {
             </div>
           </div>
 
-          {/* Right — scrollable iframe preview */}
-          <div>
-            <p style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--gg-text3)", marginBottom: "14px" }}>
+          {/* Right — phone mockup with scrollable iframe */}
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <p style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--gg-text3)", marginBottom: "14px", textAlign: "center" }}>
               Live Example
             </p>
+
+            {/* Phone frame */}
             <div
               style={{
-                background: "var(--gg-card-bg)",
-                border: "1px solid var(--gg-border-strong)",
-                borderRadius: "18px",
-                overflow: "hidden",
-                boxShadow: "0 24px 80px rgba(0,0,0,0.4)",
+                width: "280px",
+                background: "#1a1a1f",
+                borderRadius: "40px",
+                padding: "12px",
+                boxShadow: "0 24px 80px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.08)",
+                position: "relative",
               }}
             >
-              {/* Browser chrome */}
+              {/* Notch / dynamic island */}
               <div
                 style={{
-                  background: "rgba(255,255,255,0.04)",
-                  borderBottom: "1px solid var(--gg-border)",
-                  padding: "10px 16px",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
+                  position: "absolute",
+                  top: "14px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  width: "80px",
+                  height: "22px",
+                  background: "#000",
+                  borderRadius: "12px",
+                  zIndex: 2,
+                }}
+              />
+
+              {/* Screen bezel */}
+              <div
+                style={{
+                  borderRadius: "30px",
+                  overflow: "hidden",
+                  background: "#000",
+                  position: "relative",
                 }}
               >
-                <div style={{ display: "flex", gap: "6px" }}>
-                  {["#f26464", "#f5a623", "#27c93f"].map((c) => (
-                    <div key={c} style={{ width: "10px", height: "10px", borderRadius: "50%", background: c, opacity: 0.9 }} />
-                  ))}
-                </div>
+                {/* Status bar */}
                 <div
                   style={{
-                    flex: 1,
-                    background: "rgba(255,255,255,0.04)",
-                    border: "1px solid var(--gg-border)",
-                    borderRadius: "6px",
-                    padding: "4px 12px",
-                    fontSize: "11px",
-                    color: "var(--gg-text3)",
-                    fontFamily: "monospace",
-                    textAlign: "center",
+                    height: "44px",
+                    background: "rgba(0,0,0,0.9)",
+                    display: "flex",
+                    alignItems: "flex-end",
+                    justifyContent: "space-between",
+                    padding: "0 24px 6px",
+                    position: "relative",
+                    zIndex: 1,
                   }}
                 >
-                  callsfromclicks.com/demo
+                  <span style={{ fontSize: "11px", fontWeight: 600, color: "#fff" }}>9:41</span>
+                  <div style={{ display: "flex", gap: "4px", alignItems: "center" }}>
+                    {/* Signal */}
+                    <svg width="14" height="10" viewBox="0 0 14 10" fill="#fff">
+                      <rect x="0" y="6" width="2.5" height="4" rx="0.5"/>
+                      <rect x="3.5" y="4" width="2.5" height="6" rx="0.5"/>
+                      <rect x="7" y="2" width="2.5" height="8" rx="0.5"/>
+                      <rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/>
+                    </svg>
+                    {/* Battery */}
+                    <svg width="20" height="10" viewBox="0 0 20 10" fill="none">
+                      <rect x="0.5" y="0.5" width="16" height="9" rx="2" stroke="#fff" strokeWidth="1"/>
+                      <rect x="17" y="3" width="2" height="4" rx="0.5" fill="#fff"/>
+                      <rect x="2" y="2" width="10" height="6" rx="1" fill="#fff"/>
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Iframe — renders mobile layout (375px width) */}
+                <div
+                  style={{ height: "540px", overflow: "hidden", position: "relative" }}
+                  onMouseEnter={() => {
+                    setIframeActive(true);
+                    iframeRef.current?.contentWindow?.postMessage("autoscroll-pause", "*");
+                  }}
+                  onMouseLeave={() => {
+                    setIframeActive(false);
+                    iframeRef.current?.contentWindow?.postMessage("autoscroll-resume", "*");
+                  }}
+                >
+                  <iframe
+                    key={DEMO_SCROLL_PX_PER_FRAME}
+                    ref={iframeRef}
+                    src={`/demo?px=${DEMO_SCROLL_PX_PER_FRAME}`}
+                    title="Demo site preview"
+                    style={{
+                      width: "375px",
+                      height: "1080px",
+                      border: "none",
+                      transform: "scale(0.6833)",
+                      transformOrigin: "top left",
+                      pointerEvents: iframeActive ? "auto" : "none",
+                    }}
+                  />
+                </div>
+
+                {/* Home indicator */}
+                <div
+                  style={{
+                    height: "24px",
+                    background: "rgba(0,0,0,0.9)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <div style={{ width: "100px", height: "4px", borderRadius: "2px", background: "rgba(255,255,255,0.3)" }} />
                 </div>
               </div>
+            </div>
 
-              {/* Scrollable iframe */}
-              <div style={{ height: "420px", overflow: "hidden", position: "relative" }}>
-                <iframe
-                  src="/demo"
-                  title="Demo site preview"
-                  style={{
-                    width: "200%",
-                    height: "200%",
-                    border: "none",
-                    transform: "scale(0.5)",
-                    transformOrigin: "top left",
-                    pointerEvents: "none",
-                  }}
-                />
-              </div>
-
-              {/* View full link */}
-              <div
+            {/* Link below phone */}
+            <div style={{ marginTop: "16px", display: "flex", justifyContent: "center" }}>
+              <Link
+                href="/demo"
+                target="_blank"
+                className="gg-btn-accent"
                 style={{
-                  padding: "14px 20px",
-                  borderTop: "1px solid var(--gg-border)",
-                  display: "flex",
-                  justifyContent: "space-between",
+                  display: "inline-flex",
                   alignItems: "center",
+                  gap: "5px",
+                  fontWeight: 700,
+                  fontSize: "12px",
+                  color: "var(--gg-accent)",
+                  textDecoration: "none",
+                  border: "1px solid var(--gg-accent-border)",
+                  padding: "7px 14px",
+                  borderRadius: "6px",
+                  background: "var(--gg-accent-soft)",
                 }}
               >
-                <p style={{ fontSize: "12px", color: "var(--gg-text3)", margin: 0 }}>
-                  Peak Home Remodeling — Demo Build
-                </p>
-                <Link
-                  href="/demo"
-                  target="_blank"
-                  className="gg-btn-accent"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "5px",
-                    fontWeight: 700,
-                    fontSize: "12px",
-                    color: "var(--gg-accent)",
-                    textDecoration: "none",
-                    border: "1px solid var(--gg-accent-border)",
-                    padding: "7px 14px",
-                    borderRadius: "6px",
-                    background: "var(--gg-accent-soft)",
-                  }}
-                >
-                  Open Full Site
-                  <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
-                    <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4.5M9.5 2.5V7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </Link>
-              </div>
+                Open Full Site
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+                  <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4.5M9.5 2.5V7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </Link>
             </div>
           </div>
         </div>
