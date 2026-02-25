@@ -67,7 +67,7 @@ export default function DemoSection() {
               The signals that tell you it&apos;s working.
             </h2>
             <p style={{ fontSize: "15px", color: "var(--gg-text2)", lineHeight: 1.7, margin: "0 0 36px" }}>
-              Most local businesses start seeing changes within 2\u20134 weeks of going live.
+              Most local businesses start seeing changes within 2–4 weeks of going live.
             </p>
 
             <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
@@ -182,7 +182,7 @@ export default function DemoSection() {
                 }}
               >
                 <p style={{ fontSize: "12px", color: "var(--gg-text3)", margin: 0 }}>
-                  Peak Home Remodeling \u2014 Demo Build
+                  Peak Home Remodeling — Demo Build
                 </p>
                 <Link
                   href="/demo"

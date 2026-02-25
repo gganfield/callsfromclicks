@@ -1,7 +1,11 @@
 "use client";
 import Link from "next/link";
+import { BETA_SPOTS_TOTAL, BETA_SPOTS_TAKEN } from "@/app/config/beta";
 
 export default function CTASection() {
+  const spotsRemain = BETA_SPOTS_TOTAL - BETA_SPOTS_TAKEN;
+  const progressPercent = (BETA_SPOTS_TAKEN / BETA_SPOTS_TOTAL) * 100;
+
   return (
     <section
       style={{
@@ -32,24 +36,6 @@ export default function CTASection() {
       />
 
       <div style={{ maxWidth: "580px", margin: "0 auto", position: "relative", zIndex: 1 }}>
-        <div
-          style={{
-            display: "inline-block",
-            fontSize: "10px",
-            fontWeight: 700,
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
-            color: "var(--gg-accent)",
-            background: "var(--gg-accent-soft)",
-            border: "1px solid var(--gg-accent-border)",
-            padding: "5px 14px",
-            borderRadius: "999px",
-            marginBottom: "28px",
-          }}
-        >
-          Beta — 3 of 5 spots taken
-        </div>
-
         <h2
           style={{
             fontFamily: "'Poppins', sans-serif",
@@ -84,7 +70,7 @@ export default function CTASection() {
             maxWidth: "440px",
           }}
         >
-          Takes 2 minutes. We&apos;ll send back a real breakdown of where your business is losing jobs online — no pitch, no obligation.
+          Takes 2 minutes. We&apos;ll send back a real breakdown of where your business is losing jobs online — completely free. No sales call, no obligation.
         </p>
 
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
@@ -107,7 +93,7 @@ export default function CTASection() {
           </Link>
 
           <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
-            {["2-minute form", "Free, no strings", "Response same day"].map((t, i) => (
+            {["2-minute form", "Completely free", "No sales call"].map((t, i) => (
               <span key={i} style={{ fontSize: "12px", color: "var(--gg-text3)", display: "flex", alignItems: "center", gap: "5px" }}>
                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
                   <circle cx="5" cy="5" r="4" stroke="var(--gg-text3)" strokeWidth="1.2"/>
@@ -116,6 +102,53 @@ export default function CTASection() {
                 {t}
               </span>
             ))}
+          </div>
+
+          {/* Beta progress bar */}
+          <div style={{ marginTop: "32px", width: "100%", maxWidth: "320px" }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: "6px",
+                gap: "12px",
+              }}
+            >
+              <span
+                style={{
+                  fontSize: "10px",
+                  fontWeight: 700,
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  color: "var(--gg-text3)",
+                }}
+              >
+                Beta spots
+              </span>
+              <span style={{ fontSize: "11px", fontWeight: 600, color: "var(--gg-text2)" }}>
+                {spotsRemain}/{BETA_SPOTS_TOTAL} available
+              </span>
+            </div>
+            <div
+              style={{
+                height: "5px",
+                background: "var(--gg-surface)",
+                borderRadius: "999px",
+                overflow: "hidden",
+                border: "1px solid var(--gg-border)",
+              }}
+            >
+              <div
+                style={{
+                  height: "100%",
+                  width: `${progressPercent}%`,
+                  background: "var(--gg-gradient)",
+                  borderRadius: "999px",
+                  transition: "width 0.4s ease",
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -5,10 +5,12 @@ import ProblemSection from "./components/ggbuilds/ProblemSection";
 import OfferSection from "./components/ggbuilds/OfferSection";
 import ProcessSection from "./components/ggbuilds/ProcessSection";
 import DemoSection from "./components/ggbuilds/DemoSection";
+import RecentBuilds from "./components/ggbuilds/RecentBuilds";
 import GuaranteeSection from "./components/ggbuilds/GuaranteeSection";
 import FaqSection from "./components/ggbuilds/FaqSection";
 import CTASection from "./components/ggbuilds/CTASection";
 import GGFooter from "./components/ggbuilds/GGFooter";
+import StickyMobileCTA from "./components/ggbuilds/StickyMobileCTA";
 
 export default function Home() {
   return (
@@ -20,10 +22,12 @@ export default function Home() {
       <OfferSection />
       <ProcessSection />
       <DemoSection />
+      <RecentBuilds />
       <GuaranteeSection />
       <FaqSection />
       <CTASection />
       <GGFooter />
+      <StickyMobileCTA />
     </main>
   );
 }

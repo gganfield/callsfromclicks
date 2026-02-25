@@ -1,4 +1,5 @@
 import { pitchData as d } from "./pitch.config";
+import AuditIntroVideo from "@/app/components/ggbuilds/AuditIntroVideo";
 
 export const metadata = {
   title: "Big Dawgs Lawn & Landscape — Local Lead Leak Audit",
@@ -91,6 +92,8 @@ export default function ZachSnapshot() {
   return (
     <div style={{ background: C.bg, color: C.text1, fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif", WebkitFontSmoothing: "antialiased", minHeight: "100vh" }}>
       <div style={{ maxWidth: "640px", margin: "0 auto", padding: "80px 24px 100px" }}>
+
+        <AuditIntroVideo />
 
         {/* ── Header ── */}
         <header style={{ marginBottom: "64px" }}>

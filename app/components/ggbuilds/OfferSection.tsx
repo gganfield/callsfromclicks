@@ -1,20 +1,47 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import { BETA_SPOTS_TOTAL, BETA_SPOTS_TAKEN } from "@/app/config/beta";
 
 const tagIcons: Record<string, React.ReactElement> = {
-  clock: <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" strokeWidth="1.3"/><path d="M6 3v3l2 1" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/></svg>,
-  map: <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M6 1C4.1 1 2.5 2.6 2.5 4.5 2.5 7 6 11 6 11s3.5-4 3.5-6.5C9.5 2.6 7.9 1 6 1z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/><circle cx="6" cy="4.5" r="1" stroke="currentColor" strokeWidth="1.1"/></svg>,
-  loop: <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M8.5 3.5l2-2M10.5 3.5L8.5 3.5V1.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/><path d="M10 4.5A4.5 4.5 0 111.5 6" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/></svg>,
-  gift: <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><rect x="1.5" y="4.5" width="9" height="6" rx="1" stroke="currentColor" strokeWidth="1.2"/><path d="M6 4.5v6M1.5 7h9" stroke="currentColor" strokeWidth="1.1"/><path d="M6 4.5c-1-2-3-2-3 0s3 0 3 0 2-2 3 0-3 0-3 0z" stroke="currentColor" strokeWidth="1.1"/></svg>,
-  shield: <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M6 1L2 3v3c0 2.5 1.7 4.5 4 5 2.3-.5 4-2.5 4-5V3L6 1z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/><path d="M4 6l1.5 1.5L8 5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+  clock: (
+    <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+      <circle cx="6" cy="6" r="5" stroke="currentColor" strokeWidth="1.3"/>
+      <path d="M6 3v3l2 1" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+    </svg>
+  ),
+  map: (
+    <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+      <path d="M6 1C4.1 1 2.5 2.6 2.5 4.5 2.5 7 6 11 6 11s3.5-4 3.5-6.5C9.5 2.6 7.9 1 6 1z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/>
+      <circle cx="6" cy="4.5" r="1" stroke="currentColor" strokeWidth="1.1"/>
+    </svg>
+  ),
+  loop: (
+    <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+      <path d="M8.5 3.5l2-2M10.5 3.5L8.5 3.5V1.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M10 4.5A4.5 4.5 0 111.5 6" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+    </svg>
+  ),
+  gift: (
+    <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+      <rect x="1.5" y="4.5" width="9" height="6" rx="1" stroke="currentColor" strokeWidth="1.2"/>
+      <path d="M6 4.5v6M1.5 7h9" stroke="currentColor" strokeWidth="1.1"/>
+      <path d="M6 4.5c-1-2-3-2-3 0s3 0 3 0 2-2 3 0-3 0-3 0z" stroke="currentColor" strokeWidth="1.1"/>
+    </svg>
+  ),
+  shield: (
+    <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+      <path d="M6 1L2 3v3c0 2.5 1.7 4.5 4 5 2.3-.5 4-2.5 4-5V3L6 1z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/>
+      <path d="M4 6l1.5 1.5L8 5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  ),
 };
 
 const deliverables = [
   {
     num: "01",
-    title: "Custom 1-page website",
-    detail: "Mobile-first, fast, and built to get you calls. Click-to-call button, quote form, service listings, and reviews \u2014 all above the fold where it matters.",
+    title: "Custom conversion site",
+    detail: "A strong main landing page plus nav to Services, About, Testimonials, Gallery, Contact as needed. Mobile-first, fast, with click-to-call, quote form, and reviews. 2 revision rounds included (one batched list per round).",
     tag: "Delivered in 72 hrs",
     tagIcon: "clock",
     tagColor: "var(--gg-accent)",
@@ -23,8 +50,8 @@ const deliverables = [
   },
   {
     num: "02",
-    title: "Google Business Profile setup",
-    detail: "Optimized from scratch or cleaned up so you show up in the map pack when someone searches your service in your area.",
+    title: "Google Business Profile tune-up",
+    detail: "Claim/create guidance, categories, description, service area, call + website verification, and a simple photo/post checklist. We complete the GBP work within 72 hours; Google verification and updates are controlled by Google and may take longer.",
     tag: "Where most leads come from",
     tagIcon: "map",
     tagColor: "var(--gg-green)",
@@ -34,7 +61,7 @@ const deliverables = [
   {
     num: "03",
     title: "Review Request Kit",
-    detail: "A done-for-you script and direct Google review link so your happy customers actually leave reviews. More reviews = higher ranking = more calls.",
+    detail: "Ready-to-send scripts (text + in-person) and cadence instructions so your happy customers actually leave reviews. More reviews = higher ranking = more calls.",
     tag: "Reusable, forever",
     tagIcon: "loop",
     tagColor: "var(--gg-green)",
@@ -44,7 +71,7 @@ const deliverables = [
   {
     num: "04",
     title: "Lead Leak Audit report",
-    detail: "A plain-English breakdown of where you're losing jobs online \u2014 your site, your GBP, your competitors \u2014 and exactly what to fix.",
+    detail: "A plain-English breakdown of where you're losing jobs online: your site, your GBP, your competitors, and exactly what to fix.",
     tag: "Free before you commit",
     tagIcon: "gift",
     tagColor: "var(--gg-accent)",
@@ -54,7 +81,7 @@ const deliverables = [
   {
     num: "05",
     title: "72-hour delivery guarantee",
-    detail: "After we have your assets (logo, photos, copy), your site is live within 72 hours. Miss it and your final payment is waived.",
+    detail: "After we have your assets (business name, phone/email, services, service area, logo or text logo, at least 5 photos or placeholders), your site is live within 72 hours. Miss it and your final payment is waived. First 90 days of the Managed Website Plan included.",
     tag: "Or you don't owe us",
     tagIcon: "shield",
     tagColor: "var(--gg-red)",
@@ -63,7 +90,16 @@ const deliverables = [
   },
 ];
 
+const pricingTiers = [
+  { spots: "Spots 1–5", price: "$499", active: true },
+  { spots: "Spots 6–10", price: "$999", active: false },
+  { spots: "Spots 11–15", price: "$1,499", active: false },
+  { spots: "Spots 16+", price: "$1,999", active: false },
+];
+
 export default function OfferSection() {
+  const spotsRemain = BETA_SPOTS_TOTAL - BETA_SPOTS_TAKEN;
+
   return (
     <section
       id="offer"
@@ -74,7 +110,8 @@ export default function OfferSection() {
       }}
     >
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-        {/* Header */}
+
+        {/* Section header */}
         <div style={{ maxWidth: "520px", marginBottom: "48px" }}>
           <p
             style={{
@@ -102,21 +139,21 @@ export default function OfferSection() {
             The 72-Hour Conversion Build
           </h2>
           <p style={{ fontSize: "15px", color: "var(--gg-text2)", lineHeight: 1.7, maxWidth: "480px", margin: 0 }}>
-            Everything your business needs to look legit and turn visitors into calls \u2014 built, live, and handed off in 72 hours.
+            Everything your business needs to look legit and turn visitors into calls. Built, live, and handed off in 72 hours.
           </p>
         </div>
 
-        {/* Main content grid: deliverables + price */}
+        {/* Main two-column layout: deliverables + price card */}
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "1fr 280px",
-            gap: "24px",
+            gridTemplateColumns: "1fr 300px",
+            gap: "28px",
             alignItems: "start",
           }}
           className="gg-offer-layout"
         >
-          {/* Deliverables list */}
+          {/* ── Deliverables list ── */}
           <div
             style={{
               background: "var(--gg-card-bg)",
@@ -151,7 +188,15 @@ export default function OfferSection() {
                   {d.num}
                 </span>
                 <div>
-                  <div style={{ display: "flex", alignItems: "center", gap: "10px", flexWrap: "wrap", marginBottom: "6px" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      flexWrap: "wrap",
+                      gap: "8px",
+                      marginBottom: "6px",
+                    }}
+                  >
                     <p
                       style={{
                         fontSize: "15px",
@@ -190,13 +235,10 @@ export default function OfferSection() {
             ))}
           </div>
 
-          {/* Price card — sticky on scroll */}
-          <div
-            style={{
-              position: "sticky",
-              top: "96px",
-            }}
-          >
+          {/* ── Price card (sticky) ── */}
+          <div style={{ position: "sticky", top: "96px", display: "flex", flexDirection: "column", gap: "16px" }}>
+
+            {/* Current price */}
             <div
               style={{
                 background: "var(--gg-gradient-soft)",
@@ -210,12 +252,12 @@ export default function OfferSection() {
                 Beta Pricing
               </p>
               <p style={{ fontSize: "12px", color: "var(--gg-text3)", margin: "0 0 4px", textDecoration: "line-through" }}>
-                $1,500
+                $1,999
               </p>
               <p
                 style={{
                   fontFamily: "'Poppins', sans-serif",
-                  fontSize: "52px",
+                  fontSize: "56px",
                   fontWeight: 800,
                   background: "var(--gg-gradient)",
                   WebkitBackgroundClip: "text",
@@ -229,7 +271,7 @@ export default function OfferSection() {
                 $499
               </p>
               <p style={{ fontSize: "11px", color: "var(--gg-text2)", margin: "0 0 20px" }}>
-                3 of 5 spots remaining
+                {spotsRemain}/{BETA_SPOTS_TOTAL} spots remain
               </p>
 
               <Link
@@ -258,48 +300,152 @@ export default function OfferSection() {
               </p>
             </div>
 
-            {/* Hosting card — visually distinct */}
+            {/* Beta pricing ladder */}
             <div
               style={{
-                marginTop: "16px",
-                padding: "20px 24px",
-                background: "var(--gg-bg)",
-                border: "1px solid var(--gg-green-border)",
+                background: "var(--gg-card-bg)",
+                border: "1px solid var(--gg-border)",
                 borderRadius: "14px",
-                position: "relative",
                 overflow: "hidden",
               }}
             >
-              <div
+              <p
                 style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  height: "2px",
-                  background: "var(--gg-green)",
-                  opacity: 0.7,
+                  fontSize: "9px",
+                  fontWeight: 700,
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  color: "var(--gg-text3)",
+                  margin: 0,
+                  padding: "10px 14px 8px",
+                  borderBottom: "1px solid var(--gg-border)",
                 }}
-              />
-              <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <rect x="2" y="2" width="10" height="4" rx="1.5" stroke="var(--gg-green)" strokeWidth="1.3"/>
-                  <rect x="2" y="8" width="10" height="4" rx="1.5" stroke="var(--gg-green)" strokeWidth="1.3"/>
-                  <circle cx="5" cy="4" r="0.8" fill="var(--gg-green)"/>
-                  <circle cx="5" cy="10" r="0.8" fill="var(--gg-green)"/>
-                </svg>
-                <p style={{ fontSize: "13px", fontWeight: 700, color: "var(--gg-green)", margin: 0 }}>
-                  Hosting & Maintenance
+              >
+                Price increases as spots fill
+              </p>
+              {pricingTiers.map((tier, i) => (
+                <div
+                  key={i}
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    padding: "8px 14px",
+                    borderBottom: i < pricingTiers.length - 1 ? "1px solid var(--gg-border)" : "none",
+                    background: tier.active ? "var(--gg-accent-soft)" : "transparent",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontSize: "11px",
+                      color: tier.active ? "var(--gg-text1)" : "var(--gg-text3)",
+                      fontWeight: tier.active ? 600 : 400,
+                    }}
+                  >
+                    {tier.spots}
+                  </span>
+                  <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                    {tier.active && (
+                      <span
+                        style={{
+                          fontSize: "9px",
+                          fontWeight: 700,
+                          color: "var(--gg-accent)",
+                          background: "var(--gg-accent-soft)",
+                          border: "1px solid var(--gg-accent-border)",
+                          borderRadius: "4px",
+                          padding: "1px 5px",
+                          letterSpacing: "0.04em",
+                          textTransform: "uppercase",
+                        }}
+                      >
+                        Now
+                      </span>
+                    )}
+                    <span
+                      style={{
+                        fontFamily: "'Poppins', sans-serif",
+                        fontSize: "13px",
+                        fontWeight: 700,
+                        color: tier.active ? "var(--gg-text1)" : "var(--gg-text3)",
+                      }}
+                    >
+                      {tier.price}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* ── Managed Website Plan block ── */}
+        <div
+          style={{
+            marginTop: "28px",
+            padding: "22px 28px",
+            background: "var(--gg-bg)",
+            border: "1px solid var(--gg-green-border)",
+            borderRadius: "16px",
+            position: "relative",
+            overflow: "hidden",
+          }}
+        >
+          {/* Green top accent */}
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              height: "2px",
+              background: "var(--gg-green)",
+              opacity: 0.7,
+            }}
+          />
+          <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start", gap: "24px 36px" }}>
+            {/* Label + price */}
+            <div style={{ display: "flex", alignItems: "center", gap: "12px", minWidth: "180px" }}>
+              <svg width="18" height="18" viewBox="0 0 14 14" fill="none">
+                <rect x="2" y="2" width="10" height="4" rx="1.5" stroke="var(--gg-green)" strokeWidth="1.3"/>
+                <rect x="2" y="8" width="10" height="4" rx="1.5" stroke="var(--gg-green)" strokeWidth="1.3"/>
+                <circle cx="5" cy="4" r="0.8" fill="var(--gg-green)"/>
+                <circle cx="5" cy="10" r="0.8" fill="var(--gg-green)"/>
+              </svg>
+              <div>
+                <p style={{ fontSize: "11px", fontWeight: 700, color: "var(--gg-green)", margin: "0 0 3px", letterSpacing: "0.04em", textTransform: "uppercase" }}>
+                  Managed Website Plan
                 </p>
+                <p
+                  style={{
+                    fontFamily: "'Poppins', sans-serif",
+                    fontSize: "22px",
+                    fontWeight: 800,
+                    color: "var(--gg-text1)",
+                    margin: 0,
+                    letterSpacing: "-0.03em",
+                    lineHeight: 1,
+                  }}
+                >
+                  $79
+                  <span style={{ fontSize: "12px", fontWeight: 500, color: "var(--gg-text3)" }}>/month</span>
+                </p>
+                <p style={{ fontSize: "11px", color: "var(--gg-text3)", margin: "3px 0 0" }}>First 90 days included.</p>
               </div>
-              <p style={{ fontSize: "22px", fontWeight: 800, fontFamily: "'Poppins', sans-serif", color: "var(--gg-text1)", margin: "0 0 4px", letterSpacing: "-0.03em" }}>
-                $75<span style={{ fontSize: "13px", fontWeight: 500, color: "var(--gg-text3)" }}>/month</span>
-              </p>
-              <p style={{ fontSize: "12px", color: "var(--gg-text3)", lineHeight: 1.55, margin: 0 }}>
-                Updates, uptime, and fast changes.
-                <br />
-                Cancel anytime — code is yours.
-              </p>
+            </div>
+
+            {/* Included, overage, not included — fills remaining space */}
+            <div style={{ flex: "1 1 320px", display: "flex", flexWrap: "wrap", gap: "8px 24px", alignItems: "center" }}>
+              {[
+                { label: "Included", text: "Hosting + stability, free debugging, 60 min batched updates/month (no rollover), 1 quarterly refresh (up to 2 hrs)." },
+                { label: "Overage", text: "$70/hr prorated." },
+                { label: "Not included", text: "Paid ads, ongoing SEO, complex integrations, custom software." },
+              ].map(({ label, text }) => (
+                <p key={label} style={{ fontSize: "12px", color: "var(--gg-text2)", lineHeight: 1.55, margin: 0 }}>
+                  <strong style={{ color: "var(--gg-text1)", marginRight: "4px" }}>{label}:</strong>
+                  {text}
+                </p>
+              ))}
             </div>
           </div>
         </div>

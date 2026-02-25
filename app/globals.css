@@ -69,7 +69,7 @@ h1, h2, h3, h4 {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ── GGbuilds site design tokens ── */
+/* ── GGbuilds site design tokens — dark (default) ── */
 :root {
   --gg-bg: #060609;
   --gg-bg-section: #0b0b10;
@@ -78,8 +78,8 @@ h1, h2, h3, h4 {
   --gg-border: rgba(255,255,255,0.07);
   --gg-border-strong: rgba(255,255,255,0.13);
   --gg-text1: #f0f0f5;
-  --gg-text2: rgba(240,240,245,0.56);
-  --gg-text3: rgba(240,240,245,0.30);
+  --gg-text2: rgba(240,240,245,0.62);
+  --gg-text3: rgba(240,240,245,0.38);
   --gg-accent: #4f8ef7;
   --gg-accent-hover: #6ba3ff;
   --gg-accent-soft: rgba(79,142,247,0.10);
@@ -94,6 +94,37 @@ h1, h2, h3, h4 {
   --gg-gradient: linear-gradient(135deg, #4f8ef7 0%, #7b5cf8 100%);
   --gg-gradient-soft: linear-gradient(135deg, rgba(79,142,247,0.15) 0%, rgba(123,92,248,0.15) 100%);
   --gg-glow: 0 0 80px rgba(79,142,247,0.18), 0 0 200px rgba(79,142,247,0.06);
+  --gg-nav-bg-scrolled: rgba(6,6,9,0.92);
+  --gg-nav-dropdown-bg: rgba(6,6,9,0.98);
+}
+
+/* ── GGbuilds light mode ── */
+[data-theme="light"] {
+  --gg-bg: #f5f5f7;
+  --gg-bg-section: #ffffff;
+  --gg-surface: rgba(0,0,0,0.04);
+  --gg-surface-hover: rgba(0,0,0,0.07);
+  --gg-border: rgba(0,0,0,0.08);
+  --gg-border-strong: rgba(0,0,0,0.14);
+  --gg-text1: #0f0f14;
+  --gg-text2: rgba(15,15,20,0.62);
+  --gg-text3: rgba(15,15,20,0.42);
+  --gg-accent: #3a7ef5;
+  --gg-accent-hover: #2d6ee0;
+  --gg-accent-soft: rgba(58,126,245,0.10);
+  --gg-accent-border: rgba(58,126,245,0.22);
+  --gg-green: #16a96b;
+  --gg-green-soft: rgba(22,169,107,0.08);
+  --gg-green-border: rgba(22,169,107,0.22);
+  --gg-red: #d94040;
+  --gg-red-soft: rgba(217,64,64,0.07);
+  --gg-card-bg: rgba(0,0,0,0.025);
+  --gg-card-hover: rgba(0,0,0,0.04);
+  --gg-gradient: linear-gradient(135deg, #3a7ef5 0%, #6b3cf5 100%);
+  --gg-gradient-soft: linear-gradient(135deg, rgba(58,126,245,0.12) 0%, rgba(107,60,245,0.12) 100%);
+  --gg-glow: 0 0 80px rgba(58,126,245,0.12), 0 0 200px rgba(58,126,245,0.04);
+  --gg-nav-bg-scrolled: rgba(255,255,255,0.92);
+  --gg-nav-dropdown-bg: rgba(255,255,255,0.98);
 }
 
 /* ── Animations ── */
@@ -202,3 +233,27 @@ h1, h2, h3, h4 {
 .gg-footer-link:hover { color: var(--gg-text1) !important; }
 .gg-nav-link { transition: color 0.15s; }
 .gg-nav-link:hover { color: var(--gg-text1) !important; }
+
+/* Light mode: ensure page body background matches */
+[data-theme="light"] body { background: var(--gg-bg); color: var(--gg-text1); }
+
+/* Theme toggle button */
+.gg-theme-toggle {
+  background: none;
+  border: 1px solid var(--gg-border-strong);
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  color: var(--gg-text2);
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  flex-shrink: 0;
+}
+.gg-theme-toggle:hover {
+  border-color: var(--gg-accent-border);
+  color: var(--gg-text1);
+  background: var(--gg-surface);
+}

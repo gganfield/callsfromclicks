@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 
 const faqs = [
   {
@@ -8,11 +9,11 @@ const faqs = [
   },
   {
     q: "What do we need to provide?",
-    a: "Your logo (or we can create a simple one), a few photos of your work, and a list of your services. That's it. We'll handle the rest.",
+    a: "Business name, phone/email, list of services, service area, logo (or permission for a clean text logo), and at least 5 photos (or permission for placeholders). That's it. We'll handle the rest.",
   },
   {
     q: "What does 'hosted' mean?",
-    a: "Your site lives on our hosting infrastructure. It loads fast, stays online, and we can push updates whenever you need them. $75/month covers all of it.",
+    a: "Your site lives on our hosting infrastructure (the Managed Website Plan, $79/month). It includes hosting, free debugging, 60 minutes of batched updates per month, and one quarterly refresh. First 90 days are included with your build.",
   },
   {
     q: "What happens if we stop paying?",
@@ -20,7 +21,11 @@ const faqs = [
   },
   {
     q: "Do we own the site?",
-    a: "Yes. Once you pay the build fee, the code is yours. The monthly fee is just for hosting and maintenance \u2014 not a subscription that locks you in.",
+    a: "Yes. Once you pay the build fee, the code is yours. The monthly fee is for the Managed Website Plan (hosting, updates, debugging) \u2014 not a subscription that locks you in.",
+  },
+  {
+    q: "What's not included?",
+    a: "Paid ads management, ongoing SEO campaigns, complex integrations (booking, payments, CRM), and custom software or dashboards.",
   },
   {
     q: "What if we don't have a logo or photos?",
@@ -35,13 +40,32 @@ export default function FaqSection() {
     <section
       id="faq"
       style={{
-        background: "var(--gg-bg-section)",
+        background: "var(--gg-bg)",
         padding: "100px 24px",
         borderTop: "1px solid var(--gg-border)",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
-      <div style={{ maxWidth: "720px", margin: "0 auto" }}>
-        <div style={{ textAlign: "center", marginBottom: "56px" }}>
+      {/* Subtle ambient glow so the section doesn't feel flat */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          top: "30%",
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "800px",
+          height: "500px",
+          background: "radial-gradient(ellipse at center, rgba(79,142,247,0.04) 0%, transparent 65%)",
+          pointerEvents: "none",
+          borderRadius: "50%",
+        }}
+      />
+
+      <div style={{ maxWidth: "1100px", margin: "0 auto", position: "relative", zIndex: 1 }}>
+        {/* Header — left-aligned, same rhythm as Guarantee / Process */}
+        <div style={{ maxWidth: "560px", marginBottom: "48px" }}>
           <p
             style={{
               fontSize: "10px",
@@ -52,45 +76,47 @@ export default function FaqSection() {
               marginBottom: "14px",
             }}
           >
-            FAQ
+            Questions
           </p>
           <h2
             style={{
               fontFamily: "'Poppins', sans-serif",
-              fontSize: "clamp(24px, 4vw, 36px)",
+              fontSize: "clamp(24px, 4vw, 38px)",
               fontWeight: 800,
               letterSpacing: "-0.04em",
               color: "var(--gg-text1)",
-              lineHeight: 1.2,
-              margin: 0,
+              lineHeight: 1.15,
+              margin: "0 0 14px",
             }}
           >
             Common questions
           </h2>
+          <p style={{ fontSize: "15px", color: "var(--gg-text2)", lineHeight: 1.7, margin: 0 }}>
+            The stuff people ask before they commit. If yours isn&apos;t here, the free audit is the fastest way to get a straight answer.
+          </p>
         </div>
 
-        <div
-          style={{
-            background: "var(--gg-card-bg)",
-            border: "1px solid var(--gg-border-strong)",
-            borderRadius: "16px",
-            overflow: "hidden",
-          }}
-        >
+        {/* FAQ list — card per item so it feels like the rest of the site */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
           {faqs.map((faq, i) => {
             const isOpen = open === i;
             return (
               <div
                 key={i}
                 style={{
-                  borderBottom: i < faqs.length - 1 ? "1px solid var(--gg-border)" : "none",
+                  background: "var(--gg-card-bg)",
+                  border: `1px solid ${isOpen ? "var(--gg-accent-border)" : "var(--gg-border)"}`,
+                  borderRadius: "14px",
+                  overflow: "hidden",
+                  transition: "border-color 0.2s, box-shadow 0.2s",
+                  boxShadow: isOpen ? "0 0 0 1px var(--gg-accent-border), 0 8px 32px rgba(0,0,0,0.2)" : "none",
                 }}
               >
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
                   style={{
                     width: "100%",
-                    background: isOpen ? "rgba(255,255,255,0.02)" : "transparent",
+                    background: "none",
                     border: "none",
                     cursor: "pointer",
                     padding: "20px 24px",
@@ -104,7 +130,7 @@ export default function FaqSection() {
                 >
                   <span
                     style={{
-                      fontSize: "14px",
+                      fontSize: "15px",
                       fontWeight: 600,
                       color: isOpen ? "var(--gg-text1)" : "var(--gg-text2)",
                       transition: "color 0.15s",
@@ -114,9 +140,9 @@ export default function FaqSection() {
                   </span>
                   <div
                     style={{
-                      width: "28px",
-                      height: "28px",
-                      borderRadius: "8px",
+                      width: "32px",
+                      height: "32px",
+                      borderRadius: "10px",
                       background: isOpen ? "var(--gg-accent-soft)" : "var(--gg-surface)",
                       border: `1px solid ${isOpen ? "var(--gg-accent-border)" : "var(--gg-border)"}`,
                       display: "flex",
@@ -127,9 +153,9 @@ export default function FaqSection() {
                     }}
                   >
                     <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 12 12"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 14 14"
                       fill="none"
                       style={{
                         transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
@@ -137,7 +163,7 @@ export default function FaqSection() {
                       }}
                     >
                       <path
-                        d="M2 4l4 4 4-4"
+                        d="M2 5l5 5 5-5"
                         stroke={isOpen ? "var(--gg-accent)" : "var(--gg-text3)"}
                         strokeWidth="1.5"
                         strokeLinecap="round"
@@ -148,26 +174,69 @@ export default function FaqSection() {
                 </button>
                 <div
                   style={{
-                    maxHeight: isOpen ? "200px" : "0",
+                    maxHeight: isOpen ? "300px" : "0",
                     overflow: "hidden",
-                    transition: "max-height 0.3s cubic-bezier(0.16,1,0.3,1)",
+                    transition: "max-height 0.35s cubic-bezier(0.16,1,0.3,1)",
                   }}
                 >
-                  <p
+                  <div
                     style={{
-                      fontSize: "14px",
-                      color: "var(--gg-text2)",
-                      lineHeight: 1.75,
-                      margin: 0,
-                      padding: "0 24px 20px",
+                      padding: "0 24px 22px",
+                      borderTop: isOpen ? "1px solid var(--gg-border)" : "none",
                     }}
                   >
-                    {faq.a}
-                  </p>
+                    <p
+                      style={{
+                        fontSize: "14px",
+                        color: "var(--gg-text2)",
+                        lineHeight: 1.75,
+                        margin: "18px 0 0",
+                      }}
+                    >
+                      {faq.a}
+                    </p>
+                  </div>
                 </div>
               </div>
             );
           })}
+        </div>
+
+        {/* CTA line — ties FAQ into the next step */}
+        <div
+          style={{
+            marginTop: "40px",
+            padding: "24px 28px",
+            background: "var(--gg-gradient-soft)",
+            border: "1px solid var(--gg-accent-border)",
+            borderRadius: "14px",
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: "16px",
+          }}
+        >
+          <p style={{ fontSize: "14px", color: "var(--gg-text2)", margin: 0, maxWidth: "480px" }}>
+            Still have questions? Get your free audit and we&apos;ll answer everything before you commit.
+          </p>
+          <Link
+            href="/audit"
+            className="gg-btn-primary"
+            style={{
+              fontSize: "13px",
+              fontWeight: 700,
+              color: "#fff",
+              background: "var(--gg-gradient)",
+              padding: "10px 20px",
+              borderRadius: "8px",
+              textDecoration: "none",
+              whiteSpace: "nowrap",
+              boxShadow: "0 0 24px rgba(79,142,247,0.2)",
+            }}
+          >
+            Request Free Audit
+          </Link>
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 
-function useCountUp(end: number, suffix: string, prefix: string, duration = 1400) {
+function useCountUp(end: number, suffix: string, prefix: string, duration = 2600) {
   const [display, setDisplay] = useState(`${prefix}0${suffix}`);
   const ref = useRef<HTMLDivElement>(null);
   const started = useRef(false);
@@ -111,7 +111,7 @@ function ProblemCard({ card }: { card: (typeof cards)[number] }) {
         >
           {counter.display}
         </p>
-        <p style={{ fontSize: "11px", color: "var(--gg-text3)", margin: 0 }}>
+        <p style={{ fontSize: "12px", color: "var(--gg-text2)", margin: 0, lineHeight: 1.5 }}>
           {card.statLabel}
         </p>
       </div>

@@ -181,7 +181,7 @@ export default function GuaranteeSection() {
               72 hours or your final payment is waived.
             </h3>
             <p style={{ fontSize: "14px", color: "var(--gg-text2)", lineHeight: 1.65, margin: 0, maxWidth: "560px" }}>
-              After you send us your assets, your site goes live within 72 hours or you don&apos;t owe us the final 50%. No exceptions. That&apos;s what keeps us accountable and the build moving fast.
+              After you send us your assets, your site goes live within 72 hours or you don&apos;t owe us the final payment (deposit stands). No exceptions. That&apos;s what keeps us accountable and the build moving fast.
             </p>
           </div>
           <Link

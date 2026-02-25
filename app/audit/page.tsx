@@ -109,11 +109,12 @@ export default function AuditPage() {
             textDecoration: "none",
             display: "inline-flex",
             alignItems: "center",
-            gap: "6px",
-            marginBottom: "40px",
+            gap: "12px",
+            marginBottom: "32px",
+            width: "100%",
           }}
         >
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ flexShrink: 0 }}>
             <path d="M10 7H4M4 7L7 4M4 7l3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
           callsfromclicks.com
@@ -157,25 +158,26 @@ export default function AuditPage() {
         ) : (
           <>
             {/* Badge */}
-            <div
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "6px",
-                fontSize: "10px",
-                fontWeight: 700,
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                color: "var(--gg-accent)",
-                background: "var(--gg-accent-soft)",
-                border: "1px solid var(--gg-accent-border)",
-                padding: "5px 12px",
-                borderRadius: "999px",
-                marginBottom: "24px",
-              }}
-            >
-              <span style={{ width: "5px", height: "5px", borderRadius: "50%", background: "var(--gg-accent)", display: "inline-block" }} />
-              Free \u2014 No strings attached
+            <div style={{ display: "flex", justifyContent: "center", marginBottom: "24px" }}>
+              <div
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  fontSize: "10px",
+                  fontWeight: 700,
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  color: "var(--gg-accent)",
+                  background: "var(--gg-accent-soft)",
+                  border: "1px solid var(--gg-accent-border)",
+                  padding: "5px 12px",
+                  borderRadius: "999px",
+                }}
+              >
+                <span style={{ width: "5px", height: "5px", borderRadius: "50%", background: "var(--gg-accent)", display: "inline-block" }} />
+                No strings attached
+              </div>
             </div>
 
             <h1
@@ -285,7 +287,7 @@ export default function AuditPage() {
 
             {/* Trust line */}
             <div style={{ display: "flex", justifyContent: "center", gap: "20px", marginTop: "20px", flexWrap: "wrap" }}>
-              {["2-minute form", "Free, no obligation", "Response same day"].map((t, i) => (
+              {["2-minute form", "Completely free", "No sales call"].map((t, i) => (
                 <span key={i} style={{ fontSize: "11px", color: "var(--gg-text3)", display: "flex", alignItems: "center", gap: "5px" }}>
                   <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
                     <circle cx="5" cy="5" r="4" stroke="var(--gg-green)" strokeWidth="1.2"/>

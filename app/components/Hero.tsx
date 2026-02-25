@@ -13,7 +13,7 @@ function CountStat({ end, suffix, label }: { end: number; suffix: string; label:
     const obs = new IntersectionObserver(([e]) => {
       if (e.isIntersecting && !started.current) {
         started.current = true;
-        const dur = 1200;
+        const dur = 2400;
         const t0 = performance.now();
         const tick = (now: number) => {
           const p = Math.min((now - t0) / dur, 1);

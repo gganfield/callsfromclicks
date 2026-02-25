@@ -44,20 +44,20 @@ export default function GGFooter() {
           <p style={{ fontSize: "13px", color: "var(--gg-text2)", margin: "0 0 16px", maxWidth: "320px", lineHeight: 1.65 }}>
             72-hour websites for local service businesses. Built to convert visitors into calls.
           </p>
-          <p style={{ fontSize: "12px", color: "var(--gg-text3)", margin: 0 }}>
+          <p style={{ fontSize: "12px", color: "var(--gg-text2)", margin: 0 }}>
             Serving Macomb County &amp; Metro Detroit
           </p>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "8px", alignItems: "flex-end" }}>
-          <p style={{ fontSize: "11px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--gg-text2)", margin: "0 0 6px" }}>
+          <p style={{ fontSize: "11px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--gg-accent)", margin: "0 0 6px" }}>
             Quick Links
           </p>
           {[
             { label: "Get Free Audit", href: "/audit" },
             { label: "See the Offer", href: "/#offer" },
             { label: "View Demo", href: "/demo" },
-            { label: "Ben's Audit", href: "/audit/ben" },
+            { label: "Contact us", href: "/contact" },
           ].map((l) => (
             <Link
               key={l.label}

@@ -179,6 +179,8 @@ function Opportunity({ n, title, body, urgent }: OpportunityProps) {
 }
 
 // ── Page ──────────────────────────────────────────────────────
+import AuditIntroVideo from "@/app/components/ggbuilds/AuditIntroVideo";
+
 export default function BenSnapshot() {
   return (
     <div
@@ -193,6 +195,8 @@ export default function BenSnapshot() {
       }}
     >
       <div style={{ maxWidth: "640px", margin: "0 auto", padding: "80px 24px 100px" }}>
+
+        <AuditIntroVideo />
 
         {/* ── Header ── */}
         <header style={{ marginBottom: "64px" }}>

@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { BETA_SPOTS_TOTAL, BETA_SPOTS_TAKEN } from "@/app/config/beta";
 
 const stats = [
   { value: "72 hrs", label: "Delivery guarantee" },
@@ -103,7 +104,7 @@ export default function GGHero() {
               animation: "gg-pulse-glow 2s ease-in-out infinite",
             }}
           />
-          Beta — 3 spots left at $499
+          Beta — {BETA_SPOTS_TOTAL - BETA_SPOTS_TAKEN} spots left at $499
         </div>
 
         {/* Headline */}
@@ -128,7 +129,7 @@ export default function GGHero() {
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
-              animation: "gg-shimmer 4s linear infinite",
+              animation: "gg-shimmer 9s linear infinite",
             }}
           >
             a website that converts.
@@ -196,9 +197,68 @@ export default function GGHero() {
           </a>
         </div>
 
-        {/* Stats row */}
+        {/* Demo preview video — drop demo-preview.mp4 + demo-poster.jpg into /public to activate */}
         <div
           className="gg-fade-up-4"
+          style={{
+            width: "100%",
+            maxWidth: "640px",
+            margin: "0 auto 48px",
+            borderRadius: "18px",
+            overflow: "hidden",
+            border: "1px solid var(--gg-border-strong)",
+            boxShadow: "0 24px 80px rgba(0,0,0,0.35)",
+            background: "var(--gg-card-bg)",
+          }}
+        >
+          {/* Browser chrome */}
+          <div
+            style={{
+              background: "rgba(255,255,255,0.04)",
+              borderBottom: "1px solid var(--gg-border)",
+              padding: "8px 14px",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+            }}
+          >
+            <div style={{ display: "flex", gap: "5px" }}>
+              {["#f26464", "#f5a623", "#27c93f"].map((c) => (
+                <div key={c} style={{ width: "8px", height: "8px", borderRadius: "50%", background: c, opacity: 0.85 }} />
+              ))}
+            </div>
+            <div
+              style={{
+                flex: 1,
+                background: "rgba(255,255,255,0.04)",
+                border: "1px solid var(--gg-border)",
+                borderRadius: "5px",
+                padding: "3px 10px",
+                fontSize: "10px",
+                color: "var(--gg-text3)",
+                fontFamily: "monospace",
+                textAlign: "center",
+              }}
+            >
+              callsfromclicks.com/demo
+            </div>
+          </div>
+          {/* Video — poster shows immediately; video plays when loaded */}
+          <video
+            src="/demo-preview.mp4"
+            poster="/demo-poster.jpg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="none"
+            style={{ display: "block", width: "100%", aspectRatio: "16/9", objectFit: "cover" }}
+          />
+        </div>
+
+        {/* Stats row */}
+        <div
+          className="gg-fade-up-5"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(4, 1fr)",
@@ -230,7 +290,7 @@ export default function GGHero() {
               >
                 {s.value}
               </p>
-              <p style={{ fontSize: "11px", color: "var(--gg-text3)", margin: 0 }}>
+              <p style={{ fontSize: "12px", color: "var(--gg-text2)", margin: 0, lineHeight: 1.4 }}>
                 {s.label}
               </p>
             </div>

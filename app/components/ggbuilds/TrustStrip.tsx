@@ -74,8 +74,8 @@ export default function TrustStrip() {
               display: "flex",
               alignItems: "center",
               gap: "6px",
-              color: "var(--gg-text3)",
-              fontSize: "11px",
+              color: "var(--gg-text2)",
+              fontSize: "12px",
               fontWeight: 500,
               whiteSpace: "nowrap",
             }}
