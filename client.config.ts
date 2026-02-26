@@ -143,13 +143,14 @@ export const config = {
   ],
 
   gallery: [
-    // Demo gallery — no people/animals; clean kitchens, bathroom, deck, basement, outdoor (gallery-clean-*.jpg)
-    { src: "/images/gallery-clean-1.jpg", alt: "Kitchen remodel — Shelby Township" },
-    { src: "/images/gallery-clean-2.jpg", alt: "Master bathroom — Macomb Township" },
-    { src: "/images/gallery-clean-3.jpg", alt: "Composite deck — Washington Township" },
-    { src: "/images/gallery-clean-4.jpg", alt: "Basement finish — Shelby Township" },
-    { src: "/images/gallery-clean-5.jpg", alt: "Kitchen remodel — Romeo" },
-    { src: "/images/gallery-clean-6.jpg", alt: "Outdoor living — Clinton Township" },
+    // Replace src paths with actual client photos
+    // Free Unsplash alternatives listed as placeholders
+    { src: "/images/gallery-1.jpg", alt: "Kitchen remodel — Shelby Township" },
+    { src: "/images/gallery-2.jpg", alt: "Master bathroom — Macomb Township" },
+    { src: "/images/gallery-3.jpg", alt: "Composite deck — Washington Township" },
+    { src: "/images/gallery-4.jpg", alt: "Basement finish — Shelby Township" },
+    { src: "/images/gallery-5.jpg", alt: "Kitchen remodel — Romeo" },
+    { src: "/images/gallery-6.jpg", alt: "Outdoor living — Clinton Township" },
   ],
 
   cta: {

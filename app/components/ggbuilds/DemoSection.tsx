@@ -39,7 +39,7 @@ const outcomes = [
   { label: "Outranks the competition", sub: "Site + GBP combo beats most local competitors" },
 ];
 
-const DEMO_SCROLL_PX_PER_FRAME = 2.4;
+const DEMO_SCROLL_PX_PER_FRAME = 80;
 
 export default function DemoSection() {
   const [iframeActive, setIframeActive] = useState(false);
@@ -229,10 +229,10 @@ export default function DemoSection() {
               </div>
             </div>
 
-            {/* Link below phone — same URL as iframe so /demo shows identical content (including gallery) */}
+            {/* Link below phone */}
             <div style={{ marginTop: "16px", display: "flex", justifyContent: "center" }}>
               <Link
-                href={`/demo?px=${DEMO_SCROLL_PX_PER_FRAME}`}
+                href="/demo"
                 target="_blank"
                 className="gg-btn-accent"
                 style={{

@@ -99,27 +99,6 @@ export default function AuditPage() {
       />
 
       <div style={{ maxWidth: "560px", margin: "0 auto", padding: "100px 24px 80px", position: "relative", zIndex: 1 }}>
-        {/* Back link */}
-        <Link
-          href="/"
-          className="gg-nav-link"
-          style={{
-            fontSize: "12px",
-            color: "var(--gg-text3)",
-            textDecoration: "none",
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "12px",
-            marginBottom: "32px",
-            width: "100%",
-          }}
-        >
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ flexShrink: 0 }}>
-            <path d="M10 7H4M4 7L7 4M4 7l3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-          callsfromclicks.com
-        </Link>
-
         {status === "done" ? (
           <div style={{ textAlign: "center", paddingTop: "60px" }}>
             <div
@@ -149,11 +128,53 @@ export default function AuditPage() {
                 letterSpacing: "-0.03em",
               }}
             >
-              Got it \u2014 expect your audit shortly.
+              Audit requested. We&apos;ll take it from here.
             </h2>
-            <p style={{ fontSize: "15px", color: "var(--gg-text2)", lineHeight: 1.75, maxWidth: "420px", margin: "0 auto" }}>
-              We&apos;ll review your business online and send back a breakdown of exactly where you&apos;re losing leads and what to do about it. Usually within a few hours.
+            <p style={{ fontSize: "15px", color: "var(--gg-text2)", lineHeight: 1.75, maxWidth: "420px", margin: "0 auto 28px" }}>
+              We&apos;ll review your online presence and send your Lead Leak Audit shortly. No meeting required.
+              <br /><br />
+              Want help interpreting it? Book a quick call below.
             </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px", maxWidth: "320px", margin: "0 auto" }}>
+              <Link
+                href="/"
+                className="gg-btn-primary"
+                style={{
+                  display: "block",
+                  fontWeight: 700,
+                  fontSize: "14px",
+                  color: "#fff",
+                  background: "var(--gg-gradient)",
+                  padding: "14px 16px",
+                  borderRadius: "10px",
+                  textDecoration: "none",
+                  textAlign: "center",
+                  boxShadow: "0 0 24px rgba(79,142,247,0.25)",
+                }}
+              >
+                Done, I&apos;ll wait for the audit
+              </Link>
+              <a
+                href="https://calendly.com/garrett-callsfromclicks/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="gg-btn-ghost audit-confirm-secondary-btn"
+                style={{
+                  display: "block",
+                  fontWeight: 700,
+                  fontSize: "14px",
+                  color: "var(--gg-text1)",
+                  background: "var(--gg-card-bg)",
+                  border: "1px solid var(--gg-border-strong)",
+                  padding: "14px 16px",
+                  borderRadius: "10px",
+                  textDecoration: "none",
+                  textAlign: "center",
+                }}
+              >
+                Book a 15-min audit review
+              </a>
+            </div>
           </div>
         ) : (
           <>
@@ -307,6 +328,9 @@ export default function AuditPage() {
           box-shadow: 0 0 0 3px var(--gg-accent-soft);
         }
         select { appearance: none; }
+        .audit-confirm-secondary-btn:hover {
+          border-color: var(--gg-accent-border) !important;
+        }
       `}</style>
     </div>
   );

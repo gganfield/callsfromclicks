@@ -27,10 +27,8 @@ export default function HomePage() {
     const inIframe = window.self !== window.top;
     if (!inIframe) return;
 
-    document.documentElement.style.scrollBehavior = "auto";
-
     const params = new URLSearchParams(window.location.search);
-    const pxPerFrame = Math.max(0.5, parseFloat(params.get("px") ?? "2")) || 2;
+    const pxPerFrame = Math.max(1, parseInt(params.get("px") ?? "80", 10)) || 80;
     const pauseMs = 2000;
     let raf: number;
     let timeout: ReturnType<typeof setTimeout>;
