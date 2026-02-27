@@ -23,7 +23,7 @@ const outcomeIcons = [
       <path d="M5.5 5.5h5M5.5 7.5h3" stroke="var(--gg-accent)" strokeWidth="1.1" strokeLinecap="round"/>
     </svg>
   ),
-  /* Outranks the competition — trending up arrow */
+  /* Wins more comparisons — trending up arrow */
   (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
       <path d="M2 12l3.5-4 3 2L14 4" stroke="var(--gg-accent)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -33,10 +33,10 @@ const outcomeIcons = [
 ];
 
 const outcomes = [
-  { label: "More answered calls", sub: "Every lead gets a fast response path" },
-  { label: "Map pack visibility", sub: "GBP optimized to show in local searches" },
-  { label: "More reviews rolling in", sub: "Review kit turns happy clients into ratings" },
-  { label: "Outranks the competition", sub: "Site + GBP combo beats most local competitors" },
+  { label: "More answered calls", sub: "Clear paths to call, message, or request service fast" },
+  { label: "Stronger map presence", sub: "Profile + listing signals cleaned up and consistent" },
+  { label: "More reviews rolling in", sub: "Simple system that makes it easier for happy customers to leave feedback" },
+  { label: "Wins more comparisons", sub: "Stronger website + cleaner presence beats most local competitors" },
 ];
 
 const DEMO_SCROLL_PX_PER_FRAME = 80;

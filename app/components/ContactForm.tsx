@@ -8,10 +8,11 @@ interface FormState {
   phone: string;
   service: string;
   message: string;
+  agreeSms: boolean;
 }
 
 export default function ContactForm() {
-  const [form, setForm] = useState<FormState>({ name: "", phone: "", service: "", message: "" });
+  const [form, setForm] = useState<FormState>({ name: "", phone: "", service: "", message: "", agreeSms: false });
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
   async function handleSubmit(e: React.FormEvent) {
@@ -25,7 +26,7 @@ export default function ContactForm() {
       });
       if (res.ok) {
         setStatus("success");
-        setForm({ name: "", phone: "", service: "", message: "" });
+        setForm({ name: "", phone: "", service: "", message: "", agreeSms: false });
       } else {
         setStatus("error");
       }
@@ -163,6 +164,19 @@ export default function ContactForm() {
               {status === "sending" ? "Sending..." : "Send My Request"}
             </button>
 
+            <label style={{ display: "flex", alignItems: "flex-start", gap: "12px", cursor: "pointer", fontSize: "13px", color: "rgba(255,255,255,0.5)", lineHeight: 1.5 }}>
+              <input
+                type="checkbox"
+                className="demo-checkbox"
+                checked={form.agreeSms}
+                onChange={(e) => setForm({ ...form, agreeSms: e.target.checked })}
+                style={{ marginTop: "3px" }}
+              />
+              <span>
+                I agree to receive text messages from Peak Home Remodeling regarding my inquiry. Msg &amp; data rates may apply. Reply STOP to opt out.
+              </span>
+            </label>
+
             {status === "error" && (
               <p style={{ fontSize: "12px", color: "#f26464", textAlign: "center", margin: 0 }}>
                 Something went wrong. Please call us directly at {config.business.phone}.
@@ -180,6 +194,25 @@ export default function ContactForm() {
         #contact input:focus, #contact textarea:focus, #contact select:focus {
           border-color: var(--primary) !important;
           box-shadow: 0 0 0 3px rgba(180,83,9,0.15);
+        }
+        .demo-checkbox {
+          appearance: none;
+          -webkit-appearance: none;
+          width: 18px;
+          height: 18px;
+          border-radius: 4px;
+          border: 1px solid rgba(255,255,255,0.2);
+          background: transparent;
+          flex-shrink: 0;
+          cursor: pointer;
+          transition: background 0.2s, border-color 0.2s;
+        }
+        .demo-checkbox:checked {
+          background: var(--primary);
+          border-color: transparent;
+          background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 6l2.5 2.5L10 3' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: center;
         }
         @media (max-width: 480px) {
           .demo-form-grid { grid-template-columns: 1fr !important; }

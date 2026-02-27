@@ -21,6 +21,8 @@ type FormState = {
   phone: string;
   industry: string;
   notes: string;
+  agreePrivacyTerms: boolean;
+  agreeSms: boolean;
 };
 
 export default function AuditPage() {
@@ -32,6 +34,8 @@ export default function AuditPage() {
     phone: "",
     industry: "",
     notes: "",
+    agreePrivacyTerms: false,
+    agreeSms: false,
   });
   const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle");
   const [fieldErrors, setFieldErrors] = useState<{ name?: boolean; business?: boolean; email?: boolean }>({});
@@ -67,7 +71,9 @@ export default function AuditPage() {
   }, [firstEmptyField]);
 
   const set = (k: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setForm((f) => ({ ...f, [k]: e.target.value }));
+    const target = e.target;
+    const value = target.type === "checkbox" ? (target as HTMLInputElement).checked : target.value;
+    setForm((f) => ({ ...f, [k]: value }));
   };
 
   const revalidateOnBlur = useCallback(() => {
@@ -351,7 +357,7 @@ export default function AuditPage() {
                       textDecoration: "none",
                     }}
                   >
-                    View sample audit →
+                    View full sample →
                   </Link>
                 </div>
               </div>
@@ -432,6 +438,24 @@ export default function AuditPage() {
                       </p>
                     )}
 
+                    <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
+                      <label style={{ display: "flex", alignItems: "flex-start", gap: "12px", cursor: "pointer", fontSize: "13px", color: "var(--gg-text2)", lineHeight: 1.5 }}>
+                        <input type="checkbox" className="audit-checkbox" checked={form.agreePrivacyTerms} onChange={set("agreePrivacyTerms")} style={{ marginTop: "3px" }} />
+                        <span>
+                          I agree to the{" "}
+                          <Link href="/privacy" style={{ color: "var(--gg-accent)", textDecoration: "underline" }}>Privacy Policy</Link>
+                          {" "}and{" "}
+                          <Link href="/terms" style={{ color: "var(--gg-accent)", textDecoration: "underline" }}>Terms of Service</Link>.
+                        </span>
+                      </label>
+                      <label style={{ display: "flex", alignItems: "flex-start", gap: "12px", cursor: "pointer", fontSize: "13px", color: "var(--gg-text2)", lineHeight: 1.5 }}>
+                        <input type="checkbox" className="audit-checkbox" checked={form.agreeSms} onChange={set("agreeSms")} style={{ marginTop: "3px" }} />
+                        <span>
+                          I agree to receive text messages from Calls From Clicks regarding my inquiry. Msg &amp; data rates may apply. Reply STOP to opt out.
+                        </span>
+                      </label>
+                    </div>
+
                     <button
                       type="submit"
                       disabled={status === "loading"}
@@ -490,6 +514,27 @@ export default function AuditPage() {
           border-color: rgba(242, 100, 100, 0.5) !important;
           box-shadow: none !important;
         }
+
+        .audit-checkbox {
+          appearance: none;
+          -webkit-appearance: none;
+          width: 18px;
+          height: 18px;
+          border-radius: 4px;
+          border: 1px solid var(--gg-border-strong);
+          background: transparent;
+          flex-shrink: 0;
+          cursor: pointer;
+          transition: background 0.2s, border-color 0.2s;
+        }
+        .audit-checkbox:checked {
+          background: var(--gg-gradient);
+          border-color: transparent;
+          background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 6l2.5 2.5L10 3' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+
         @media (prefers-reduced-motion: no-preference) {
           .audit-form-shake {
             animation: audit-form-shake 0.5s ease-in-out;

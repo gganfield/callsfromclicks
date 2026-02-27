@@ -42,10 +42,10 @@ export default function GGFooter() {
             </p>
           </div>
           <p style={{ fontSize: "13px", color: "var(--gg-text2)", margin: "0 0 16px", maxWidth: "320px", lineHeight: 1.65 }}>
-            72-hour websites for local service businesses. Built to convert visitors into calls.
+            72-hour conversion websites for local service businesses. Built to turn traffic into calls.
           </p>
           <p style={{ fontSize: "12px", color: "var(--gg-text2)", margin: 0 }}>
-            Serving Macomb County &amp; Metro Detroit
+            Serving Macomb County, Oakland County &amp; Metro Detroit
           </p>
         </div>
 
@@ -55,7 +55,7 @@ export default function GGFooter() {
           </p>
           {[
             { label: "Get Free Audit", href: "/audit" },
-            { label: "See the Offer", href: "/#offer" },
+            { label: "The System", href: "/#system" },
             { label: "View Demo", href: "/demo" },
             { label: "Contact us", href: "/contact" },
           ].map((l) => (
@@ -86,6 +86,7 @@ export default function GGFooter() {
           borderTop: "1px solid var(--gg-border)",
           display: "flex",
           justifyContent: "space-between",
+          alignItems: "center",
           flexWrap: "wrap",
           gap: "8px",
         }}
@@ -93,9 +94,17 @@ export default function GGFooter() {
         <p style={{ fontSize: "11px", color: "var(--gg-text3)", margin: 0 }}>
           &copy; {new Date().getFullYear()} Calls From Clicks
         </p>
-        <p style={{ fontSize: "11px", color: "var(--gg-text3)", margin: 0 }}>
-          callsfromclicks.com
-        </p>
+        <div style={{ display: "flex", alignItems: "center", gap: "16px", flexWrap: "wrap" }}>
+          <Link href="/privacy" className="gg-footer-link" style={{ fontSize: "11px", color: "var(--gg-text3)", textDecoration: "none", transition: "color 0.15s" }}>
+            Privacy Policy
+          </Link>
+          <Link href="/terms" className="gg-footer-link" style={{ fontSize: "11px", color: "var(--gg-text3)", textDecoration: "none", transition: "color 0.15s" }}>
+            Terms of Service
+          </Link>
+          <Link href="/" target="_blank" rel="noopener noreferrer" className="gg-footer-link" style={{ fontSize: "11px", color: "var(--gg-text3)", textDecoration: "none", transition: "color 0.15s" }}>
+            callsfromclicks.com
+          </Link>
+        </div>
       </div>
 
       <style>{`

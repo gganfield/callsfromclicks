@@ -35,6 +35,16 @@ const tagIcons: Record<string, React.ReactElement> = {
       <path d="M4 6l1.5 1.5L8 5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   ),
+  zap: (
+    <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+      <path d="M6.5 1L4 6.5h3.5L5.5 11 8 5.5H4.5L6.5 1z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  ),
+  message: (
+    <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+      <path d="M2 2h8v6H3.5L2 9.5V2z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/>
+    </svg>
+  ),
 };
 
 const deliverables = [
@@ -50,9 +60,9 @@ const deliverables = [
   },
   {
     num: "02",
-    title: "Google Business Profile tune-up",
-    detail: "Claim/create guidance, categories, description, service area, call + website verification, and a simple photo/post checklist. We complete the GBP work within 72 hours; Google verification and updates are controlled by Google and may take longer.",
-    tag: "Where most leads come from",
+    title: "Local Presence Tune-Up",
+    detail: "We tighten up your Google Business Profile and key listings so your business looks consistent and credible wherever customers search. Categories, services, description, service area, call + website links, and a simple review/photo checklist included.",
+    tag: "Maps + Reviews",
     tagIcon: "map",
     tagColor: "var(--gg-green)",
     tagBg: "var(--gg-green-soft)",
@@ -60,10 +70,10 @@ const deliverables = [
   },
   {
     num: "03",
-    title: "Review Request Kit",
-    detail: "Ready-to-send scripts (text + in-person) and cadence instructions so your happy customers actually leave reviews. More reviews = higher ranking = more calls.",
-    tag: "Reusable, forever",
-    tagIcon: "loop",
+    title: "Professional Business Line Setup",
+    detail: "A dedicated business number that forwards to your cell, keeping your personal number private. It filters spam and sends an automatic text-back when you miss a call (especially after-hours). We activate it on your site as soon as carrier verification clears.",
+    tag: "After-hours ready",
+    tagIcon: "message",
     tagColor: "var(--gg-green)",
     tagBg: "var(--gg-green-soft)",
     tagBorder: "var(--gg-green-border)",
@@ -71,8 +81,8 @@ const deliverables = [
   {
     num: "05",
     title: "72-hour delivery guarantee",
-    detail: "After we have your assets (business name, phone/email, services, service area, logo or text logo, at least 5 photos or placeholders), your site is live within 72 hours. If we miss our deadline, your final payment is waived.",
-    tag: "Or you don't owe us",
+    detail: "After we have your assets (business name, phone/email, services, service area, logo or text logo, at least 5 photos or placeholders), your site is live within 72 hours. If we miss our deadline, your final 50% is waived.",
+    tag: "Or final 50% waived",
     tagIcon: "shield",
     tagColor: "var(--gg-red)",
     tagBg: "var(--gg-red-soft)",
@@ -92,7 +102,7 @@ export default function OfferSection() {
 
   return (
     <section
-      id="offer"
+      id="system"
       style={{
         background: "var(--gg-bg-section)",
         padding: "100px 24px",
@@ -220,6 +230,11 @@ export default function OfferSection() {
                   <p style={{ fontSize: "13px", color: "var(--gg-text2)", lineHeight: 1.65, margin: 0 }}>
                     {d.detail}
                   </p>
+                  {d.num === "02" && (
+                    <p style={{ fontSize: "10px", color: "var(--gg-text3)", lineHeight: 1.5, margin: "12px 0 0", textAlign: "right" }}>
+                      72-hour completion and submission; third-party verification timelines may vary.
+                    </p>
+                  )}
                 </div>
               </div>
             ))}
@@ -284,9 +299,11 @@ export default function OfferSection() {
               </Link>
 
               <p style={{ fontSize: "11px", color: "var(--gg-text3)", margin: 0, lineHeight: 1.5 }}>
-                50% upfront, 50% on delivery.
+                50% up front, 50% on delivery.
                 <br />
-                Miss 72 hrs = final 50% waived.
+                We miss 72 hrs after assets confirmed?
+                <br />
+                Final 50% waived.
               </p>
             </div>
 

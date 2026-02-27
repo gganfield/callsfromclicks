@@ -39,25 +39,25 @@ const cards = [
     end: 30,
     prefix: "",
     suffix: " sec",
-    statLabel: "is how long you have before a visitor leaves",
+    statLabel: "is how long you have before they decide whether to trust you",
     headline: "Your site loses them before they call.",
-    body: "If your site is slow, confusing, or doesn't load right on mobile \u2014 they hit back and call your competitor. That's a job you'll never know you lost.",
+    body: "If your site is slow, confusing, or doesn't load right on mobile, they hit back and call your competitor. That's a job you'll never know you lost.",
   },
   {
-    end: 78,
+    end: 97,
     prefix: "",
     suffix: "%",
-    statLabel: "of local searches lead to a purchase within 24 hours",
-    headline: "You're invisible in the searches that matter.",
-    body: "No Google Business Profile means no map pack presence. Your competitor with 40 reviews and an optimized GBP is getting those calls. You're not.",
+    statLabel: "of consumers read reviews for local businesses*",
+    headline: "Customers compare you before they ever call.",
+    body: "If your listings, reviews, and public info aren't strong and consistent, the business that looks more credible wins.",
   },
   {
-    end: 0,
-    prefix: "$",
-    suffix: "",
-    statLabel: "in return from a website nobody can find or use",
-    headline: "An outdated site is worse than no site.",
-    body: "When a prospect Googles you and finds a broken, slow, or embarrassing website \u2014 it actively costs you the job. They'd rather hire the guy with no online presence at all.",
+    end: 45,
+    prefix: "",
+    suffix: "%",
+    statLabel: "of consumers now use AI tools for local recommendations*",
+    headline: "And AI doesn't just search Google.",
+    body: "It pulls business information from websites, reviews, maps, and multiple platforms. If your presence isn't accurate and consistent everywhere, you lose visibility where customers are searching.",
   },
 ];
 
@@ -179,25 +179,47 @@ export default function ProblemSection() {
               margin: "0 0 16px",
             }}
           >
-            Most local service businesses are leaking jobs online every single day.
+            Most local service businesses are losing jobs every day.
           </h2>
           <p style={{ fontSize: "15px", color: "var(--gg-text2)", lineHeight: 1.7, margin: 0 }}>
-            Not because their work is bad. Because their online presence doesn&apos;t match the quality of what they actually deliver.
+            It&apos;s not your work.
+            <br />
+            It&apos;s what people see before they ever call you.
           </p>
         </div>
 
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gridTemplateColumns: "repeat(3, 1fr)",
             gap: "16px",
           }}
+          className="gg-problem-cards"
         >
           {cards.map((c, i) => (
             <ProblemCard key={i} card={c} />
           ))}
+          <div className="gg-problem-source-cell" style={{ gridColumn: "2", textAlign: "center" }}>
+            <p style={{ fontSize: "10px", color: "var(--gg-text3)", margin: "8px 0 0", lineHeight: 1.4 }}>
+              *Source:{" "}
+              <a
+                href="https://www.brightlocal.com/research/local-consumer-review-survey/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "var(--gg-text3)", textDecoration: "underline" }}
+              >
+                BrightLocal Local Consumer Review Survey
+              </a>
+            </p>
+          </div>
         </div>
       </div>
+      <style>{`
+        @media (max-width: 700px) {
+          .gg-problem-cards { grid-template-columns: 1fr !important; }
+          .gg-problem-cards .gg-problem-source-cell { grid-column: 1 !important; }
+        }
+      `}</style>
     </section>
   );
 }

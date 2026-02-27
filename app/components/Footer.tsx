@@ -77,9 +77,13 @@ export default function Footer() {
           <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", margin: 0 }}>
             &copy; {year} {config.business.name}. All rights reserved.
           </p>
-          <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", margin: 0 }}>
-            Built by <a href="/" style={{ color: "rgba(255,255,255,0.35)", textDecoration: "none", transition: "color 0.15s" }} className="demo-footer-link">Calls From Clicks</a>
-          </p>
+          <div style={{ display: "flex", alignItems: "center", gap: "16px", flexWrap: "wrap" }}>
+            <a href="/demo/privacy" style={{ fontSize: "11px", color: "rgba(255,255,255,0.35)", textDecoration: "none", transition: "color 0.15s" }} className="demo-footer-link">Privacy Policy</a>
+            <a href="/demo/terms" style={{ fontSize: "11px", color: "rgba(255,255,255,0.35)", textDecoration: "none", transition: "color 0.15s" }} className="demo-footer-link">Terms &amp; Conditions</a>
+            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)" }}>
+              Built by <a href="/" style={{ color: "rgba(255,255,255,0.35)", textDecoration: "none", transition: "color 0.15s" }} className="demo-footer-link">Calls From Clicks</a>
+            </span>
+          </div>
         </div>
       </div>
       <style>{`

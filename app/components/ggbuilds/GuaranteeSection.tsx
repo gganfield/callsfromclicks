@@ -3,16 +3,16 @@ import Link from "next/link";
 
 const fits = [
   "You're a local service business that relies on calls, Google, and referrals",
-  "Your current site is outdated, slow, or invisible",
-  "You want it live fast — without weeks of back-and-forth",
+  "Your site or listings feel outdated, inconsistent, or invisible",
+  "You want it live fast, without weeks of back-and-forth",
   "You want a small, accountable team",
 ];
 
 const notFits = [
-  "You want a large e-commerce site",
-  "You need complex integrations or custom software",
-  "You're not willing to provide a logo and a few photos",
-  "You want the cheapest option regardless of quality",
+  "You need a large e-commerce build",
+  "You require complex integrations or custom software",
+  "You can't provide basic assets (logo, service info, photos)",
+  "You're looking for the cheapest option regardless of quality",
 ];
 
 export default function GuaranteeSection() {
@@ -204,10 +204,10 @@ export default function GuaranteeSection() {
                 margin: "0 0 8px",
               }}
             >
-              72 hours or your final payment is waived.
+              72 hours or final 50% waived.
             </h3>
             <p style={{ fontSize: "14px", color: "var(--gg-text2)", lineHeight: 1.65, margin: 0, maxWidth: "560px" }}>
-              After you send us your assets, your site goes live within 72 hours or you don&apos;t owe us the final payment (deposit stands). No exceptions.
+              After you send us your assets, your site goes live within 72 hours or we waive your final 50% (deposit stands). The 72-hour window begins once all required assets are received and confirmed. No exceptions.
             </p>
           </div>
           <Link

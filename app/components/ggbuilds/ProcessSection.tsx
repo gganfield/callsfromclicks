@@ -25,9 +25,9 @@ const phases = [
   },
   {
     num: "04",
-    title: "Live + Handed Off",
-    timeframe: "72 hours guaranteed",
-    body: "Site goes live on your domain. GBP is optimized. Review Request Kit is in your hands. You're done — we handle everything from here.",
+    title: "72 Hours Guaranteed",
+    timeframe: "Live + Handed Off",
+    body: "Site goes live on your domain. Listings and profile updates are submitted. Your online presence is clean, consistent, and ready to generate calls.",
     color: "#f59e0b",
     colorSoft: "rgba(245,158,11,0.1)",
   },
@@ -178,8 +178,8 @@ export default function ProcessSection() {
             <path d="M10 2l1.8 4.5 4.7.4-3.5 3 1.1 4.5L10 12l-4.1 2.4 1.1-4.5-3.5-3 4.7-.4L10 2z" stroke="var(--gg-accent)" strokeWidth="1.4" strokeLinejoin="round"/>
           </svg>
           <p style={{ fontSize: "14px", color: "var(--gg-text1)", margin: 0, flex: 1 }}>
-            <strong>Miss the 72-hour window?</strong>{" "}
-            <span style={{ color: "var(--gg-text2)" }}>Your final payment is waived. That's the guarantee — it keeps us accountable and keeps the build moving fast.</span>
+            <strong>We miss the 72-hour window?</strong>{" "}
+            <span style={{ color: "var(--gg-text2)" }}>Your final 50% is waived. That's the guarantee.</span>
           </p>
         </div>
       </div>

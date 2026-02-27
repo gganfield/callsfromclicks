@@ -29,7 +29,7 @@ export default function GGNav() {
   }, []);
 
   const navLinks = [
-    { label: "What You Get", href: "#offer" },
+    { label: "The System", href: "#system" },
     { label: "How It Works", href: "#process" },
     { label: "Demo", href: "#demo" },
     { label: "FAQ", href: "#faq" },

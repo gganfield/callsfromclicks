@@ -102,15 +102,6 @@ export default function ContactPage() {
             {CONTACT_EMAIL}
           </a>
         </div>
-
-        <p style={{ marginTop: "32px" }}>
-          <Link
-            href="/"
-            style={{ fontSize: "14px", color: "var(--gg-accent)", textDecoration: "none", fontWeight: 500 }}
-          >
-            Back to home
-          </Link>
-        </p>
       </div>
     </div>
     </>

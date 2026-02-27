@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Calls From Clicks — 72-Hour Websites for Local Service Businesses",
   description:
-    "Modern, mobile-first websites built in 72 hours for local service businesses. More calls, more quote requests — or your final payment is waived.",
+    "Modern, mobile-first websites built in 72 hours for local service businesses. More calls, more quote requests — or your final 50% is waived.",
   metadataBase: new URL("https://callsfromclicks.com"),
   openGraph: {
     title: "Calls From Clicks — 72-Hour Websites for Local Service Businesses",

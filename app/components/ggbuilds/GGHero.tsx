@@ -3,7 +3,7 @@ import Link from "next/link";
 import { BETA_SPOTS_TOTAL, BETA_SPOTS_TAKEN } from "@/app/config/beta";
 
 const stats = [
-  { value: "72 hrs", label: "Delivery guarantee" },
+  { value: "72 hrs", label: "On-time or final 50% waived." },
   { value: "100%", label: "Custom — no templates" },
   { value: "$0", label: "Monthly tools you don't need" },
   { value: "2 min", label: "To request your free audit" },
@@ -132,7 +132,7 @@ export default function GGHero() {
               animation: "gg-shimmer 9s linear infinite",
             }}
           >
-            a website that converts.
+            a system that converts.
           </span>
         </h1>
 
@@ -147,7 +147,7 @@ export default function GGHero() {
             maxWidth: "560px",
           }}
         >
-          Custom-built, mobile-first, live in 72 hours. For local service businesses that are tired of leaking jobs to competitors with better-looking sites.
+          Custom-built, mobile-first, live in 72 hours. For local service businesses that are tired of losing calls to competitors with stronger presence.
         </p>
 
         {/* CTAs */}
@@ -179,7 +179,7 @@ export default function GGHero() {
             Get Free Lead Leak Audit
           </Link>
           <a
-            href="#offer"
+            href="#system"
             className="gg-btn-ghost"
             style={{
               fontWeight: 600,
@@ -193,7 +193,7 @@ export default function GGHero() {
               display: "inline-block",
             }}
           >
-            See what you get →
+            See the system →
           </a>
         </div>
 
@@ -242,7 +242,7 @@ export default function GGHero() {
                   letterSpacing: "-0.04em",
                 }}
               >
-                {s.value}
+                {s.value}{s.value === "72 hrs" ? "*" : ""}
               </p>
               <p style={{ fontSize: "12px", color: "var(--gg-text2)", margin: 0, lineHeight: 1.4 }}>
                 {s.label}
@@ -250,6 +250,9 @@ export default function GGHero() {
             </div>
           ))}
         </div>
+        <p style={{ fontSize: "10px", color: "var(--gg-text3)", margin: "8px 0 0", lineHeight: 1.4 }}>
+          *72-hour window begins once all required assets are received and confirmed.
+        </p>
 
         {/* Example audit + Demo links */}
         <div

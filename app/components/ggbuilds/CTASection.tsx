@@ -71,7 +71,7 @@ export default function CTASection() {
             maxWidth: "440px",
           }}
         >
-          Takes 2 minutes. We&apos;ll send back a real breakdown of where your business is losing jobs online — completely free. No sales call, no obligation.
+          We&apos;ll send back a real breakdown of where your business is losing jobs online — completely free. No sales call, no obligation.
         </p>
 
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>

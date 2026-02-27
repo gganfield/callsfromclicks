@@ -14,6 +14,7 @@ const planItems = [
   "60 min of batched updates each month",
   "Quarterly refresh (up to 2 hours)",
   "Bug fixes covered if anything breaks",
+  "Lead response system monitoring",
 ];
 
 const planOptions = [
