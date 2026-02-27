@@ -153,41 +153,69 @@ export default function GGNav() {
           </Link>
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="gg-mobile-menu-btn"
-          style={{
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-            padding: "4px",
-            display: "none",
-          }}
-          aria-label="Toggle menu"
+        {/* Mobile: theme toggle + hamburger */}
+        <div
+          className="gg-mobile-actions"
+          style={{ display: "none", alignItems: "center", gap: "8px" }}
         >
-          <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
-            {[0, 1, 2].map((i) => (
-              <div
-                key={i}
-                style={{
-                  width: "22px",
-                  height: "1.5px",
-                  background: "var(--gg-text1)",
-                  borderRadius: "2px",
-                  transition: "transform 0.2s, opacity 0.2s",
-                  transform:
-                    menuOpen && i === 0
-                      ? "rotate(45deg) translate(4.5px, 4.5px)"
-                      : menuOpen && i === 2
-                      ? "rotate(-45deg) translate(4.5px, -4.5px)"
-                      : "none",
-                  opacity: menuOpen && i === 1 ? 0 : 1,
-                }}
-              />
-            ))}
-          </div>
-        </button>
+          <button
+            onClick={toggleTheme}
+            className="gg-theme-toggle"
+            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            style={{
+              width: "40px",
+              height: "40px",
+              borderRadius: "10px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {theme === "dark" ? (
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="10" r="4" stroke="currentColor" strokeWidth="1.5"/>
+                <path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.22 4.22l1.42 1.42M14.36 14.36l1.42 1.42M4.22 15.78l1.42-1.42M14.36 5.64l1.42-1.42" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+              </svg>
+            ) : (
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M17 12.85A8 8 0 017.15 3 7 7 0 1017 12.85z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
+              </svg>
+            )}
+          </button>
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="gg-mobile-menu-btn"
+            style={{
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              padding: "4px",
+            }}
+            aria-label="Toggle menu"
+          >
+            <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
+              {[0, 1, 2].map((i) => (
+                <div
+                  key={i}
+                  style={{
+                    width: "22px",
+                    height: "1.5px",
+                    background: "var(--gg-text1)",
+                    borderRadius: "2px",
+                    transition: "transform 0.2s, opacity 0.2s",
+                    transform:
+                      menuOpen && i === 0
+                        ? "rotate(45deg) translate(4.5px, 4.5px)"
+                        : menuOpen && i === 2
+                        ? "rotate(-45deg) translate(4.5px, -4.5px)"
+                        : "none",
+                    opacity: menuOpen && i === 1 ? 0 : 1,
+                  }}
+                />
+              ))}
+            </div>
+          </button>
+        </div>
       </div>
 
       {/* Mobile dropdown */}
@@ -260,7 +288,7 @@ export default function GGNav() {
       <style>{`
         @media (max-width: 720px) {
           .gg-desktop-nav { display: none !important; }
-          .gg-mobile-menu-btn { display: flex !important; }
+          .gg-mobile-actions { display: flex !important; }
         }
       `}</style>
     </nav>

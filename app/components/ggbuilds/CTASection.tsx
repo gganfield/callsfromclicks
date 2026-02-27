@@ -4,7 +4,8 @@ import { BETA_SPOTS_TOTAL, BETA_SPOTS_TAKEN } from "@/app/config/beta";
 
 export default function CTASection() {
   const spotsRemain = BETA_SPOTS_TOTAL - BETA_SPOTS_TAKEN;
-  const progressPercent = (BETA_SPOTS_TAKEN / BETA_SPOTS_TOTAL) * 100;
+  const rawPercent = (BETA_SPOTS_TAKEN / BETA_SPOTS_TOTAL) * 100;
+  const progressPercent = Math.max(2, rawPercent);
 
   return (
     <section
@@ -132,7 +133,7 @@ export default function CTASection() {
             </div>
             <div
               style={{
-                height: "5px",
+                height: "6px",
                 background: "var(--gg-surface)",
                 borderRadius: "999px",
                 overflow: "hidden",
@@ -140,9 +141,11 @@ export default function CTASection() {
               }}
             >
               <div
+                className="gg-beta-fill"
                 style={{
                   height: "100%",
                   width: `${progressPercent}%`,
+                  minWidth: progressPercent > 0 ? "4px" : undefined,
                   background: "var(--gg-gradient)",
                   borderRadius: "999px",
                   transition: "width 0.4s ease",
@@ -152,6 +155,21 @@ export default function CTASection() {
           </div>
         </div>
       </div>
+
+      <style>{`
+        .gg-beta-fill {
+          background: linear-gradient(135deg, #4f8ef7 0%, #7b5cf8 50%, #4f8ef7 100%) !important;
+          background-size: 200% 100% !important;
+          animation: gg-beta-shimmer 4s ease-in-out infinite;
+        }
+        [data-theme="light"] .gg-beta-fill {
+          background: linear-gradient(135deg, #3a7ef5 0%, #6b3cf5 50%, #3a7ef5 100%) !important;
+        }
+        @keyframes gg-beta-shimmer {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+      `}</style>
     </section>
   );
 }

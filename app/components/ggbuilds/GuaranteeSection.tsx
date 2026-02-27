@@ -2,18 +2,17 @@
 import Link from "next/link";
 
 const fits = [
-  "You're a local service business — trades, detailing, landscaping, cleaning, contracting",
-  "You get leads from calls, Google, and referrals",
-  "Your current site is slow, outdated, or doesn't show up in searches",
-  "You want it done fast without a two-week back-and-forth",
-  "You want one person responsible — not a team of contractors who disappear",
+  "You're a local service business that relies on calls, Google, and referrals",
+  "Your current site is outdated, slow, or invisible",
+  "You want it live fast — without weeks of back-and-forth",
+  "You want a small, accountable team",
 ];
 
 const notFits = [
-  "You want a 20-page e-commerce site with custom integrations",
-  "You need a CRM, funnel software, or advanced automation built in",
-  "You're not willing to send us a logo and 3–5 photos",
-  "You want the absolute cheapest option regardless of quality",
+  "You want a large e-commerce site",
+  "You need complex integrations or custom software",
+  "You're not willing to provide a logo and a few photos",
+  "You want the cheapest option regardless of quality",
 ];
 
 export default function GuaranteeSection() {
@@ -56,6 +55,9 @@ export default function GuaranteeSection() {
           </h2>
           <p style={{ fontSize: "15px", color: "var(--gg-text2)", lineHeight: 1.7, margin: 0 }}>
             Local service businesses that rely on calls, referrals, and Google — and want to look as good online as they are in person.
+          </p>
+          <p style={{ fontSize: "13px", color: "var(--gg-text3)", letterSpacing: "0.02em", margin: "16px 0 0" }}>
+            Service Area: Oakland County • Macomb County • Metro Detroit
           </p>
         </div>
 
@@ -125,7 +127,7 @@ export default function GuaranteeSection() {
                 <circle cx="8" cy="8" r="6.5" stroke="var(--gg-red)" strokeWidth="1.4"/>
                 <path d="M5.5 10.5l5-5M10.5 10.5l-5-5" stroke="var(--gg-red)" strokeWidth="1.5" strokeLinecap="round"/>
               </svg>
-              Not a fit if…
+              Probably not the right fit if…
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
               {notFits.map((f, i) => (
@@ -139,6 +141,30 @@ export default function GuaranteeSection() {
             </div>
           </div>
         </div>
+
+        {/* Catch-all */}
+        <p
+          style={{
+            marginTop: "24px",
+            fontSize: "14px",
+            color: "var(--gg-text2)",
+            lineHeight: 1.6,
+            textAlign: "center",
+          }}
+        >
+          Not sure?{" "}
+          <Link
+            href="/audit"
+            style={{
+              color: "var(--gg-accent)",
+              textDecoration: "none",
+              fontWeight: 600,
+            }}
+          >
+            Request a free audit
+          </Link>{" "}
+          and we&apos;ll tell you honestly.
+        </p>
 
         {/* Guarantee callout */}
         <div
@@ -181,7 +207,7 @@ export default function GuaranteeSection() {
               72 hours or your final payment is waived.
             </h3>
             <p style={{ fontSize: "14px", color: "var(--gg-text2)", lineHeight: 1.65, margin: 0, maxWidth: "560px" }}>
-              After you send us your assets, your site goes live within 72 hours or you don&apos;t owe us the final payment (deposit stands). No exceptions. That&apos;s what keeps us accountable and the build moving fast.
+              After you send us your assets, your site goes live within 72 hours or you don&apos;t owe us the final payment (deposit stands). No exceptions.
             </p>
           </div>
           <Link

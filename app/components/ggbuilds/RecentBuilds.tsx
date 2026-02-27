@@ -131,7 +131,9 @@ export default function RecentBuilds() {
             }}
             className="gg-builds-note"
           >
-            Beta clients share results in exchange for the discounted rate. Case studies and reviews coming soon.
+            First builds launching now.
+            <br />
+            Case studies coming soon.
           </p>
         </div>
 

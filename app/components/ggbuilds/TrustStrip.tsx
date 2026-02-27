@@ -41,7 +41,7 @@ const items = [
         <path d="M8 4v4l3 1.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
-    text: "Macomb County & Metro Detroit",
+    text: "Michigan-Based",
   },
 ];
 

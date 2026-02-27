@@ -74,7 +74,7 @@ export default function ProcessSection() {
             72 hours.
           </h2>
           <p style={{ fontSize: "15px", color: "var(--gg-text2)", lineHeight: 1.7, margin: 0 }}>
-            No kickoff calls. No back-and-forth for two weeks. Just assets in, site out.
+            No long kickoff calls, no back and forth for weeks. Just assets in, site out.
           </p>
         </div>
 

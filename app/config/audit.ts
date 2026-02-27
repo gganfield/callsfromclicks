@@ -12,3 +12,6 @@ export const AUDIT_INTRO_POSTER_URL = "";
 
 /** Set to true once you've recorded and uploaded the intro video. */
 export const AUDIT_INTRO_READY = false;
+
+/** Calendly link for "Book a call" CTA on real client audit pages (not shown on /audit/example). */
+export const AUDIT_BOOK_CALL_URL = "https://calendly.com/garrett-callsfromclicks/30min";

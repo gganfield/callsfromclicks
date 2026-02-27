@@ -69,19 +69,9 @@ const deliverables = [
     tagBorder: "var(--gg-green-border)",
   },
   {
-    num: "04",
-    title: "Lead Leak Audit report",
-    detail: "A plain-English breakdown of where you're losing jobs online: your site, your GBP, your competitors, and exactly what to fix.",
-    tag: "Free before you commit",
-    tagIcon: "gift",
-    tagColor: "var(--gg-accent)",
-    tagBg: "var(--gg-accent-soft)",
-    tagBorder: "var(--gg-accent-border)",
-  },
-  {
     num: "05",
     title: "72-hour delivery guarantee",
-    detail: "After we have your assets (business name, phone/email, services, service area, logo or text logo, at least 5 photos or placeholders), your site is live within 72 hours. Miss it and your final payment is waived. First 90 days of hosting and support included.",
+    detail: "After we have your assets (business name, phone/email, services, service area, logo or text logo, at least 5 photos or placeholders), your site is live within 72 hours. If we miss our deadline, your final payment is waived.",
     tag: "Or you don't owe us",
     tagIcon: "shield",
     tagColor: "var(--gg-red)",
@@ -379,7 +369,7 @@ export default function OfferSection() {
           </div>
         </div>
 
-        {/* ── Managed Website Plan ── */}
+        {/* ── Ongoing Stability + Support ── */}
         <div
           style={{
             marginTop: "28px",
@@ -403,143 +393,62 @@ export default function OfferSection() {
             }}
           />
 
-          <div style={{ padding: "28px 28px 24px" }}>
-            {/* Header row: icon + name + price */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "flex-start",
-                gap: "14px",
-                marginBottom: "20px",
-              }}
-            >
-              <div
-                style={{
-                  width: "36px",
-                  height: "36px",
-                  borderRadius: "10px",
-                  background: "var(--gg-green-soft)",
-                  border: "1px solid var(--gg-green-border)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0,
-                  marginTop: "2px",
-                }}
-              >
-                <svg width="16" height="16" viewBox="0 0 14 14" fill="none">
-                  <rect x="2" y="2" width="10" height="4" rx="1.5" stroke="var(--gg-green)" strokeWidth="1.3"/>
-                  <rect x="2" y="8" width="10" height="4" rx="1.5" stroke="var(--gg-green)" strokeWidth="1.3"/>
-                  <circle cx="5" cy="4" r="0.8" fill="var(--gg-green)"/>
-                  <circle cx="5" cy="10" r="0.8" fill="var(--gg-green)"/>
-                </svg>
-              </div>
-              <div>
-                <p
-                  style={{
-                    fontSize: "10px",
-                    fontWeight: 700,
-                    color: "var(--gg-green)",
-                    margin: "0 0 4px",
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Managed Website Plan
-                </p>
-                <p
-                  style={{
-                    fontFamily: "'Poppins', sans-serif",
-                    fontSize: "22px",
-                    fontWeight: 800,
-                    color: "var(--gg-text1)",
-                    margin: "0 0 4px",
-                    letterSpacing: "-0.03em",
-                    lineHeight: 1.1,
-                  }}
-                >
-                  $79<span style={{ fontSize: "13px", fontWeight: 500, color: "var(--gg-text3)" }}>/month</span>
-                </p>
-                <p style={{ fontSize: "12px", color: "var(--gg-text3)", margin: 0, lineHeight: 1.4 }}>
-                  First 90 days included with your build.
-                </p>
-              </div>
-            </div>
-
-            {/* Bridge text */}
-            <p
-              style={{
-                fontSize: "13px",
-                color: "var(--gg-text2)",
-                lineHeight: 1.6,
-                margin: "0 0 20px",
-                maxWidth: "540px",
-              }}
-            >
-              This isn&apos;t a separate service — it&apos;s how we keep your site stable, updated, and converting after launch.
-            </p>
-
-            {/* Included items — 2-column grid */}
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: "10px 32px",
-                marginBottom: "20px",
-              }}
-              className="gg-managed-plan-grid"
-            >
-              {[
-                "Hosting + uptime stability",
-                "Bug fixes if anything breaks",
-                "60 min batched updates / month",
-                "Quarterly refresh (up to 2 hrs)",
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "10px",
-                  }}
-                >
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ flexShrink: 0 }}>
-                    <path d="M3 7l2.5 2.5 5.5-5.5" stroke="var(--gg-green)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  <span style={{ fontSize: "13px", color: "var(--gg-text2)", lineHeight: 1.4 }}>
-                    {item}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Footer: overage + prepaid */}
           <div
             style={{
-              padding: "16px 28px",
-              borderTop: "1px solid var(--gg-border)",
+              padding: "28px 28px 24px",
               display: "flex",
               flexWrap: "wrap",
-              gap: "6px 24px",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: "24px",
             }}
+            className="gg-stability-row"
           >
-            <p style={{ fontSize: "12px", color: "var(--gg-text3)", margin: 0 }}>
-              Need extra time? Overage at $70/hr prorated.
-            </p>
-            <p style={{ fontSize: "12px", color: "var(--gg-text3)", margin: 0 }}>
-              Discounted 6- and 12-month prepay options available.
-            </p>
+            <div>
+              <p
+                style={{
+                  fontSize: "10px",
+                  fontWeight: 700,
+                  color: "var(--gg-green)",
+                  margin: "0 0 6px",
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                }}
+              >
+                Ongoing Stability + Support
+              </p>
+              <p
+                style={{
+                  fontFamily: "'Poppins', sans-serif",
+                  fontSize: "20px",
+                  fontWeight: 800,
+                  color: "var(--gg-text1)",
+                  margin: "0 0 12px",
+                  letterSpacing: "-0.03em",
+                  lineHeight: 1.2,
+                }}
+              >
+                $79/month — first 90 days included.
+              </p>
+              <p style={{ fontSize: "13px", color: "var(--gg-text2)", lineHeight: 1.5, margin: 0 }}>
+                Optional after launch. Cancel anytime.
+              </p>
+            </div>
             <Link
               href="#after-launch-support"
+              className="gg-scroll-down-link"
               style={{
-                fontSize: "12px",
-                color: "var(--gg-accent)",
+                fontSize: "16px",
+                fontWeight: 600,
+                color: "var(--gg-text2)",
                 textDecoration: "none",
-                fontWeight: 500,
+                whiteSpace: "nowrap",
+                flexShrink: 0,
+                borderBottom: "1px solid var(--gg-border-strong)",
+                paddingBottom: "2px",
               }}
             >
-              See full plan details below →
+              Scroll down to see what&apos;s included ↓
             </Link>
           </div>
         </div>
@@ -549,8 +458,12 @@ export default function OfferSection() {
         @media (max-width: 800px) {
           .gg-offer-layout { grid-template-columns: 1fr !important; }
         }
-        @media (max-width: 520px) {
-          .gg-managed-plan-grid { grid-template-columns: 1fr !important; }
+        @media (max-width: 560px) {
+          .gg-stability-row { flex-direction: column !important; align-items: flex-start !important; }
+        }
+        .gg-scroll-down-link:hover {
+          color: var(--gg-text1) !important;
+          border-bottom-color: var(--gg-text3) !important;
         }
       `}</style>
     </section>

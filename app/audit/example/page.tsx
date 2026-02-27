@@ -1,9 +1,10 @@
+import Link from "next/link";
 import { pitchData as d } from "./pitch.config";
 import AuditIntroVideo from "@/app/components/ggbuilds/AuditIntroVideo";
-import { AUDIT_BOOK_CALL_URL } from "@/app/config/audit";
+import EmbedMode from "./EmbedMode";
 
 export const metadata = {
-  title: "Big Dawgs Lawn & Landscape — Local Lead Leak Audit",
+  title: "Peak Home Remodeling — Local Lead Leak Audit (Example)",
   robots: "noindex, nofollow",
 };
 
@@ -27,7 +28,6 @@ const C = {
   amberSoft: "rgba(245,166,35,0.1)",
 };
 
-// ── Primitives ─────────────────────────────────────────────────
 function Label({ children }: { children: React.ReactNode }) {
   return (
     <p style={{ fontSize: "10px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: C.text3, marginBottom: "20px" }}>
@@ -42,17 +42,17 @@ function Divider() {
 
 interface RowProps {
   category: string;
-  zach: string;
+  you: string;
   competitor: string;
   result: "win" | "lose" | "neutral";
 }
 
-function Row({ category, zach, competitor, result }: RowProps) {
-  const zachColor = result === "win" ? C.green : result === "lose" ? C.red : C.amber;
+function Row({ category, you, competitor, result }: RowProps) {
+  const youColor = result === "win" ? C.green : result === "lose" ? C.red : C.amber;
   return (
     <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr 1fr", gap: "16px", padding: "14px 20px", borderBottom: `1px solid ${C.border}`, alignItems: "start" }}>
       <span style={{ fontSize: "12px", color: C.text3, lineHeight: 1.5 }}>{category}</span>
-      <span style={{ fontSize: "13px", color: zachColor, fontWeight: 500, lineHeight: 1.5 }}>{zach}</span>
+      <span style={{ fontSize: "13px", color: youColor, fontWeight: 500, lineHeight: 1.5 }}>{you}</span>
       <span style={{ fontSize: "13px", color: C.text2, lineHeight: 1.5 }}>{competitor}</span>
     </div>
   );
@@ -88,18 +88,34 @@ function Opportunity({ n, title, body, urgent }: OpportunityProps) {
   );
 }
 
-// ── Page ───────────────────────────────────────────────────────
-export default function ZachSnapshot() {
+export default function ExampleAuditPage() {
   return (
     <div style={{ background: C.bg, color: C.text1, fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif", WebkitFontSmoothing: "antialiased", minHeight: "100vh" }}>
+      <EmbedMode />
       <div style={{ maxWidth: "640px", margin: "0 auto", padding: "80px 24px 100px" }}>
+        <Link
+          href="/"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "6px",
+            fontSize: "13px",
+            color: C.text3,
+            textDecoration: "none",
+            marginBottom: "24px",
+          }}
+        >
+          ← Back to home
+        </Link>
 
         <AuditIntroVideo />
 
         {/* ── Header ── */}
         <header style={{ marginBottom: "64px" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", fontSize: "10px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: C.blue, background: C.blueSoft, padding: "5px 10px", borderRadius: "6px", marginBottom: "24px" }}>
-            Online Presence Breakdown
+          <div style={{ display: "flex", alignItems: "center", gap: "10px", flexWrap: "wrap", marginBottom: "16px" }}>
+            <div style={{ display: "inline-flex", alignItems: "center", fontSize: "10px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: C.blue, background: C.blueSoft, padding: "5px 10px", borderRadius: "6px" }}>
+              Online Presence Breakdown
+            </div>
           </div>
           <h1 style={{ fontSize: "clamp(28px, 5vw, 36px)", fontWeight: 700, letterSpacing: "-0.035em", color: C.text1, margin: "0 0 10px", fontFamily: "'Poppins', -apple-system, sans-serif", lineHeight: 1.15 }}>
             {d.prospect.name}
@@ -133,40 +149,33 @@ export default function ZachSnapshot() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr", gap: "8px", alignItems: "center" }}>
             <div style={{ background: C.redSoft, border: `1px solid ${C.redBorder}`, borderRadius: "12px", padding: "28px 20px", textAlign: "center" }}>
               <div style={{ fontSize: "clamp(52px, 12vw, 72px)", fontWeight: 700, letterSpacing: "-0.05em", color: C.red, lineHeight: 1, marginBottom: "10px", fontFamily: "'Poppins', sans-serif" }}>
-                0
+                {d.prospect.googleReviews}
               </div>
-              <p style={{ fontSize: "11px", color: C.red, fontWeight: 600, margin: 0, opacity: 0.8 }}>Big Dawgs</p>
+              <p style={{ fontSize: "11px", color: C.red, fontWeight: 600, margin: 0, opacity: 0.8 }}>{d.prospect.name}</p>
             </div>
             <span style={{ fontSize: "11px", fontWeight: 600, color: C.text3, letterSpacing: "0.08em" }}>VS</span>
             <div style={{ background: C.greenSoft, border: `1px solid rgba(62,207,142,0.2)`, borderRadius: "12px", padding: "28px 20px", textAlign: "center" }}>
               <div style={{ fontSize: "clamp(52px, 12vw, 72px)", fontWeight: 700, letterSpacing: "-0.05em", color: C.green, lineHeight: 1, marginBottom: "10px", fontFamily: "'Poppins', sans-serif" }}>
-                701
+                {d.competitor.googleReviews}
               </div>
-              <p style={{ fontSize: "11px", color: C.green, fontWeight: 600, margin: 0, opacity: 0.8 }}>Big Lakes Lawncare</p>
+              <p style={{ fontSize: "11px", color: C.green, fontWeight: 600, margin: 0, opacity: 0.8 }}>{d.competitor.name}</p>
             </div>
           </div>
           <p style={{ fontSize: "13px", color: C.text3, textAlign: "center", marginTop: "16px", lineHeight: 1.5 }}>
-            {d.prospect.yearsInBusiness} years of real work, real clients, and real results —
-            none of which shows up on Google yet. The reviews simply haven&apos;t been collected in a place
-            that Google can see.
-          </p>
-          <p style={{ fontSize: "13px", color: C.text3, textAlign: "center", marginTop: "12px", lineHeight: 1.5 }}>
-            Grant Property Service — your direct competitor in north Macomb — has 9 reviews and shows up
-            in search. The first 10–20 are the hardest; after that, momentum builds.
+            {d.prospect.yearsInBusiness} years in Macomb and Oakland County — 300+ projects, real reviews on Facebook —
+            but none of it shows up on Google yet. Reviews haven&apos;t been collected where customers look first.
           </p>
         </section>
 
         {/* ── Market table ── */}
         <section style={{ marginBottom: "56px" }}>
-          <Label>Your market — Macomb County lawn care</Label>
+          <Label>Your market — Macomb & Oakland County remodeling</Label>
           <p style={{ fontSize: "13px", color: C.text3, lineHeight: 1.65, marginBottom: "16px" }}>
-            It&apos;s not just Big Lakes. Every established lawn care company in this market
-            has a Google presence — including one with a 3.3-star rating that still shows up
-            in search ahead of Big Dawgs, purely because it has reviews on record.
+            Premier Renovations and others have a head start on Google. The good news: a GBP at your address is free,
+            and Shelby Township and north Macomb are still under-served in search for kitchen and bathroom remodels.
           </p>
 
           <div style={{ border: `1px solid ${C.border}`, borderRadius: "14px", overflow: "hidden" }}>
-            {/* Header */}
             <div style={{ display: "grid", gridTemplateColumns: "1.4fr 0.8fr 0.6fr 1fr", gap: "12px", padding: "11px 20px", background: C.surface, borderBottom: `1px solid ${C.borderStrong}` }}>
               {["Company", "Reviews", "Rating", "GBP"].map((h) => (
                 <span key={h} style={{ fontSize: "10px", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: C.text3 }}>{h}</span>
@@ -174,7 +183,7 @@ export default function ZachSnapshot() {
             </div>
 
             {d.market.map((co, i) => {
-              const isYou = co.name === "Big Dawgs Lawn & Landscape";
+              const isYou = co.name === d.prospect.name;
               const reviewColor = isYou ? C.red : C.text2;
               return (
                 <div
@@ -222,11 +231,11 @@ export default function ZachSnapshot() {
           <Label>What You&apos;ve Built</Label>
           <div style={{ background: C.surface, border: `1px solid ${C.border}`, borderRadius: "14px", overflow: "hidden" }}>
             {[
-              { label: "In business since", value: `${d.prospect.founded} — ${d.prospect.yearsInBusiness} years of real work and real clients` },
-              { label: "Website", value: `bigdawgslandscape.com — live and functional with photos, services, and a contact form` },
-              { label: "Facebook", value: `Active page · ${d.prospect.facebookReviews} review · ${d.prospect.facebookRating} stars` },
+              { label: "In business since", value: `${d.prospect.founded} — ${d.prospect.yearsInBusiness} years in Metro Detroit` },
+              { label: "Website", value: `${d.prospect.website} — live with services and contact form` },
+              { label: "Facebook", value: `Active page · ${d.prospect.facebookReviews} reviews · ${d.prospect.facebookRating} stars` },
               { label: "Services", value: d.prospect.services },
-              { label: "Credibility", value: "Fully insured · personal story · real testimonial from a named customer" },
+              { label: "Location", value: "Shelby Township — Macomb & Oakland County. Washington Township, Romeo, Clinton Township, and Troy are all in your service area." },
             ].map((item, i, arr) => (
               <div key={item.label} style={{ display: "grid", gridTemplateColumns: "160px 1fr", gap: "16px", padding: "16px 20px", borderBottom: i < arr.length - 1 ? `1px solid ${C.border}` : "none", alignItems: "start" }}>
                 <span style={{ fontSize: "12px", color: C.text3, lineHeight: 1.5, paddingTop: "1px" }}>{item.label}</span>
@@ -238,25 +247,24 @@ export default function ZachSnapshot() {
 
         {/* ── Head-to-head ── */}
         <section style={{ marginBottom: "56px" }}>
-          <Label>Head-to-Head · Big Dawgs vs. Big Lakes Lawncare</Label>
+          <Label>Head-to-Head · {d.prospect.name} vs. {d.competitor.name}</Label>
           <p style={{ fontSize: "13px", color: C.text3, lineHeight: 1.65, marginBottom: "20px" }}>
-            Big Lakes Lawncare (Macomb, on Romeo Plank Rd) is the dominant lawn care company
-            in this market — a fully indexed site, 701 Google reviews at 4.7 stars, and a GBP
-            that shows up for every local search.
+            {d.competitor.name} ({d.competitor.city}) has a strong Google presence — {d.competitor.googleReviews} reviews,
+            full GBP, and online booking. Same metro, same type of customer. Here&apos;s how you compare.
           </p>
           <div style={{ border: `1px solid ${C.border}`, borderRadius: "14px", overflow: "hidden" }}>
             <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr 1fr", gap: "16px", padding: "12px 20px", background: C.surface, borderBottom: `1px solid ${C.borderStrong}` }}>
               <span style={{ fontSize: "10px", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: C.text3 }}>Category</span>
-              <span style={{ fontSize: "10px", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: C.blue }}>Big Dawgs</span>
-              <span style={{ fontSize: "10px", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: C.text3 }}>Big Lakes</span>
+              <span style={{ fontSize: "10px", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: C.blue }}>{d.prospect.name}</span>
+              <span style={{ fontSize: "10px", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: C.text3 }}>{d.competitor.name}</span>
             </div>
-            <Row category="Google Business Profile" zach="Not set up" competitor="Claimed · fully built" result="lose" />
-            <Row category="Google Reviews" zach="0 reviews" competitor="701 reviews · 4.7 stars" result="lose" />
-            <Row category="Google Search visibility" zach="No results for any service" competitor="Maps pack for all services" result="lose" />
-            <Row category="Online Booking / Quote" zach="Form (Wix)" competitor="Integrated quote system" result="neutral" />
-            <Row category="Working website" zach="Live on Wix" competitor="Custom professional site" result="neutral" />
-            <Row category="Years in business" zach="16 years · since 2009" competitor="Newer operation" result="win" />
-            <Row category="Geographic position" zach="Romeo — north Macomb" competitor="Macomb — central" result="win" />
+            <Row category="Google Business Profile" you="Not set up" competitor="Claimed · fully built" result="lose" />
+            <Row category="Google Reviews" you={`${d.prospect.googleReviews} reviews`} competitor={`${d.competitor.googleReviews} reviews · ${d.competitor.googleRating} stars`} result="lose" />
+            <Row category="Google Search visibility" you="No results for core services" competitor="Maps pack for kitchen & bath" result="lose" />
+            <Row category="Online Booking" you="Contact form only" competitor="Live via GBP" result="lose" />
+            <Row category="Working website" you="Live (minor issues)" competitor="Professional site" result="neutral" />
+            <Row category="Years in business" you={`${d.prospect.yearsInBusiness} years · since ${d.prospect.founded}`} competitor="Established" result="neutral" />
+            <Row category="Geographic position" you="Shelby Township — north Macomb" competitor="Sterling Heights — central Macomb" result="win" />
           </div>
         </section>
 
@@ -268,13 +276,12 @@ export default function ZachSnapshot() {
           <p style={{ fontSize: "15px", color: C.text2, lineHeight: 1.75, margin: "0 0 16px" }}>
             Google Business Profiles are{" "}
             <span style={{ color: C.text1, fontWeight: 600 }}>free to set up</span>{" "}
-            and show up as a prominent block above all regular search results — photos, reviews,
-            phone number, hours, and directions, visible before anyone clicks anything.
+            and show up above organic results — photos, reviews, phone number, hours, and directions
+            before anyone clicks through. Right now that slot is empty for your address.
           </p>
           <p style={{ fontSize: "15px", color: C.text2, lineHeight: 1.75, margin: 0 }}>
-            Right now, searching any of your services in Romeo returns zero results for you.
-            Big Lakes is collecting every one of those customers. That position is unclaimed
-            at your address and it&apos;s free to take.
+            Searches like &quot;kitchen remodel Shelby Township&quot; or &quot;bathroom renovation Macomb County&quot; are going to
+            competitors who have a GBP and reviews. You can claim that position for your location.
           </p>
         </section>
 
@@ -292,43 +299,9 @@ export default function ZachSnapshot() {
             All of this is fixable.
           </p>
           <p style={{ fontSize: "14px", color: C.text3, lineHeight: 1.7, margin: 0, maxWidth: "420px" }}>
-            The foundation is solid — 16 years of real work, happy customers, and a service
-            area with room to own. Getting it visible online is the next step.
-            When you&apos;re ready to talk through it, pick a 15‑min slot below.
+            This is example copy. For a real audit we&apos;d plug in your actual data and send you
+            a link like this. Request a free audit on the main site when you&apos;re ready.
           </p>
-        </div>
-
-        {/* ── Book a call ── */}
-        <div
-          style={{
-            marginTop: "32px",
-            padding: "32px 36px",
-            background: "transparent",
-            borderTop: `1px solid ${C.border}`,
-            textAlign: "center",
-          }}
-        >
-          <a
-            href={AUDIT_BOOK_CALL_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              padding: "16px 32px",
-              background: C.blue,
-              color: "#fff",
-              fontSize: "15px",
-              fontWeight: 600,
-              letterSpacing: "-0.02em",
-              borderRadius: "10px",
-              textDecoration: "none",
-              whiteSpace: "nowrap",
-            }}
-          >
-            Pick a time
-          </a>
         </div>
 
       </div>

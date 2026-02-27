@@ -74,7 +74,35 @@ export default function HomePage() {
 
   return (
     <div ref={ref}>
-      <Nav />
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 101,
+          background: "rgba(15,21,42,0.95)",
+          borderBottom: "1px solid rgba(255,255,255,0.08)",
+          padding: "8px 24px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <a
+          href="/"
+          style={{
+            fontSize: "12px",
+            fontWeight: 500,
+            color: "rgba(255,255,255,0.6)",
+            textDecoration: "none",
+          }}
+        >
+          ← Back to Calls From Clicks
+        </a>
+      </div>
+      <div style={{ paddingTop: "68px" }}>
+        <Nav />
       <Hero />
       <TrustBar />
       <Services />
@@ -84,6 +112,7 @@ export default function HomePage() {
       <CTABanner />
       <ContactForm />
       <Footer />
+      </div>
     </div>
   );
 }

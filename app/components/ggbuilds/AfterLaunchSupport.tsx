@@ -106,7 +106,7 @@ export default function AfterLaunchSupport() {
             after launch.
           </h2>
           <p style={{ fontSize: "16px", color: "var(--gg-text2)", lineHeight: 1.7, margin: 0, maxWidth: "480px" }}>
-            Most agencies hand you a login and walk away. Your site is kept running, updated, and converting — for $79/month after the first 90 days.
+            Most agencies hand you a login and walk away. Your site is kept running, updated, and converting.
           </p>
         </div>
 
@@ -329,7 +329,7 @@ export default function AfterLaunchSupport() {
                 margin: 0,
               }}
             >
-              Managed Website Plan — after the first 90 days
+              Ongoing Stability + Support — after the first 90 days
             </p>
             <p style={{ fontSize: "12px", color: "var(--gg-text3)", margin: 0 }}>
               Prefer to lock it in upfront? Discounted options below.
@@ -445,7 +445,7 @@ export default function AfterLaunchSupport() {
             }}
           >
             <p style={{ fontSize: "12px", color: "var(--gg-text3)", margin: 0 }}>
-              Most clients choose 6 months upfront. All plans cancel anytime — no contracts.
+              Most clients choose 6 months upfront. Monthly plan cancels anytime. Prepaid plans cover 6 or 12 months.
             </p>
           </div>
         </div>

@@ -233,7 +233,6 @@ export default function DemoSection() {
             <div style={{ marginTop: "16px", display: "flex", justifyContent: "center" }}>
               <Link
                 href="/demo"
-                target="_blank"
                 className="gg-btn-accent"
                 style={{
                   display: "inline-flex",

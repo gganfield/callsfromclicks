@@ -180,6 +180,7 @@ function Opportunity({ n, title, body, urgent }: OpportunityProps) {
 
 // ── Page ──────────────────────────────────────────────────────
 import AuditIntroVideo from "@/app/components/ggbuilds/AuditIntroVideo";
+import { AUDIT_BOOK_CALL_URL } from "@/app/config/audit";
 
 export default function BenSnapshot() {
   return (
@@ -609,9 +610,42 @@ export default function BenSnapshot() {
             }}
           >
             The foundation is there — good work, good reviews, active content.
-            It just needs somewhere to live online. Text me back when you&apos;ve
-            had a chance to go through this.
+            It just needs somewhere to live online. When you&apos;re ready to talk
+            through it, pick a 15‑min slot below.
           </p>
+        </div>
+
+        {/* ── Book a call ── */}
+        <div
+          style={{
+            marginTop: "32px",
+            padding: "32px 36px",
+            background: "transparent",
+            borderTop: `1px solid ${C.border}`,
+            textAlign: "center",
+          }}
+        >
+          <a
+            href={AUDIT_BOOK_CALL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "16px 32px",
+              background: C.blue,
+              color: "#fff",
+              fontSize: "15px",
+              fontWeight: 600,
+              letterSpacing: "-0.02em",
+              borderRadius: "10px",
+              textDecoration: "none",
+              whiteSpace: "nowrap",
+            }}
+          >
+            Pick a time
+          </a>
         </div>
 
       </div>

@@ -7,9 +7,9 @@ export async function POST(req: NextRequest) {
 
   // ── Audit form submission (from /audit) ──────────────────────
   if (body.formType === "audit") {
-    const { name, business, website, phone, industry, notes } = body;
-    if (!name || !business || !phone) {
-      return NextResponse.json({ error: "Name, business, and phone are required." }, { status: 400 });
+    const { name, business, email, website, phone, industry, notes } = body;
+    if (!name || !business || !email) {
+      return NextResponse.json({ error: "Name, business, and email are required." }, { status: 400 });
     }
 
     if (!RESEND_API_KEY) {
@@ -22,8 +22,9 @@ New Lead Leak Audit Request — Calls From Clicks
 
 Name: ${name}
 Business: ${business}
+Email: ${email}
+Phone: ${phone || "Not provided"}
 Website: ${website || "None"}
-Phone: ${phone}
 Industry: ${industry || "Not specified"}
 
 Notes:

@@ -2,10 +2,22 @@
 import { useState } from "react";
 import Link from "next/link";
 
-const faqs = [
+const faqs: { q: string; a: React.ReactNode }[] = [
   {
     q: "Who is this for?",
     a: "Local service businesses \u2014 detailers, landscapers, remodelers, cleaners, mechanics. If you're based in one area and rely on local customers, this is for you.",
+  },
+  {
+    q: "What does the audit look like?",
+    a: (
+      <>
+        It&apos;s a private page we send you with your top leaks, Google visibility snapshot, competitor comparison, and clear next steps.{" "}
+        <Link href="/audit/example" style={{ color: "var(--gg-accent)", textDecoration: "underline" }}>
+          Check the example audit
+        </Link>{" "}
+        to see the format.
+      </>
+    ),
   },
   {
     q: "What do we need to provide?",
@@ -13,23 +25,19 @@ const faqs = [
   },
   {
     q: "What does 'hosted' mean?",
-    a: "Your site lives on our hosting infrastructure (the Managed Website Plan, $79/month). It includes hosting, free debugging, 60 minutes of batched updates per month, and one quarterly refresh. First 90 days are included with your build.",
+    a: "Your site lives on our hosting infrastructure so you don't have to think about it. Our Ongoing Stability + Support includes hosting, free debugging, 60 minutes of batched updates per month, and one quarterly refresh. First 90 days are included with your build.",
   },
   {
     q: "What happens if we stop paying?",
-    a: "We hand you the full codebase and walk you through deploying it yourself for free on Vercel. No hard feelings.",
-  },
-  {
-    q: "Do we own the site?",
-    a: "Yes. Once you pay the build fee, the code is yours. The monthly fee is for the Managed Website Plan (hosting, updates, debugging) \u2014 not a subscription that locks you in.",
+    a: "You own the site. If you cancel the support plan, hosting and updates stop — which means the site goes offline until it's hosted again. We can provide the full codebase and offer transfer options if needed.",
   },
   {
     q: "What's not included?",
-    a: "Paid ads management, ongoing SEO campaigns, complex integrations (booking, payments, CRM), and custom software or dashboards.",
+    a: "Paid ads management, ongoing SEO campaigns, complex integrations, and custom software builds. This is a fast, conversion-focused website — not a full marketing agency retainer.",
   },
   {
     q: "What if we don't have a logo or photos?",
-    a: "We'll figure it out. We can pull together a clean, minimal logo and source free professional photos for your industry. It's not ideal but it gets you live fast.",
+    a: "Not a problem. We'll create a simple logo and use professional industry imagery so you can launch quickly. You can always refine branding later — getting live is the priority.",
   },
 ];
 

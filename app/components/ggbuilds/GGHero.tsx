@@ -158,7 +158,7 @@ export default function GGHero() {
             gap: "12px",
             justifyContent: "center",
             flexWrap: "wrap",
-            marginBottom: "64px",
+            marginBottom: "16px",
           }}
         >
           <Link
@@ -196,6 +196,19 @@ export default function GGHero() {
             See what you get →
           </a>
         </div>
+
+        {/* Service area */}
+        <p
+          className="gg-fade-up-3"
+          style={{
+            fontSize: "13px",
+            color: "var(--gg-text3)",
+            letterSpacing: "0.02em",
+            margin: "0 0 48px",
+          }}
+        >
+          Serving Oakland County • Macomb County • Metro Detroit
+        </p>
 
         {/* Stats row */}
         <div
@@ -238,11 +251,32 @@ export default function GGHero() {
           ))}
         </div>
 
-        {/* Demo link — scroll to What you'll notice */}
+        {/* Example audit + Demo links */}
         <div
           className="gg-fade-up-5"
-          style={{ marginTop: "24px", textAlign: "center" }}
+          style={{
+            marginTop: "24px",
+            display: "flex",
+            justifyContent: "center",
+            gap: "32px",
+            flexWrap: "wrap",
+          }}
         >
+          <Link
+            href="/audit/example"
+            className="gg-demo-link"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              fontSize: "17px",
+              fontWeight: 600,
+              color: "var(--gg-accent)",
+              textDecoration: "none",
+            }}
+          >
+            See an example audit →
+          </Link>
           <a
             href="#demo"
             className="gg-demo-link"

@@ -24,6 +24,20 @@ export default function ContactPage() {
       }}
     >
       <div style={{ maxWidth: "560px", margin: "0 auto", padding: "120px 24px 80px" }}>
+        <Link
+          href="/"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "6px",
+            fontSize: "13px",
+            color: "var(--gg-text3)",
+            textDecoration: "none",
+            marginBottom: "24px",
+          }}
+        >
+          ← Back to home
+        </Link>
         <h1
           style={{
             fontFamily: "'Poppins', sans-serif",
