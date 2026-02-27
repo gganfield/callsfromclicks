@@ -61,7 +61,7 @@ const deliverables = [
   {
     num: "02",
     title: "Local Presence Tune-Up",
-    detail: "We tighten up your Google Business Profile and key listings so your business looks consistent and credible wherever customers search. Categories, services, description, service area, call + website links, and a simple review/photo checklist included.",
+    detail: "We tighten up your GBP, Apple Maps, BBB, Angi, and other key directories so your business looks consistent and credible wherever customers search. Categories, services, description, service area, call + website links, and a simple review/photo checklist included.",
     tag: "Maps + Reviews",
     tagIcon: "map",
     tagColor: "var(--gg-green)",
@@ -71,7 +71,7 @@ const deliverables = [
   {
     num: "03",
     title: "Professional Business Line Setup",
-    detail: "A dedicated business number that forwards to your cell, keeping your personal number private. It filters spam and sends an automatic text-back when you miss a call (especially after-hours). We activate it on your site as soon as carrier verification clears.",
+    detail: "A dedicated business number that forwards to your cell, keeping your personal number private. It filters spam and sends an automatic text-back when you miss a call (even after-hours). We activate it on your site as soon as carrier verification clears.",
     tag: "After-hours ready",
     tagIcon: "message",
     tagColor: "var(--gg-green)",
@@ -94,7 +94,8 @@ const pricingTiers = [
   { spots: "Spots 1–5", price: "$499", active: true },
   { spots: "Spots 6–10", price: "$999", active: false },
   { spots: "Spots 11–15", price: "$1,499", active: false },
-  { spots: "Spots 16+", price: "$1,999", active: false },
+  { spots: "Spots 16–20", price: "$1,999", active: false },
+  { spots: "Spots 21+", price: "$2,499", active: false },
 ];
 
 export default function OfferSection() {
@@ -301,7 +302,7 @@ export default function OfferSection() {
               <p style={{ fontSize: "11px", color: "var(--gg-text3)", margin: 0, lineHeight: 1.5 }}>
                 50% up front, 50% on delivery.
                 <br />
-                We miss 72 hrs after assets confirmed?
+                Past 72h after assets confirmed?
                 <br />
                 Final 50% waived.
               </p>

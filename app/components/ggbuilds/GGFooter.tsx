@@ -79,6 +79,7 @@ export default function GGFooter() {
       </div>
 
       <div
+        className="gg-footer-legal"
         style={{
           maxWidth: "1100px",
           margin: "0 auto",
@@ -115,6 +116,7 @@ export default function GGFooter() {
         @media (max-width: 560px) {
           .gg-footer-grid { grid-template-columns: 1fr !important; }
           .gg-footer-grid > div:last-child { align-items: flex-start !important; }
+          .gg-footer-legal { justify-content: center !important; }
         }
       `}</style>
     </footer>

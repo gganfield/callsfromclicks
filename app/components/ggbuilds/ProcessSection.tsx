@@ -179,7 +179,7 @@ export default function ProcessSection() {
           </svg>
           <p style={{ fontSize: "14px", color: "var(--gg-text1)", margin: 0, flex: 1 }}>
             <strong>We miss the 72-hour window?</strong>{" "}
-            <span style={{ color: "var(--gg-text2)" }}>Your final 50% is waived. That's the guarantee.</span>
+            <span style={{ color: "var(--gg-text2)" }}>Your final 50% is waived. That's our promise.</span>
           </p>
         </div>
       </div>

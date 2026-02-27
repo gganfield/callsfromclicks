@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 
 const outcomeIcons = [
@@ -39,11 +39,51 @@ const outcomes = [
   { label: "Wins more comparisons", sub: "Stronger website + cleaner presence beats most local competitors" },
 ];
 
-const DEMO_SCROLL_PX_PER_FRAME = 80;
+const DEMO_SCROLL_PX_PER_FRAME_DESKTOP = 80;
+const DEMO_SCROLL_PX_PER_FRAME_MOBILE = 140;
+const MOBILE_BREAKPOINT = 768;
+const RESUME_DELAY_MS = 1500;
+
+function getPxPerFrame() {
+  if (typeof window === "undefined") return DEMO_SCROLL_PX_PER_FRAME_DESKTOP;
+  return window.innerWidth <= MOBILE_BREAKPOINT ? DEMO_SCROLL_PX_PER_FRAME_MOBILE : DEMO_SCROLL_PX_PER_FRAME_DESKTOP;
+}
 
 export default function DemoSection() {
   const [iframeActive, setIframeActive] = useState(false);
+  const [pxPerFrame, setPxPerFrame] = useState(DEMO_SCROLL_PX_PER_FRAME_DESKTOP);
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const resumeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    const update = () => setPxPerFrame(getPxPerFrame());
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  const pauseAutoscroll = () => {
+    if (resumeTimeoutRef.current) {
+      clearTimeout(resumeTimeoutRef.current);
+      resumeTimeoutRef.current = null;
+    }
+    setIframeActive(true);
+    iframeRef.current?.contentWindow?.postMessage("autoscroll-pause", "*");
+  };
+
+  const resumeAutoscroll = () => {
+    if (resumeTimeoutRef.current) {
+      clearTimeout(resumeTimeoutRef.current);
+      resumeTimeoutRef.current = null;
+    }
+    setIframeActive(false);
+    iframeRef.current?.contentWindow?.postMessage("autoscroll-resume", "*");
+  };
+
+  const scheduleResume = () => {
+    if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
+    resumeTimeoutRef.current = setTimeout(resumeAutoscroll, RESUME_DELAY_MS);
+  };
 
   return (
     <section
@@ -119,6 +159,9 @@ export default function DemoSection() {
             <p style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--gg-text3)", marginBottom: "14px", textAlign: "center" }}>
               Live Example
             </p>
+            <p className="gg-demo-tap-hint" style={{ fontSize: "11px", color: "var(--gg-text3)", margin: "0 0 10px", textAlign: "center" }}>
+              Tap to interact
+            </p>
 
             {/* Phone frame */}
             <div
@@ -189,19 +232,15 @@ export default function DemoSection() {
                 {/* Iframe — renders mobile layout (375px width) */}
                 <div
                   style={{ height: "540px", overflow: "hidden", position: "relative" }}
-                  onMouseEnter={() => {
-                    setIframeActive(true);
-                    iframeRef.current?.contentWindow?.postMessage("autoscroll-pause", "*");
-                  }}
-                  onMouseLeave={() => {
-                    setIframeActive(false);
-                    iframeRef.current?.contentWindow?.postMessage("autoscroll-resume", "*");
-                  }}
+                  onMouseEnter={pauseAutoscroll}
+                  onMouseLeave={resumeAutoscroll}
+                  onTouchStart={pauseAutoscroll}
+                  onTouchEnd={scheduleResume}
                 >
                   <iframe
-                    key={DEMO_SCROLL_PX_PER_FRAME}
+                    key={pxPerFrame}
                     ref={iframeRef}
-                    src={`/demo?px=${DEMO_SCROLL_PX_PER_FRAME}`}
+                    src={`/demo?px=${pxPerFrame}`}
                     title="Demo site preview"
                     style={{
                       width: "375px",
@@ -259,6 +298,10 @@ export default function DemoSection() {
       </div>
 
       <style>{`
+        .gg-demo-tap-hint { display: none; }
+        @media (max-width: 768px) {
+          .gg-demo-tap-hint { display: block; }
+        }
         @media (max-width: 860px) {
           .gg-demo-grid { grid-template-columns: 1fr !important; }
         }

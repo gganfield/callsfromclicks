@@ -23,7 +23,7 @@ const items = [
         <path d="M2.5 2.5c.5-.5 1.2-.5 1.7 0l1.4 1.4c.5.5.5 1.2 0 1.7l-.6.6c.7 1.3 1.8 2.4 3.1 3.1l.6-.6c.5-.5 1.2-.5 1.7 0l1.4 1.4c.5.5.5 1.2 0 1.7l-1.9 1.9a11 11 0 01-7.8-7.8l1.9-1.9z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/>
       </svg>
     ),
-    text: "Click-to-call built in",
+    text: "Business line included",
   },
   {
     icon: (
@@ -32,7 +32,7 @@ const items = [
         <circle cx="8" cy="5.5" r="1.5" stroke="currentColor" strokeWidth="1.2"/>
       </svg>
     ),
-    text: "GBP optimized",
+    text: "Listings optimized",
   },
   {
     icon: (
@@ -87,10 +87,8 @@ export default function TrustStrip() {
       </div>
       <style>{`
         @media (max-width: 740px) {
-          .gg-trust-grid { grid-template-columns: repeat(3, auto) !important; }
-        }
-        @media (max-width: 480px) {
           .gg-trust-grid { grid-template-columns: repeat(2, auto) !important; }
+          .gg-trust-grid > *:nth-child(5) { grid-column: 1 / -1; justify-self: center; }
         }
       `}</style>
     </div>

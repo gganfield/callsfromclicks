@@ -216,6 +216,7 @@ export default function FaqSection() {
 
         {/* CTA line — ties FAQ into the next step */}
         <div
+          className="gg-faq-cta"
           style={{
             marginTop: "40px",
             padding: "24px 28px",
@@ -251,6 +252,19 @@ export default function FaqSection() {
           </Link>
         </div>
       </div>
+      <style>{`
+        @media (min-width: 769px) {
+          .gg-faq-cta p { white-space: nowrap; max-width: none !important; }
+        }
+        @media (max-width: 600px) {
+          .gg-faq-cta {
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+          }
+          .gg-faq-cta p { max-width: none !important; }
+        }
+      `}</style>
     </section>
   );
 }

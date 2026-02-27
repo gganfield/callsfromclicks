@@ -10,7 +10,7 @@ const agencyItems = [
 ];
 
 const planItems = [
-  "Everything on the left",
+  "Agency-level support included",
   "60 min of batched updates each month",
   "Quarterly refresh (up to 2 hours)",
   "Bug fixes covered if anything breaks",
@@ -330,7 +330,10 @@ export default function AfterLaunchSupport() {
                 margin: 0,
               }}
             >
-              Ongoing Stability + Support — after the first 90 days
+              Ongoing Stability + Support
+            </p>
+            <p style={{ fontSize: "12px", color: "var(--gg-text3)", margin: "2px 0 0" }}>
+              First 90 days included with your build.
             </p>
             <p style={{ fontSize: "12px", color: "var(--gg-text3)", margin: 0 }}>
               Prefer to lock it in upfront? Discounted options below.
@@ -446,7 +449,7 @@ export default function AfterLaunchSupport() {
             }}
           >
             <p style={{ fontSize: "12px", color: "var(--gg-text3)", margin: 0 }}>
-              Most clients choose 6 months upfront. Monthly plan cancels anytime. Prepaid plans cover 6 or 12 months.
+              Most clients choose 6 months upfront. Monthly cancels anytime. Prepaid options: 6- or 12-month terms.
             </p>
           </div>
         </div>

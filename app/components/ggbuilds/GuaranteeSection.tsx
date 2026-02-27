@@ -54,10 +54,10 @@ export default function GuaranteeSection() {
             This is built for one type of business.
           </h2>
           <p style={{ fontSize: "15px", color: "var(--gg-text2)", lineHeight: 1.7, margin: 0 }}>
-            Local service businesses that rely on calls, referrals, and Google — and want to look as good online as they are in person.
+            For local service businesses tired of losing leads to competitors who show up stronger online.
           </p>
           <p style={{ fontSize: "13px", color: "var(--gg-text3)", letterSpacing: "0.02em", margin: "16px 0 0" }}>
-            Service Area: Oakland County • Macomb County • Metro Detroit
+            Oakland{"\u00A0"}County • Macomb{"\u00A0"}County • Metro{"\u00A0"}Detroit
           </p>
         </div>
 
@@ -143,7 +143,8 @@ export default function GuaranteeSection() {
         </div>
 
         {/* Catch-all */}
-        <p
+<p
+          className="gg-fit-audit-line"
           style={{
             marginTop: "24px",
             fontSize: "14px",
@@ -212,6 +213,7 @@ export default function GuaranteeSection() {
           </div>
           <Link
             href="/audit"
+            className="gg-guarantee-cta"
             style={{
               fontWeight: 700,
               fontSize: "14px",
@@ -234,6 +236,8 @@ export default function GuaranteeSection() {
         @media (max-width: 680px) {
           .gg-fit-grid { grid-template-columns: 1fr !important; }
           .gg-guarantee-card { grid-template-columns: 1fr !important; }
+          .gg-guarantee-card .gg-guarantee-cta { justify-self: center; }
+          .gg-fit-audit-line { font-size: 12px !important; }
         }
       `}</style>
     </section>

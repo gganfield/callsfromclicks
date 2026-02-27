@@ -147,7 +147,7 @@ export default function GGHero() {
             maxWidth: "560px",
           }}
         >
-          Custom-built, mobile-first, live in 72 hours. For local service businesses that are tired of losing calls to competitors with stronger presence.
+          Custom-built, mobile-first, live in 72 hours. For local service businesses that are tired of losing calls to competitors with a stronger presence.
         </p>
 
         {/* CTAs */}
@@ -207,7 +207,7 @@ export default function GGHero() {
             margin: "0 0 48px",
           }}
         >
-          Serving Oakland County • Macomb County • Metro Detroit
+          Serving Oakland{"\u00A0"}County • Macomb{"\u00A0"}County • Metro{"\u00A0"}Detroit
         </p>
 
         {/* Stats row */}
@@ -242,7 +242,7 @@ export default function GGHero() {
                   letterSpacing: "-0.04em",
                 }}
               >
-                {s.value}{s.value === "72 hrs" ? "*" : ""}
+                {s.value}
               </p>
               <p style={{ fontSize: "12px", color: "var(--gg-text2)", margin: 0, lineHeight: 1.4 }}>
                 {s.label}
@@ -250,7 +250,7 @@ export default function GGHero() {
             </div>
           ))}
         </div>
-        <p style={{ fontSize: "10px", color: "var(--gg-text3)", margin: "8px 0 0", lineHeight: 1.4 }}>
+        <p className="gg-hero-footnote" style={{ fontSize: "10px", color: "var(--gg-text3)", margin: "8px 0 0", lineHeight: 1.4 }}>
           *72-hour window begins once all required assets are received and confirmed.
         </p>
 
@@ -317,6 +317,7 @@ export default function GGHero() {
         }
         @media (max-width: 600px) {
           .gg-hero-stats { grid-template-columns: 1fr 1fr !important; }
+          .gg-hero-footnote { font-size: 9px !important; }
         }
       `}</style>
     </section>

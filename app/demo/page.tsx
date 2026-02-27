@@ -28,7 +28,8 @@ export default function HomePage() {
     if (!inIframe) return;
 
     const params = new URLSearchParams(window.location.search);
-    const pxPerFrame = Math.max(1, parseInt(params.get("px") ?? "80", 10)) || 80;
+    const paramPx = Math.max(1, parseInt(params.get("px") ?? "80", 10)) || 80;
+    const pxPerFrame = window.innerWidth <= 768 ? 140 : paramPx;
     const pauseMs = 2000;
     let raf: number;
     let timeout: ReturnType<typeof setTimeout>;
