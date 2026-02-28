@@ -82,17 +82,26 @@ function Opportunity({ n, title, body, urgent }: OpportunityProps) {
             </span>
           )}
         </div>
-        <p style={{ fontSize: "14px", color: C.text2, lineHeight: 1.7, margin: 0 }}>{body}</p>
+        <p style={{ fontSize: "14px", color: C.text2, lineHeight: 1.7, margin: 0, whiteSpace: "pre-line" }}>{body}</p>
       </div>
     </div>
   );
 }
 
-export default function ExampleAuditPage() {
+function ExclusiveNote({ businessName }: { businessName: string }) {
+  return (
+    <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)", marginBottom: "24px", fontStyle: "italic" }}>
+      Prepared exclusively for {businessName}. Please do not share publicly.
+    </p>
+  );
+}
+
+export function ExampleAuditContent(props: { exclusiveFor?: { businessName: string } }) {
   return (
     <div style={{ background: C.bg, color: C.text1, fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif", WebkitFontSmoothing: "antialiased", minHeight: "100vh" }}>
       <EmbedMode />
       <div style={{ maxWidth: "640px", margin: "0 auto", padding: "80px 24px 100px" }}>
+        {props.exclusiveFor && <ExclusiveNote businessName={props.exclusiveFor.businessName} />}
         <Link
           href="/"
           style={{
@@ -270,18 +279,20 @@ export default function ExampleAuditPage() {
 
         <Divider />
 
-        {/* ── Why GBP matters ── */}
+        {/* ── Why the listings gap matters ── */}
         <section style={{ marginBottom: "56px" }}>
-          <Label>Why the Google gap matters</Label>
+          <Label>Why the listings gap matters</Label>
           <p style={{ fontSize: "15px", color: C.text2, lineHeight: 1.75, margin: "0 0 16px" }}>
-            Google Business Profiles are{" "}
-            <span style={{ color: C.text1, fontWeight: 600 }}>free to set up</span>{" "}
-            and show up above organic results — photos, reviews, phone number, hours, and directions
-            before anyone clicks through. Right now that slot is empty for your address.
+            Google Business Profiles are free and show up above everything else — but in 2026 customers also check Apple Maps, BBB, Angi, and Yellow Pages.
+          </p>
+          <p style={{ fontSize: "15px", color: C.text2, lineHeight: 1.75, margin: "0 0 16px" }}>
+            When those listings are missing or incomplete, you become invisible even if you have real reviews and a good site.
+          </p>
+          <p style={{ fontSize: "15px", color: C.text2, lineHeight: 1.75, margin: "0 0 16px" }}>
+            AI tools and map platforms pull business data from multiple sources — if your information isn&apos;t consistent everywhere, you lose visibility automatically.
           </p>
           <p style={{ fontSize: "15px", color: C.text2, lineHeight: 1.75, margin: 0 }}>
-            Searches like &quot;kitchen remodel Shelby Township&quot; or &quot;bathroom renovation Macomb County&quot; are going to
-            competitors who have a GBP and reviews. You can claim that position for your location.
+            The good news? Every single one of these is free to claim and optimize. It just takes a little time and a few verification steps (email, phone, or postcard).
           </p>
         </section>
 
@@ -307,4 +318,8 @@ export default function ExampleAuditPage() {
       </div>
     </div>
   );
+}
+
+export default function ExampleAuditPage() {
+  return <ExampleAuditContent />;
 }

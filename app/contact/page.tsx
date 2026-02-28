@@ -7,8 +7,8 @@ export const metadata = {
 };
 
 // Replace with your real phone (E.164 or dialable) and email for tap-to-call / mailto
-const CONTACT_PHONE_RAW = "+15865550100";
-const CONTACT_PHONE_DISPLAY = "(586) 555-0100";
+const CONTACT_PHONE_RAW = "+18777093576";
+const CONTACT_PHONE_DISPLAY = "(877) 709-3576";
 const CONTACT_EMAIL = "hello@callsfromclicks.com";
 
 export default function ContactPage() {
@@ -49,11 +49,7 @@ export default function ContactPage() {
         >
           Contact us
         </h1>
-        <p style={{ fontSize: "15px", color: "var(--gg-text2)", lineHeight: 1.7, margin: "0 0 40px" }}>
-          Call or email to get started.
-        </p>
-
-        <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "16px", marginTop: "40px" }}>
           <a
             href={`tel:${CONTACT_PHONE_RAW}`}
             style={{

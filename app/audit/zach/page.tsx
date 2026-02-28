@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import { pitchData as d } from "./pitch.config";
 import AuditIntroVideo from "@/app/components/ggbuilds/AuditIntroVideo";
 import { AUDIT_BOOK_CALL_URL } from "@/app/config/audit";
@@ -89,11 +90,19 @@ function Opportunity({ n, title, body, urgent }: OpportunityProps) {
 }
 
 // ── Page ───────────────────────────────────────────────────────
-export default function ZachSnapshot() {
+function ExclusiveNote({ businessName }: { businessName: string }) {
+  return (
+    <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)", marginBottom: "24px", fontStyle: "italic" }}>
+      Prepared exclusively for {businessName}. Please do not share publicly.
+    </p>
+  );
+}
+
+export function ZachAuditContent(props: { exclusiveFor?: { businessName: string } }) {
   return (
     <div style={{ background: C.bg, color: C.text1, fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif", WebkitFontSmoothing: "antialiased", minHeight: "100vh" }}>
       <div style={{ maxWidth: "640px", margin: "0 auto", padding: "80px 24px 100px" }}>
-
+        {props.exclusiveFor && <ExclusiveNote businessName={props.exclusiveFor.businessName} />}
         <AuditIntroVideo />
 
         {/* ── Header ── */}
@@ -334,4 +343,8 @@ export default function ZachSnapshot() {
       </div>
     </div>
   );
+}
+
+export default function ZachAuditPage() {
+  notFound();
 }

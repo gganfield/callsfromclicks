@@ -66,19 +66,19 @@ export const pitchData = {
 
   opportunities: [
     {
-      urgent: true,
-      title: "Claim your Google Business Profile — the Shelby Township slot is open",
-      body: "A GBP at your address is free and shows up above organic results with your phone number, hours, photos, and reviews. Right now that position is empty when people search 'kitchen remodel Shelby Township' or 'bathroom renovation Macomb County.' Your existing Facebook reviewers and 300+ happy customers are the fastest path to getting your first 15–20 Google reviews and showing up where it matters.",
+      urgent: false,
+      title: "Claim & optimize your listings on every platform customers actually check",
+      body: "Google is still the biggest, but in 2026 people also check Apple Maps, BBB, Angi, and Yellow Pages. When those listings are missing or incomplete, you become invisible even if you have real reviews and a good site.\n\nHere's exactly how to do it yourself:\n• Apple Maps → businessconnect.apple.com → search your address and claim it (requires an Apple ID and possible postcard verification).\n• BBB → bbb.org/get-listed → add or claim your business (email + phone verification).\n• Angi → angi.com → join as a service pro and claim your profile (free basic listing).\n• Yellow Pages → yellowpages.com/claim-your-listing → search and claim (email/phone).\n\nEach one takes a little time plus any verification waits, but once they're done you start showing up in more places where customers look. (For Peak Home Remodeling, the Shelby Township slot is currently empty in both Apple Maps and Angi.)",
+    },
+    {
+      urgent: false,
+      title: "Build a simple automated review request system so you never miss a chance to ask for feedback",
+      body: "After every job, a quick text can go out automatically (\"Loved the work? Tap here for a 15-second review\"). This feeds Google, Apple Maps, Facebook, and the rest without you having to chase customers manually.\n\nSetting it up yourself means: getting a dedicated business line, writing and testing the message templates, making sure it complies with texting rules, and wiring up the trigger after jobs. It's not complicated, but it does take focused time to get right and test thoroughly. Once it's live, the requests go out automatically. (Your 300+ happy customers on Facebook are the fastest fuel for reviews across every platform.)",
     },
     {
       urgent: false,
       title: "Tighten up the site — small fixes that reduce bounce",
-      body: "Make the phone number tappable on mobile. Put 'Macomb & Oakland County' above the fold so local customers know you serve them. Add a single line after the quote form ('We'll call within 24 hours') to set expectations. These changes take a few hours and remove friction for people who are ready to get a quote.",
-    },
-    {
-      urgent: false,
-      title: "Own Shelby Township and north Macomb before more competitors pile in",
-      body: "Premier Renovations is strong in Sterling Heights and central Macomb. Shelby Township, Washington Township, Romeo, and north Oakland are a natural fit for a crew based in Shelby. A site and GBP that explicitly name those areas will rank for searches from homeowners who are already in your service area.",
+      body: "Make the phone number tappable on mobile. Put 'Macomb & Oakland County' above the fold so local customers know you serve them. Add a single line after the quote form ('We'll call within 24 hours') to set expectations. These changes take a few hours and remove friction for people who are ready to get a quote.\n\nThese site fixes work alongside your presence on Google, Apple Maps, BBB, and elsewhere — the more consistent you are everywhere, the better.",
     },
   ],
 } as const;

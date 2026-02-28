@@ -33,6 +33,7 @@ export default function GGNav() {
     { label: "How It Works", href: "#process" },
     { label: "Demo", href: "#demo" },
     { label: "FAQ", href: "#faq" },
+    { label: "Contact us", href: "/contact" },
   ];
 
   return (
@@ -99,21 +100,37 @@ export default function GGNav() {
           }}
           className="gg-desktop-nav"
         >
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="gg-nav-link"
-              style={{
-                fontSize: "14px",
-                fontWeight: 500,
-                color: "var(--gg-text2)",
-                textDecoration: "none",
-              }}
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) =>
+            link.href.startsWith("/") ? (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="gg-nav-link"
+                style={{
+                  fontSize: "14px",
+                  fontWeight: 500,
+                  color: "var(--gg-text2)",
+                  textDecoration: "none",
+                }}
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                key={link.label}
+                href={link.href}
+                className="gg-nav-link"
+                style={{
+                  fontSize: "14px",
+                  fontWeight: 500,
+                  color: "var(--gg-text2)",
+                  textDecoration: "none",
+                }}
+              >
+                {link.label}
+              </a>
+            )
+          )}
 
           <button
             onClick={toggleTheme}
@@ -227,24 +244,43 @@ export default function GGNav() {
             padding: "16px 24px 24px",
           }}
         >
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
-              style={{
-                display: "block",
-                padding: "14px 0",
-                fontSize: "15px",
-                fontWeight: 500,
-                color: "var(--gg-text2)",
-                textDecoration: "none",
-                borderBottom: "1px solid var(--gg-border)",
-              }}
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) =>
+            link.href.startsWith("/") ? (
+              <Link
+                key={link.label}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                style={{
+                  display: "block",
+                  padding: "14px 0",
+                  fontSize: "15px",
+                  fontWeight: 500,
+                  color: "var(--gg-text2)",
+                  textDecoration: "none",
+                  borderBottom: "1px solid var(--gg-border)",
+                }}
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                style={{
+                  display: "block",
+                  padding: "14px 0",
+                  fontSize: "15px",
+                  fontWeight: 500,
+                  color: "var(--gg-text2)",
+                  textDecoration: "none",
+                  borderBottom: "1px solid var(--gg-border)",
+                }}
+              >
+                {link.label}
+              </a>
+            )
+          )}
           <div style={{ display: "flex", gap: "10px", marginTop: "16px" }}>
             <Link
               href="/audit"
