@@ -17,22 +17,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: true });
     }
 
-    const emailBody = `
-New Lead Leak Audit Request — Calls From Clicks
-
-Name: ${name}
-Business: ${business}
-Email: ${email}
-Phone: ${phone || "Not provided"}
-Website: ${website || "None"}
-Industry: ${industry || "Not specified"}
-
-Notes:
-${notes || "(none)"}
-
----
-Submitted via callsfromclicks.com/audit
-    `.trim();
+    const htmlBody = `<p>Thanks for requesting your free audit! We'll review your info and get back to you within 24-48 hours.</p><p>Garrett @ Calls From Clicks</p>`;
 
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -41,10 +26,10 @@ Submitted via callsfromclicks.com/audit
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "audit@callsfromclicks.com",
-        to: [process.env.AUDIT_TO_EMAIL ?? "gg@callsfromclicks.com"],
-        subject: `Audit Request: ${name} — ${business}`,
-        text: emailBody,
+        from: "Garrett from Calls From Clicks <garrett@updates.callsfromclicks.com>",
+        to: [email],
+        subject: "Your Free Audit Request - Calls From Clicks",
+        html: htmlBody,
       }),
     });
 
