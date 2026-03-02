@@ -9,10 +9,9 @@ const agencyItems = [
   "Priority support",
 ];
 
-const planItems = [
+const planItemsBase = [
   "Agency-level support included",
   "60 min of batched updates each month",
-  "Quarterly refresh (up to 2 hours)",
   "Bug fixes covered if anything breaks",
   "Lead response system monitoring",
 ];
@@ -22,30 +21,43 @@ const planOptions = [
     id: "monthly",
     label: "Monthly",
     price: "$79",
-    sub: "/mo",
+    priceUpfront: null as string | null,
+    perMonth: "79",
     note: null,
     badge: null,
+    quarterlyBonus: null as number | null,
   },
   {
     id: "six",
     label: "6 months",
-    price: "$426",
-    sub: " upfront",
-    note: "Save 10%",
+    price: "$395",
+    priceUpfront: "$395",
+    perMonth: "65.83",
+    note: "Pay for 5, get 1 free",
     badge: "Most popular",
+    quarterlyBonus: 2,
   },
   {
     id: "twelve",
     label: "12 months",
-    price: "$756",
-    sub: " upfront",
-    note: "Save 20%",
+    price: "$711",
+    priceUpfront: "$711",
+    perMonth: "59.25",
+    note: "Pay for 9, get 3 free",
     badge: null,
+    quarterlyBonus: 4,
   },
 ];
 
 export default function AfterLaunchSupport() {
   const [selected, setSelected] = useState("six");
+  const selectedOpt = planOptions.find((o) => o.id === selected);
+  const planItemsToShow = [
+    ...planItemsBase,
+    ...(selectedOpt?.quarterlyBonus != null
+      ? [`${selectedOpt.quarterlyBonus} quarterly updates (included)`]
+      : []),
+  ];
 
   return (
     <section
@@ -235,6 +247,27 @@ export default function AfterLaunchSupport() {
               }}
             />
 
+            {selectedOpt?.quarterlyBonus != null && (
+              <span
+                style={{
+                  position: "absolute",
+                  top: "14px",
+                  right: "14px",
+                  fontSize: "9px",
+                  fontWeight: 700,
+                  letterSpacing: "0.1em",
+                  color: "var(--gg-green)",
+                  background: "var(--gg-green-soft)",
+                  border: "1px solid var(--gg-green-border)",
+                  borderRadius: "6px",
+                  padding: "4px 8px",
+                  textTransform: "uppercase",
+                }}
+              >
+                Bulk pricing
+              </span>
+            )}
+
             <div style={{ marginBottom: "20px", position: "relative" }}>
               <p
                 style={{
@@ -247,6 +280,16 @@ export default function AfterLaunchSupport() {
                 }}
               >
                 Your plan
+                <span
+                  style={{
+                    fontWeight: 600,
+                    color: "var(--gg-green)",
+                    marginLeft: "6px",
+                    letterSpacing: "0.04em",
+                  }}
+                >
+                  — {selectedOpt?.label} selected
+                </span>
               </p>
               <p
                 style={{
@@ -256,15 +299,15 @@ export default function AfterLaunchSupport() {
                   color: "var(--gg-text1)",
                   letterSpacing: "-0.02em",
                   margin: 0,
-                  lineHeight: 1.2,
+                  lineHeight: 1.35,
                 }}
               >
-                $79/mo — all of it, plus more.
+                ${selectedOpt?.perMonth}/mo — all of it, plus more.
               </p>
             </div>
 
             <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "12px", flex: 1, position: "relative" }}>
-              {planItems.map((text, i) => (
+              {planItemsToShow.map((text, i) => (
                 <li
                   key={i}
                   style={{
@@ -316,12 +359,22 @@ export default function AfterLaunchSupport() {
               padding: "20px 28px",
               borderBottom: "1px solid var(--gg-border)",
               display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              flexWrap: "wrap",
-              gap: "8px",
+              flexDirection: "column",
+              gap: "6px",
             }}
           >
+            <p
+              style={{
+                fontSize: "11px",
+                fontWeight: 700,
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+                color: "var(--gg-accent)",
+                margin: 0,
+              }}
+            >
+              Choose your plan
+            </p>
             <p
               style={{
                 fontSize: "13px",
@@ -332,11 +385,8 @@ export default function AfterLaunchSupport() {
             >
               Ongoing Stability + Support
             </p>
-            <p style={{ fontSize: "12px", color: "var(--gg-text3)", margin: "2px 0 0" }}>
-              First 90 days included with your build.
-            </p>
             <p style={{ fontSize: "12px", color: "var(--gg-text3)", margin: 0 }}>
-              Prefer to lock it in upfront? Discounted options below.
+              First 90 days included with your build.
             </p>
           </div>
 
@@ -412,18 +462,21 @@ export default function AfterLaunchSupport() {
                       transition: "color 0.15s",
                     }}
                   >
-                    {opt.price}
-                    <span
+                    ${opt.perMonth}/mo
+                  </p>
+                  {opt.priceUpfront && (
+                    <p
                       style={{
-                        fontSize: "12px",
-                        fontWeight: 400,
+                        fontSize: "11px",
+                        fontWeight: 500,
                         color: "var(--gg-text3)",
-                        letterSpacing: 0,
+                        margin: "0 0 4px",
+                        lineHeight: 1.2,
                       }}
                     >
-                      {opt.sub}
-                    </span>
-                  </p>
+                      {opt.priceUpfront} upfront
+                    </p>
+                  )}
                   {opt.note && (
                     <p
                       style={{
@@ -434,6 +487,18 @@ export default function AfterLaunchSupport() {
                       }}
                     >
                       {opt.note}
+                    </p>
+                  )}
+                  {opt.quarterlyBonus != null && (
+                    <p
+                      style={{
+                        fontSize: "10px",
+                        color: "var(--gg-text3)",
+                        margin: "4px 0 0",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Includes {opt.quarterlyBonus} quarterly update{opt.quarterlyBonus > 1 ? "s" : ""}
                     </p>
                   )}
                 </button>
@@ -449,7 +514,7 @@ export default function AfterLaunchSupport() {
             }}
           >
             <p style={{ fontSize: "12px", color: "var(--gg-text3)", margin: 0 }}>
-              Most clients choose 6 months upfront. Monthly cancels anytime. Prepaid options: 6- or 12-month terms.
+              Monthly cancels anytime. Pay 6 or 12 months upfront and 2 or 4 quarterly updates are included.
             </p>
           </div>
         </div>

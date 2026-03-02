@@ -24,12 +24,16 @@ const faqs: { q: string; a: React.ReactNode }[] = [
     a: "Business name, phone/email, list of services, service area, logo (or permission for a clean text logo), and at least 5 photos (or permission for placeholders). That's it. We'll handle the rest.",
   },
   {
+    q: "What listings or profiles do you set up?",
+    a: "We set up and optimize your business on Google Business Profile, Apple Maps, Yelp, Angi, Facebook, Yellow Pages, and Trustpilot or Houzz when relevant to your industry. We don't control verification or approval timelines on those platforms; we submit and optimize, and they run on their own schedule.",
+  },
+  {
     q: "What does the 72-hour guarantee include?",
     a: "Our work: site live and listings submitted within 72 hours of receiving and confirming your assets. We don't control Google, carriers, or other platforms, so their verification and approval timelines aren't part of the guarantee. We're on the hook for completion and submission; they run on their own schedule.",
   },
   {
     q: "What does 'hosted' mean?",
-    a: "Your site lives on our hosting infrastructure so you don't have to think about it. Our Ongoing Stability + Support includes hosting, free debugging, 60 minutes of batched updates per month, and one quarterly refresh. First 90 days are included with your build.",
+    a: "Your site lives on our hosting infrastructure so you don't have to think about it. Our Ongoing Stability + Support includes hosting, free debugging, and 60 minutes of batched updates per month. The first 90 days are included with your build. Pay 6 or 12 months upfront and you also get 2 or 4 quarterly updates included.",
   },
   {
     q: "What happens if we stop paying?",

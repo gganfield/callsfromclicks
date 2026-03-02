@@ -34,7 +34,10 @@ export default function TermsPage() {
         <section style={sectionStyle}>
           <h2 style={h2Style}>1. Services</h2>
           <p style={pStyle}>
-            Calls From Clicks (&quot;we,&quot; &quot;us,&quot; &quot;our&quot;) provides website development, Google Business Profile optimization, marketing automation setup, and related services.
+            Calls From Clicks (&quot;we,&quot; &quot;us,&quot; &quot;our&quot;) provides website development, local presence setup and optimization, marketing automation setup, and related services.
+          </p>
+          <p style={pStyle}>
+            Our local presence setup includes submission and optimization of your business on: Google Business Profile, Apple Maps, Yelp, Angi, Facebook, Yellow Pages, and Trustpilot or Houzz when relevant to your industry. We do not control verification, approval, or listing policies of these third-party platforms.
           </p>
           <p style={pStyle}>
             By using our website or submitting a form, you agree to these Terms.
