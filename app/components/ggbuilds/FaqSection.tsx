@@ -33,7 +33,7 @@ const faqs: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "What does 'hosted' mean?",
-    a: "Your site lives on our hosting infrastructure so you don't have to think about it. Our Ongoing Stability + Support includes hosting, free debugging, and 60 minutes of batched updates per month. The first 90 days are included with your build. Pay 6 or 12 months upfront and you also get 2 or 4 quarterly updates included.",
+    a: "Your site lives on our hosting infrastructure so you don't have to think about it. Our Ongoing Stability + Support includes hosting, free debugging, and 60 minutes of batched updates per month. The first 90 days are included with your build. Pay 6 or 12 months upfront and you also get 2 or 4 quarterly updates (up to 2 hours each) included.",
   },
   {
     q: "What happens if we stop paying?",

@@ -55,7 +55,7 @@ export default function AfterLaunchSupport() {
   const planItemsToShow = [
     ...planItemsBase,
     ...(selectedOpt?.quarterlyBonus != null
-      ? [`${selectedOpt.quarterlyBonus} quarterly updates (included)`]
+      ? [`${selectedOpt.quarterlyBonus} quarterly updates (up to 2 hours each)`]
       : []),
   ];
 
@@ -498,7 +498,7 @@ export default function AfterLaunchSupport() {
                         fontWeight: 500,
                       }}
                     >
-                      Includes {opt.quarterlyBonus} quarterly update{opt.quarterlyBonus > 1 ? "s" : ""}
+                      Includes {opt.quarterlyBonus} quarterly update{opt.quarterlyBonus > 1 ? "s" : ""} (up to 2 hrs each)
                     </p>
                   )}
                 </button>
@@ -514,7 +514,7 @@ export default function AfterLaunchSupport() {
             }}
           >
             <p style={{ fontSize: "12px", color: "var(--gg-text3)", margin: 0 }}>
-              Monthly cancels anytime. Pay 6 or 12 months upfront and 2 or 4 quarterly updates are included.
+              Monthly cancels anytime. Pay 6 or 12 months upfront and 2 or 4 quarterly updates (up to 2 hours each) are included.
             </p>
           </div>
         </div>
