@@ -151,6 +151,13 @@ h1, h2, h3, h4 {
   .audit-amber-callout .audit-amber-callout-body { color: #334155 !important; }
 }
 
+/* Light mode: dark red text in critical alert for readability on light pink background */
+[data-theme="light"] .audit-critical-box,
+[data-theme="light"] .audit-critical-box div,
+[data-theme="light"] .audit-critical-box h2,
+[data-theme="light"] .audit-critical-box p,
+[data-theme="light"] .audit-critical-box strong { color: #8b1a1a !important; }
+
 /* ── Animations ── */
 @keyframes gg-float {
   0%, 100% { transform: translateY(0px); }

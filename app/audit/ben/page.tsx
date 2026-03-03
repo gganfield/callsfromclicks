@@ -188,7 +188,7 @@ function ExclusiveNote({ businessName }: { businessName: string }) {
     <p
       style={{
         fontSize: "12px",
-        color: "rgba(255,255,255,0.4)",
+        color: C.text3,
         marginBottom: "24px",
         fontStyle: "italic",
       }}
@@ -257,6 +257,7 @@ export function BenAuditContent(props: { exclusiveFor?: { businessName: string }
 
         {/* ── Critical alert: broken website ── */}
         <section
+          className="audit-critical-box"
           style={{
             background: C.redSoft,
             border: `1px solid ${C.redBorder}`,
@@ -283,7 +284,7 @@ export function BenAuditContent(props: { exclusiveFor?: { businessName: string }
               fontSize: "18px",
               fontWeight: 600,
               letterSpacing: "-0.025em",
-              color: "#fca5a5",
+              color: C.red,
               margin: "0 0 20px",
               lineHeight: 1.3,
             }}
@@ -292,22 +293,22 @@ export function BenAuditContent(props: { exclusiveFor?: { businessName: string }
           </h2>
 
           <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-            <p style={{ fontSize: "14px", color: "rgba(255,200,200,0.75)", lineHeight: 1.7, margin: 0 }}>
-              On <strong style={{ color: "#fca5a5" }}>Chrome</strong> — anyone visiting
+            <p style={{ fontSize: "14px", color: C.red, lineHeight: 1.7, margin: 0 }}>
+              On <strong style={{ color: C.red }}>Chrome</strong> — anyone visiting
               bensautospa.com gets redirected to a random auto racing article. Your business
               is nowhere to be seen.
             </p>
-            <p style={{ fontSize: "14px", color: "rgba(255,200,200,0.75)", lineHeight: 1.7, margin: 0 }}>
-              On <strong style={{ color: "#fca5a5" }}>Safari / iPhone</strong> — blank white page.
+            <p style={{ fontSize: "14px", color: C.red, lineHeight: 1.7, margin: 0 }}>
+              On <strong style={{ color: C.red }}>Safari / iPhone</strong> — blank white page.
             </p>
             <p
               style={{
                 fontSize: "12px",
-                color: "rgba(255,150,150,0.45)",
+                color: C.red,
                 lineHeight: 1.6,
                 margin: 0,
                 paddingTop: "4px",
-                borderTop: `1px solid rgba(242,100,100,0.15)`,
+                borderTop: `1px solid ${C.redBorder}`,
               }}
             >
               This happens when a domain&apos;s hosting lapses or gets caught in a parking
