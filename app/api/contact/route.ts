@@ -56,7 +56,11 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: "Failed to send." }, { status: 500 });
       }
 
-      const thankYouHtml = `<p>Thanks for requesting your free audit! We'll review your info and get back to you within 24-48 hours.</p><p>Garrett @ Calls From Clicks</p>`;
+      const thankYouHtml = `<p>Thanks for requesting your free visibility &amp; conversion audit.</p>
+<p>We're reviewing your website and overall online presence to identify specific opportunities to increase calls and quote requests.</p>
+<p>You'll receive your personalized breakdown within 24–48 hours.</p>
+<p>If there's anything specific you'd like us to focus on, just reply to this email and let us know.</p>
+<p>Talk soon,<br/>Garrett<br/>Calls From Clicks</p>`;
 
       const thankYouRes = await fetch("https://api.resend.com/emails", {
         method: "POST",
@@ -67,7 +71,7 @@ export async function POST(req: NextRequest) {
         body: JSON.stringify({
           from,
           to: [email],
-          subject: "Your Free Audit Request - Calls From Clicks",
+          subject: "Audit Request Received - CFC",
           html: thankYouHtml,
         }),
       });
