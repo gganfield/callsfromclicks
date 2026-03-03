@@ -455,7 +455,7 @@ export default function AuditPage() {
                     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                       <div>
                         <label style={labelStyle}>Current website (if you have one)</label>
-                        <input type="url" placeholder="https://yoursite.com" value={form.website} onChange={set("website")} style={inputStyle} />
+                        <input type="text" inputMode="url" placeholder="yoursite.com" value={form.website} onChange={set("website")} style={inputStyle} />
                       </div>
                       <div>
                         <label style={labelStyle}>Industry</label>

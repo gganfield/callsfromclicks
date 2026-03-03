@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
       "Name: " + name,
       "Business: " + business,
       "Email: " + email,
-      "Website: " + (website || "—"),
+      "Website: " + (website ? (/^https?:\/\//i.test(website) ? website : "https://" + website) : "—"),
       "Phone: " + (phone || "—"),
       "Industry: " + (industry || "—"),
       "Notes: " + (notes || "(none)"),
