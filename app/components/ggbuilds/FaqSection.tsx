@@ -40,6 +40,22 @@ const faqs: { q: string; a: React.ReactNode }[] = [
     a: "You own the site. If you cancel the support plan, hosting and updates stop — which means the site goes offline until it's hosted again. We can provide the full codebase and offer transfer options if needed.",
   },
   {
+    q: "How do I cancel the Ongoing Stability + Support plan?",
+    a: (
+      <>
+        Email us at{" "}
+        <a href="mailto:support@callsfromclicks.com" style={{ color: "var(--gg-accent)", textDecoration: "underline" }}>
+          support@callsfromclicks.com
+        </a>{" "}
+        from the business email on your account and request cancellation. Your plan will remain active until the end of your current billing period. We do not prorate or refund partial months.
+      </>
+    ),
+  },
+  {
+    q: "What happens after my 6-month or 12-month plan ends?",
+    a: "Your plan automatically continues month-to-month at $79/month unless you renew with another bulk option before your term ends. You can cancel anytime by email. We will notify you before renewal.",
+  },
+  {
     q: "What's not included?",
     a: "Paid ads management, ongoing SEO campaigns, complex integrations, and custom software builds. This is a fast, conversion-focused website — not a full marketing agency retainer.",
   },
