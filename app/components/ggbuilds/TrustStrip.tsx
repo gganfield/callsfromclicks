@@ -1,4 +1,6 @@
-const items = [
+type StripItem = { icon: React.ReactNode; text: string; muted?: boolean };
+
+const items: StripItem[] = [
   {
     icon: (
       <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
@@ -24,6 +26,7 @@ const items = [
       </svg>
     ),
     text: "Business line included",
+    muted: true,
   },
   {
     icon: (
@@ -74,13 +77,14 @@ export default function TrustStrip() {
               display: "flex",
               alignItems: "center",
               gap: "6px",
-              color: "var(--gg-text2)",
+              color: item.muted ? "var(--gg-text3)" : "var(--gg-text2)",
               fontSize: "12px",
               fontWeight: 500,
               whiteSpace: "nowrap",
+              opacity: item.muted ? 0.75 : 1,
             }}
           >
-            <span style={{ color: "var(--gg-accent)", flexShrink: 0, display: "flex" }}>{item.icon}</span>
+            <span style={{ color: item.muted ? "var(--gg-text3)" : "var(--gg-accent)", flexShrink: 0, display: "flex" }}>{item.icon}</span>
             {item.text}
           </div>
         ))}

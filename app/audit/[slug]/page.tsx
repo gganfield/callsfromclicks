@@ -7,6 +7,7 @@ import {
 import { BenAuditContent } from "../ben/page";
 import { ZachAuditContent } from "../zach/page";
 import { ExampleAuditContent } from "../example/page";
+import AuditThemeSync from "../AuditThemeSync";
 
 type ExclusiveFor = { businessName: string };
 type AuditContentProps = { exclusiveFor?: ExclusiveFor };
@@ -38,5 +39,10 @@ export default async function AuditBySlugPage({ params }: PageProps) {
   const { businessName } = AUDIT_PRIVATE_LINKS[id];
   const Content = AUDIT_CONTENT[id];
 
-  return <Content exclusiveFor={{ businessName }} />;
+  return (
+    <>
+      <AuditThemeSync />
+      <Content exclusiveFor={{ businessName }} />
+    </>
+  );
 }

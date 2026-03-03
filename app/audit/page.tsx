@@ -2,6 +2,9 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
 
+const THEME_STORAGE_KEY = "gg-theme";
+type Theme = "dark" | "light";
+
 const industries = [
   "Auto Detailing",
   "Landscaping / Lawn Care",
@@ -38,8 +41,25 @@ export default function AuditPage() {
     agreeSms: false,
   });
   const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState<string>("");
   const [fieldErrors, setFieldErrors] = useState<{ name?: boolean; business?: boolean; email?: boolean }>({});
   const [showShake, setShowShake] = useState(false);
+  const [theme, setTheme] = useState<Theme>("dark");
+
+  useEffect(() => {
+    const saved = localStorage.getItem(THEME_STORAGE_KEY) as Theme | null;
+    const prefersLight = typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: light)").matches;
+    const initial: Theme = saved ?? (prefersLight ? "light" : "dark");
+    setTheme(initial);
+    document.documentElement.setAttribute("data-theme", initial);
+  }, []);
+
+  const toggleTheme = () => {
+    const next: Theme = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    localStorage.setItem(THEME_STORAGE_KEY, next);
+    document.documentElement.setAttribute("data-theme", next);
+  };
 
   const nameInputRef = useRef<HTMLInputElement>(null);
   const businessInputRef = useRef<HTMLInputElement>(null);
@@ -128,6 +148,7 @@ export default function AuditPage() {
       return;
     }
     setFieldErrors({});
+    setErrorMessage("");
     setStatus("loading");
     try {
       const res = await fetch("/api/contact", {
@@ -135,9 +156,15 @@ export default function AuditPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ formType: "audit", ...form }),
       });
-      if (res.ok) setStatus("done");
-      else setStatus("error");
+      if (res.ok) {
+        setStatus("done");
+      } else {
+        const data = await res.json().catch(() => ({}));
+        setErrorMessage(typeof data?.error === "string" ? data.error : "");
+        setStatus("error");
+      }
     } catch {
+      setErrorMessage("");
       setStatus("error");
     }
   };
@@ -189,20 +216,39 @@ export default function AuditPage() {
       />
 
       <div className="audit-page-wrap" style={{ maxWidth: "960px", margin: "0 auto", padding: "32px 24px 80px", position: "relative", zIndex: 1 }}>
-        <Link
-          href="/"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "6px",
-            fontSize: "13px",
-            color: "var(--gg-text3)",
-            textDecoration: "none",
-            marginBottom: "20px",
-          }}
-        >
-          ← Back to home
-        </Link>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "20px", flexWrap: "wrap", gap: "12px" }}>
+          <Link
+            href="/"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "6px",
+              fontSize: "13px",
+              color: "var(--gg-text3)",
+              textDecoration: "none",
+            }}
+          >
+            ← Back to home
+          </Link>
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className="gg-theme-toggle"
+            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            style={{ width: "40px", height: "40px", borderRadius: "10px" }}
+          >
+            {theme === "dark" ? (
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="10" r="4" stroke="currentColor" strokeWidth="1.5"/>
+                <path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.22 4.22l1.42 1.42M14.36 14.36l1.42 1.42M4.22 15.78l1.42-1.42M14.36 5.64l1.42-1.42" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+              </svg>
+            ) : (
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M17 12.85A8 8 0 017.15 3 7 7 0 1017 12.85z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
+              </svg>
+            )}
+          </button>
+        </div>
         {status === "done" ? (
           <div style={{ textAlign: "center", paddingTop: "60px" }}>
             <div
@@ -330,8 +376,9 @@ export default function AuditPage() {
                   </p>
                   <div className="audit-preview-wrap" style={{ flex: 1, minHeight: 0, display: "flex", flexDirection: "column", marginBottom: "20px" }}>
                     <iframe
-                      src="/audit/example?embed=1"
+                      src={`/audit/example?embed=1&theme=${theme}`}
                       title="Sample audit preview"
+                      key={`iframe-${theme}`}
                       className="audit-preview-iframe"
                       style={{
                         width: "100%",
@@ -434,7 +481,7 @@ export default function AuditPage() {
 
                     {status === "error" && (
                       <p style={{ fontSize: "13px", color: "var(--gg-red)", margin: 0 }}>
-                        Something went wrong. Try again or reach out to us directly.
+                        {errorMessage || "Something went wrong. Try again or reach out to us directly."}
                       </p>
                     )}
 
@@ -533,6 +580,9 @@ export default function AuditPage() {
           background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 6l2.5 2.5L10 3' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
           background-repeat: no-repeat;
           background-position: center;
+        }
+        [data-theme="light"] .audit-checkbox:checked {
+          background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 6l2.5 2.5L10 3' stroke='%230f0f14' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
         }
 
         @media (prefers-reduced-motion: no-preference) {

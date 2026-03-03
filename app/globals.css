@@ -96,6 +96,12 @@ h1, h2, h3, h4 {
   --gg-glow: 0 0 80px rgba(79,142,247,0.18), 0 0 200px rgba(79,142,247,0.06);
   --gg-nav-bg-scrolled: rgba(6,6,9,0.92);
   --gg-nav-dropdown-bg: rgba(6,6,9,0.98);
+  --gg-amber: #f5a623;
+  --gg-amber-soft: rgba(245,166,35,0.1);
+  --gg-amber-callout-label: #f5a623;
+  --gg-amber-callout-title: #fde68a;
+  --gg-amber-callout-body: rgba(253,230,138,0.85);
+  --gg-amber-callout-num: #f5a623;
 }
 
 /* ── GGbuilds light mode ── */
@@ -125,6 +131,24 @@ h1, h2, h3, h4 {
   --gg-glow: 0 0 80px rgba(58,126,245,0.12), 0 0 200px rgba(58,126,245,0.04);
   --gg-nav-bg-scrolled: rgba(255,255,255,0.92);
   --gg-nav-dropdown-bg: rgba(255,255,255,0.98);
+  --gg-amber: #d97706;
+  --gg-amber-soft: rgba(217,119,6,0.1);
+  --gg-amber-callout-label: #c2410c;
+  --gg-amber-callout-title: #1e293b;
+  --gg-amber-callout-body: #334155;
+  --gg-amber-callout-num: #c2410c;
+}
+
+/* Light mode: caution orange for label/numbers, dark slate for body (readable, not muddy) */
+[data-theme="light"] .audit-amber-callout .audit-amber-callout-label,
+[data-theme="light"] .audit-amber-callout .audit-amber-callout-num { color: #c2410c !important; }
+[data-theme="light"] .audit-amber-callout .audit-amber-callout-title { color: #1e293b !important; }
+[data-theme="light"] .audit-amber-callout .audit-amber-callout-body { color: #334155 !important; }
+@media (prefers-color-scheme: light) {
+  .audit-amber-callout .audit-amber-callout-label,
+  .audit-amber-callout .audit-amber-callout-num { color: #c2410c !important; }
+  .audit-amber-callout .audit-amber-callout-title { color: #1e293b !important; }
+  .audit-amber-callout .audit-amber-callout-body { color: #334155 !important; }
 }
 
 /* ── Animations ── */

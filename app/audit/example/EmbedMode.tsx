@@ -2,10 +2,22 @@
 
 import { useEffect } from "react";
 
+const THEME_STORAGE_KEY = "gg-theme";
+
 export default function EmbedMode() {
   useEffect(() => {
-    const inIframe = typeof window !== "undefined" && window.self !== window.top;
-    const embedParam = typeof window !== "undefined" && new URL(window.location.href).searchParams.get("embed") === "1";
+    if (typeof window === "undefined") return;
+    const url = new URL(window.location.href);
+    const inIframe = window.self !== window.top;
+    const embedParam = url.searchParams.get("embed") === "1";
+    const themeParam = url.searchParams.get("theme");
+
+    if (embedParam && themeParam === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    } else if (embedParam && themeParam === "dark") {
+      document.documentElement.setAttribute("data-theme", "dark");
+    }
+
     if (!inIframe && !embedParam) return;
 
     document.body.classList.add("audit-example-embed-mode");

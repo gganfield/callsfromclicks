@@ -3,25 +3,25 @@ export const metadata = {
   robots: "noindex, nofollow",
 };
 
-// ── Tokens ────────────────────────────────────────────────────
+// Use CSS variables so theme (light/dark) applies
 const C = {
-  bg: "#07070a",
-  surface: "rgba(255,255,255,0.03)",
-  surfaceHover: "rgba(255,255,255,0.055)",
-  border: "rgba(255,255,255,0.07)",
-  borderStrong: "rgba(255,255,255,0.13)",
-  text1: "#f2f2f7",
-  text2: "rgba(255,255,255,0.58)",
-  text3: "rgba(255,255,255,0.32)",
-  blue: "#4f8ef7",
-  blueSoft: "rgba(79,142,247,0.12)",
-  green: "#3ecf8e",
-  greenSoft: "rgba(62,207,142,0.1)",
-  red: "#f26464",
-  redSoft: "rgba(242,100,100,0.08)",
+  bg: "var(--gg-bg)",
+  surface: "var(--gg-surface)",
+  surfaceHover: "var(--gg-surface-hover)",
+  border: "var(--gg-border)",
+  borderStrong: "var(--gg-border-strong)",
+  text1: "var(--gg-text1)",
+  text2: "var(--gg-text2)",
+  text3: "var(--gg-text3)",
+  blue: "var(--gg-accent)",
+  blueSoft: "var(--gg-accent-soft)",
+  green: "var(--gg-green)",
+  greenSoft: "var(--gg-green-soft)",
+  red: "var(--gg-red)",
+  redSoft: "var(--gg-red-soft)",
   redBorder: "rgba(242,100,100,0.22)",
-  amber: "#f5a623",
-  amberSoft: "rgba(245,166,35,0.1)",
+  amber: "var(--gg-amber)",
+  amberSoft: "var(--gg-amber-soft)",
 };
 
 // ── Shared primitives ──────────────────────────────────────────

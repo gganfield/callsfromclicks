@@ -8,24 +8,24 @@ export const metadata = {
   robots: "noindex, nofollow",
 };
 
-// ── Tokens ─────────────────────────────────────────────────────
+// Use CSS variables so theme (light/dark) applies
 const C = {
-  bg: "#07070a",
-  surface: "rgba(255,255,255,0.03)",
-  border: "rgba(255,255,255,0.07)",
-  borderStrong: "rgba(255,255,255,0.13)",
-  text1: "#f2f2f7",
-  text2: "rgba(255,255,255,0.58)",
-  text3: "rgba(255,255,255,0.32)",
-  blue: "#4f8ef7",
-  blueSoft: "rgba(79,142,247,0.12)",
-  green: "#3ecf8e",
-  greenSoft: "rgba(62,207,142,0.1)",
-  red: "#f26464",
-  redSoft: "rgba(242,100,100,0.08)",
+  bg: "var(--gg-bg)",
+  surface: "var(--gg-surface)",
+  border: "var(--gg-border)",
+  borderStrong: "var(--gg-border-strong)",
+  text1: "var(--gg-text1)",
+  text2: "var(--gg-text2)",
+  text3: "var(--gg-text3)",
+  blue: "var(--gg-accent)",
+  blueSoft: "var(--gg-accent-soft)",
+  green: "var(--gg-green)",
+  greenSoft: "var(--gg-green-soft)",
+  red: "var(--gg-red)",
+  redSoft: "var(--gg-red-soft)",
   redBorder: "rgba(242,100,100,0.22)",
-  amber: "#f5a623",
-  amberSoft: "rgba(245,166,35,0.1)",
+  amber: "var(--gg-amber)",
+  amberSoft: "var(--gg-amber-soft)",
 };
 
 // ── Primitives ─────────────────────────────────────────────────
@@ -119,18 +119,18 @@ export function ZachAuditContent(props: { exclusiveFor?: { businessName: string 
         </header>
 
         {/* ── Site issues callout ── */}
-        <section style={{ background: C.amberSoft, border: `1px solid rgba(245,166,35,0.22)`, borderRadius: "14px", padding: "28px 28px 24px", marginBottom: "56px" }}>
-          <div style={{ fontSize: "9px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: C.amber, marginBottom: "12px" }}>
+        <section className="audit-amber-callout" style={{ background: C.amberSoft, border: `1px solid rgba(245,166,35,0.22)`, borderRadius: "14px", padding: "28px 28px 24px", marginBottom: "56px" }}>
+          <div className="audit-amber-callout-label" style={{ fontSize: "9px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--gg-amber-callout-label)", marginBottom: "12px" }}>
             Site Issues — Small Details, Real Cost
           </div>
-          <h2 style={{ fontSize: "18px", fontWeight: 600, letterSpacing: "-0.025em", color: "#fde68a", margin: "0 0 20px", lineHeight: 1.3 }}>
+          <h2 className="audit-amber-callout-title" style={{ fontSize: "18px", fontWeight: 600, letterSpacing: "-0.025em", color: "var(--gg-amber-callout-title)", margin: "0 0 20px", lineHeight: 1.3 }}>
             Your site works. It&apos;s just quietly losing you customers.
           </h2>
           <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
             {d.prospect.websiteIssues.map((issue, i) => (
               <div key={i} style={{ display: "grid", gridTemplateColumns: "20px 1fr", gap: "8px", alignItems: "start" }}>
-                <span style={{ fontSize: "11px", color: C.amber, opacity: 0.7, paddingTop: "2px", fontWeight: 600 }}>{i + 1}.</span>
-                <p style={{ fontSize: "13px", color: "rgba(253,230,138,0.7)", lineHeight: 1.6, margin: 0 }}>{issue}</p>
+                <span className="audit-amber-callout-num" style={{ fontSize: "11px", color: "var(--gg-amber-callout-num)", opacity: 0.9, paddingTop: "2px", fontWeight: 600 }}>{i + 1}.</span>
+                <p className="audit-amber-callout-body" style={{ fontSize: "13px", color: "var(--gg-amber-callout-body)", lineHeight: 1.6, margin: 0 }}>{issue}</p>
               </div>
             ))}
           </div>

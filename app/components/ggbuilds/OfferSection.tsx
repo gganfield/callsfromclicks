@@ -47,7 +47,19 @@ const tagIcons: Record<string, React.ReactElement> = {
   ),
 };
 
-const deliverables = [
+type Deliverable = {
+  num: string;
+  title: string;
+  detail: string;
+  tag: string;
+  tagIcon: string;
+  tagColor: string;
+  tagBg: string;
+  tagBorder: string;
+  muted?: boolean;
+};
+
+const deliverables: Deliverable[] = [
   {
     num: "01",
     title: "Custom conversion site",
@@ -71,12 +83,13 @@ const deliverables = [
   {
     num: "03",
     title: "Professional Business Line Setup",
-    detail: "A dedicated business number that forwards to your cell, keeping your personal number private. It filters spam and sends an automatic text-back when you miss a call (even after-hours). We activate it on your site as soon as carrier verification clears.",
-    tag: "After-hours ready",
+    detail: "A dedicated business number that forwards to your cell, with call filtering and missed-call auto text. We're completing our phone provider setup now, so activation will follow shortly after carrier verification. While you wait, your build includes 4 months of hosting and support instead of 3.",
+    tag: "Included — activation shortly",
     tagIcon: "message",
-    tagColor: "var(--gg-green)",
-    tagBg: "var(--gg-green-soft)",
-    tagBorder: "var(--gg-green-border)",
+    tagColor: "var(--gg-text3)",
+    tagBg: "var(--gg-bg-section)",
+    tagBorder: "var(--gg-border)",
+    muted: true,
   },
   {
     num: "05",
@@ -174,6 +187,7 @@ export default function OfferSection() {
                   alignItems: "start",
                   padding: "22px 24px",
                   borderBottom: i < deliverables.length - 1 ? "1px solid var(--gg-border)" : "none",
+                  opacity: d.muted ? 0.85 : 1,
                 }}
               >
                 <span
@@ -202,7 +216,7 @@ export default function OfferSection() {
                       style={{
                         fontSize: "15px",
                         fontWeight: 700,
-                        color: "var(--gg-text1)",
+                        color: d.muted ? "var(--gg-text2)" : "var(--gg-text1)",
                         margin: 0,
                         letterSpacing: "-0.02em",
                       }}
@@ -228,7 +242,7 @@ export default function OfferSection() {
                       {d.tag}
                     </div>
                   </div>
-                  <p style={{ fontSize: "13px", color: "var(--gg-text2)", lineHeight: 1.65, margin: 0 }}>
+                  <p style={{ fontSize: "13px", color: d.muted ? "var(--gg-text3)" : "var(--gg-text2)", lineHeight: 1.65, margin: 0 }}>
                     {d.detail}
                   </p>
                   {d.num === "02" && (
