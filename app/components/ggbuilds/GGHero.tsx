@@ -120,7 +120,9 @@ export default function GGHero() {
             color: "var(--gg-text1)",
           }}
         >
-          Your business deserves
+          More Calls.
+          <br />
+          More Quote Requests.
           <br />
           <span
             style={{
@@ -132,7 +134,7 @@ export default function GGHero() {
               animation: "gg-shimmer 9s linear infinite",
             }}
           >
-            a system that converts.
+            Live in 72 Hours.
           </span>
         </h1>
 
@@ -147,7 +149,7 @@ export default function GGHero() {
             maxWidth: "560px",
           }}
         >
-          Custom-built, mobile-first, live in 72 hours. For local service businesses that are tired of losing calls to competitors with a stronger presence.
+          We build and launch a conversion-focused website, business listings, and a missed-call text system so local customers can actually reach you.
         </p>
 
         {/* CTAs */}
