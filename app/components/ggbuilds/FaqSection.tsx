@@ -25,11 +25,11 @@ const faqs: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "What listings or profiles do you set up?",
-    a: "We set up and optimize your business on Google Business Profile, Apple Maps, Yelp, Angi, Facebook, Yellow Pages, and Trustpilot or Houzz when relevant to your industry. We don't control verification or approval timelines on those platforms; we submit and optimize, and they run on their own schedule.",
+    a: "We set up and strengthen your business on Google Business Profile, Apple Maps, Yelp, Angi, Facebook, Yellow Pages, and Trustpilot or Houzz when relevant to your industry. We don't control verification or approval timelines on those platforms; we submit and refine, and they run on their own schedule.",
   },
   {
     q: "What does the 72-hour guarantee include?",
-    a: "Our work: site live and listings submitted within 72 hours of receiving and confirming your assets. We don't control Google, carriers, or other platforms, so their verification and approval timelines aren't part of the guarantee. We're on the hook for completion and submission; they run on their own schedule.",
+    a: "Our work: site live and business listings configured and submitted within 72 hours once assets and verification access are complete. We don't control Google, carriers, or other platforms, so their verification and approval timelines aren't part of the guarantee. We're on the hook for completion and submission; they run on their own schedule.",
   },
   {
     q: "What does 'hosted' mean?",

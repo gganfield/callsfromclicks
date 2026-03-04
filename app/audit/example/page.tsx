@@ -294,7 +294,7 @@ export function ExampleAuditContent(props: { exclusiveFor?: { businessName: stri
             AI tools and map platforms pull business data from multiple sources — if your information isn&apos;t consistent everywhere, you lose visibility automatically.
           </p>
           <p style={{ fontSize: "15px", color: C.text2, lineHeight: 1.75, margin: 0 }}>
-            The good news? Every single one of these is free to claim and optimize. It just takes a little time and a few verification steps (email, phone, or postcard).
+            The good news? Every single one of these is free to claim and build out. It just takes a little time and a few verification steps (email, phone, or postcard).
           </p>
         </section>
 

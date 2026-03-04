@@ -92,7 +92,10 @@ export default function ServiceAgreementPage() {
         <section style={sectionStyle}>
           <h2 style={h2Style}>2. Required Assets</h2>
           <p style={pStyle}>
-            The 72-hour timeline begins only after Company receives and confirms:
+            The 72-hour timeline begins only after Company receives and confirms all required assets and completes any necessary verification access with Client.
+          </p>
+          <p style={pStyle}>
+            Required assets include:
           </p>
           <ul style={listStyle}>
             <li>Business name</li>

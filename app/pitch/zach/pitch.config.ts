@@ -86,7 +86,7 @@ export const pitchData = {
     {
       urgent: false,
       title: "Build something specifically for north Macomb customers",
-      body: "Big Lakes is optimized for Macomb and Chesterfield — central and south county. Romeo, Washington Township, Ray Township, and Armada are a natural fit for a business based here. A site and GBP that specifically names those areas ranks organically in searches coming from customers who are already closer to your door than to theirs.",
+      body: "Big Lakes is focused on Macomb and Chesterfield — central and south county. Romeo, Washington Township, Ray Township, and Armada are a natural fit for a business based here. A site and GBP that specifically names those areas ranks organically in searches coming from customers who are already closer to your door than to theirs.",
     },
   ],
 } as const;

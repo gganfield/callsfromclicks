@@ -62,7 +62,7 @@ type Deliverable = {
 const deliverables: Deliverable[] = [
   {
     num: "01",
-    title: "Custom conversion site",
+    title: "Custom Conversion Site",
     detail: "A strong main landing page plus nav to Services, About, Testimonials, Gallery, Contact as needed. Mobile-first, fast, with click-to-call, quote form, and reviews. 2 revision rounds included (one batched list per round).",
     tag: "Delivered in 72 hrs",
     tagIcon: "clock",
@@ -72,8 +72,8 @@ const deliverables: Deliverable[] = [
   },
   {
     num: "02",
-    title: "Local Presence Tune-Up",
-    detail: "We tighten up your GBP, Apple Maps, BBB, Angi, and other key directories so your business looks consistent and credible wherever customers search. Categories, services, description, service area, call + website links, and a simple review/photo checklist included.",
+    title: "Local Presence Setup",
+    detail: "We configure and align your business information across key platforms like Google Business Profile, Apple Maps, Yelp, and Angi so your business appears consistent and credible wherever customers search. We submit the necessary updates and provide a simple checklist to help you keep reviews and photos growing over time.",
     tag: "Maps + Reviews",
     tagIcon: "map",
     tagColor: "var(--gg-green)",
@@ -82,7 +82,7 @@ const deliverables: Deliverable[] = [
   },
   {
     num: "03",
-    title: "Professional Business Line Setup",
+    title: "Professional Business Line",
     detail: "A dedicated business number that forwards to your cell, with call filtering and missed-call auto text. We're completing our phone provider setup now, so activation will follow shortly after carrier verification. While you wait, your build includes 4 months of hosting and support instead of 3.",
     tag: "Included — activation shortly",
     tagIcon: "message",
@@ -92,9 +92,9 @@ const deliverables: Deliverable[] = [
     muted: true,
   },
   {
-    num: "05",
-    title: "72-hour delivery guarantee",
-    detail: "After we have your assets (business name, phone/email, services, service area, logo or text logo, at least 5 photos or placeholders), your site is live within 72 hours. If we miss our deadline, your final 50% is waived.",
+    num: "04",
+    title: "72-Hour Delivery Guarantee",
+    detail: "After we receive your required assets (business name, phone/email, services, service area, logo or text logo, at least 5 photos or placeholders) and complete the verification call, your site is live within 72 hours. If we miss our deadline, your final 50% is waived.",
     tag: "Or final 50% waived",
     tagIcon: "shield",
     tagColor: "var(--gg-red)",

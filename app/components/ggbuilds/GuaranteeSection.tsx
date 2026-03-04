@@ -208,7 +208,7 @@ export default function GuaranteeSection() {
               72 hours or final 50% waived.
             </h3>
             <p style={{ fontSize: "14px", color: "var(--gg-text2)", lineHeight: 1.65, margin: 0, maxWidth: "560px" }}>
-              After you send us your assets, your site goes live within 72 hours or we waive your final 50% (deposit stands). The 72-hour window begins once all required assets are received and confirmed. No exceptions.
+              After you send your assets and complete the verification call, your site goes live within 72 hours or we waive your final 50%. The 72-hour window begins once all required assets are received, confirmed, and verification access is completed.
             </p>
           </div>
           <Link

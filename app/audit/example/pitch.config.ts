@@ -67,7 +67,7 @@ export const pitchData = {
   opportunities: [
     {
       urgent: false,
-      title: "Claim & optimize your listings on every platform customers actually check",
+      title: "Claim & strengthen your listings on every platform customers actually check",
       body: "Google is still the biggest, but in 2026 people also check Apple Maps, BBB, Angi, and Yellow Pages. When those listings are missing or incomplete, you become invisible even if you have real reviews and a good site.\n\nHere's exactly how to do it yourself:\n• Apple Maps → businessconnect.apple.com → search your address and claim it (requires an Apple ID and possible postcard verification).\n• BBB → bbb.org/get-listed → add or claim your business (email + phone verification).\n• Angi → angi.com → join as a service pro and claim your profile (free basic listing).\n• Yellow Pages → yellowpages.com/claim-your-listing → search and claim (email/phone).\n\nEach one takes a little time plus any verification waits, but once they're done you start showing up in more places where customers look. (For Peak Home Remodeling, the Shelby Township slot is currently empty in both Apple Maps and Angi.)",
     },
     {
