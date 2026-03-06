@@ -181,7 +181,6 @@ function Opportunity({ n, title, body, urgent }: OpportunityProps) {
 // ── Page ──────────────────────────────────────────────────────
 import { notFound } from "next/navigation";
 import AuditIntroVideo from "@/app/components/ggbuilds/AuditIntroVideo";
-import { AUDIT_BOOK_CALL_URL } from "@/app/config/audit";
 
 function ExclusiveNote({ businessName }: { businessName: string }) {
   return (
@@ -253,68 +252,93 @@ export function BenAuditContent(props: { exclusiveFor?: { businessName: string }
           <p style={{ fontSize: "14px", color: C.text3, margin: 0 }}>
             Romeo, MI &nbsp;·&nbsp; Window Tinting · PPF · Paint Correction · Ceramic Coating
           </p>
+
+          <p
+            style={{
+              fontSize: "15px",
+              color: C.text2,
+              lineHeight: 1.75,
+              margin: "24px 0 0",
+              maxWidth: "560px",
+            }}
+          >
+            Your GBP is getting sorted. Your Instagram and TikTok are active. Your
+            Facebook page has 21 five star reviews. The foundation is genuinely
+            strong. The one thing working against you right now is that anyone
+            who looks you up hits a broken website. With the shop opening in
+            three weeks, here is what the full picture looks like and what to do
+            about it.
+          </p>
         </header>
 
-        {/* ── Critical alert: broken website ── */}
-        <section
-          className="audit-critical-box"
-          style={{
-            background: C.redSoft,
-            border: `1px solid ${C.redBorder}`,
-            borderRadius: "14px",
-            padding: "28px 28px 24px",
-            marginBottom: "56px",
-          }}
-        >
+        {/* ── What's working ── */}
+        <section style={{ marginBottom: "56px" }}>
+          <Label>What You&apos;ve Built</Label>
+
           <div
             style={{
-              fontSize: "9px",
-              fontWeight: 700,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              color: C.red,
-              marginBottom: "12px",
+              background: C.surface,
+              border: `1px solid ${C.border}`,
+              borderRadius: "14px",
+              overflow: "hidden",
             }}
           >
-            Critical — Action Required
-          </div>
-
-          <h2
-            style={{
-              fontSize: "18px",
-              fontWeight: 600,
-              letterSpacing: "-0.025em",
-              color: C.red,
-              margin: "0 0 20px",
-              lineHeight: 1.3,
-            }}
-          >
-            Your website is broken right now.
-          </h2>
-
-          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-            <p style={{ fontSize: "14px", color: C.red, lineHeight: 1.7, margin: 0 }}>
-              On <strong style={{ color: C.red }}>Chrome</strong> — anyone visiting
-              bensautospa.com gets redirected to a random auto racing article. Your business
-              is nowhere to be seen.
-            </p>
-            <p style={{ fontSize: "14px", color: C.red, lineHeight: 1.7, margin: 0 }}>
-              On <strong style={{ color: C.red }}>Safari / iPhone</strong> — blank white page.
-            </p>
-            <p
-              style={{
-                fontSize: "12px",
-                color: C.red,
-                lineHeight: 1.6,
-                margin: 0,
-                paddingTop: "4px",
-                borderTop: `1px solid ${C.redBorder}`,
-              }}
-            >
-              This happens when a domain&apos;s hosting lapses or gets caught in a parking
-              redirect network. Every referral — from Instagram, Facebook, Yelp, or word of mouth
-              — has hit a dead end. Most businesses never find out.
-            </p>
+            {[
+              {
+                label: "Facebook · Bens Auto Spa LLC",
+                value: "21 reviews · 5.0 stars",
+              },
+              {
+                label: "Yelp",
+                value: "5-star review · posted a full-car tint walkthrough 2 days ago",
+              },
+              {
+                label: "Instagram & TikTok",
+                value: "@bensautospa_ · active, consistent content",
+              },
+              {
+                label: "YouTube",
+                value: "@bensautospa",
+              },
+              {
+                label: "Services",
+                value: "Window Tinting · PPF · Paint Correction · Ceramic Coating",
+              },
+              {
+                label: "Location",
+                value:
+                  "Romeo — north end of Macomb County. Washington Township, Ray Township, and Armada are right in your backyard.",
+              },
+            ].map((item, i, arr) => (
+              <div
+                key={item.label}
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "160px 1fr",
+                  gap: "16px",
+                  padding: "16px 20px",
+                  borderBottom:
+                    i < arr.length - 1 ? `1px solid ${C.border}` : "none",
+                  alignItems: "start",
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: "12px",
+                    color: C.text3,
+                    lineHeight: 1.5,
+                    paddingTop: "1px",
+                  }}
+                >
+                  {item.label}
+                </span>
+                <span
+                  style={{ fontSize: "13px", color: C.text2, lineHeight: 1.6 }}
+                >
+                  {item.value}
+                </span>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -401,83 +425,76 @@ export function BenAuditContent(props: { exclusiveFor?: { businessName: string }
               lineHeight: 1.5,
             }}
           >
-            Google reviews are the primary signal customers use before spending
-            $500–$2,500 on a ceramic coat. Diamond Detailz has 124 of them.
-            You have zero — not because your work isn&apos;t there, but because
-            Google has nothing to show for you yet.
+            97% of consumers read reviews before booking a service. For a
+            $500–$2,500 ceramic coat or PPF job, Google is the first place they
+            check. Diamond Detailz has 124 of them. You have zero — not because
+            your work isn&apos;t there, but because your GBP hasn&apos;t been live
+            to collect them yet. That changes once your profile is verified. Your
+            21 Facebook reviewers are ready to be your first Google reviews the
+            moment you ask.
           </p>
         </section>
 
-        <Divider />
-
-        {/* ── What's working ── */}
-        <section style={{ marginBottom: "56px" }}>
-          <Label>What You&apos;ve Built</Label>
-
+        {/* ── Critical alert: broken website ── */}
+        <section
+          className="audit-critical-box"
+          style={{
+            background: C.redSoft,
+            border: `1px solid ${C.redBorder}`,
+            borderRadius: "14px",
+            padding: "28px 28px 24px",
+            marginBottom: "56px",
+          }}
+        >
           <div
             style={{
-              background: C.surface,
-              border: `1px solid ${C.border}`,
-              borderRadius: "14px",
-              overflow: "hidden",
+              fontSize: "9px",
+              fontWeight: 700,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: C.red,
+              marginBottom: "12px",
             }}
           >
-            {[
-              {
-                label: "Facebook · Bens Auto Spa LLC",
-                value: "21 reviews · 5.0 stars",
-              },
-              {
-                label: "Yelp",
-                value: "5-star review · posted a full-car tint walkthrough 2 days ago",
-              },
-              {
-                label: "Instagram & TikTok",
-                value: "@bensautospa_ · active, consistent content",
-              },
-              {
-                label: "YouTube",
-                value: "@bensautospa",
-              },
-              {
-                label: "Services",
-                value: "Window Tinting · PPF · Paint Correction · Ceramic Coating",
-              },
-              {
-                label: "Location",
-                value:
-                  "Romeo — north end of Macomb County. Washington Township, Ray Township, and Armada are right in your backyard.",
-              },
-            ].map((item, i, arr) => (
-              <div
-                key={item.label}
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "160px 1fr",
-                  gap: "16px",
-                  padding: "16px 20px",
-                  borderBottom:
-                    i < arr.length - 1 ? `1px solid ${C.border}` : "none",
-                  alignItems: "start",
-                }}
-              >
-                <span
-                  style={{
-                    fontSize: "12px",
-                    color: C.text3,
-                    lineHeight: 1.5,
-                    paddingTop: "1px",
-                  }}
-                >
-                  {item.label}
-                </span>
-                <span
-                  style={{ fontSize: "13px", color: C.text2, lineHeight: 1.6 }}
-                >
-                  {item.value}
-                </span>
-              </div>
-            ))}
+            Critical — Action Required
+          </div>
+
+          <h2
+            style={{
+              fontSize: "18px",
+              fontWeight: 600,
+              letterSpacing: "-0.025em",
+              color: C.red,
+              margin: "0 0 20px",
+              lineHeight: 1.3,
+            }}
+          >
+            Your website is broken right now.
+          </h2>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+            <p style={{ fontSize: "14px", color: C.red, lineHeight: 1.7, margin: 0 }}>
+              On <strong style={{ color: C.red }}>Chrome</strong> — anyone visiting
+              bensautospa.com gets redirected to a random auto racing article. Your business
+              is nowhere to be seen.
+            </p>
+            <p style={{ fontSize: "14px", color: C.red, lineHeight: 1.7, margin: 0 }}>
+              On <strong style={{ color: C.red }}>Safari / iPhone</strong> — blank white page.
+            </p>
+            <p
+              style={{
+                fontSize: "12px",
+                color: C.red,
+                lineHeight: 1.6,
+                margin: 0,
+                paddingTop: "4px",
+                borderTop: `1px solid ${C.redBorder}`,
+              }}
+            >
+              This happens when a domain&apos;s hosting lapses or gets caught in a parking
+              redirect network. Every referral — from Instagram, Facebook, Yelp, or word of mouth
+              — has hit a dead end. Most businesses never find out.
+            </p>
           </div>
         </section>
 
@@ -541,38 +558,6 @@ export function BenAuditContent(props: { exclusiveFor?: { businessName: string }
           </div>
         </section>
 
-        <Divider />
-
-        {/* ── What a GBP does ── */}
-        <section style={{ marginBottom: "56px" }}>
-          <Label>Why the GBP gap matters</Label>
-          <p
-            style={{
-              fontSize: "15px",
-              color: C.text2,
-              lineHeight: 1.75,
-              margin: "0 0 16px",
-            }}
-          >
-            Google Business Profiles are{" "}
-            <span style={{ color: C.text1, fontWeight: 600 }}>free to set up</span>{" "}
-            and show up as a prominent block above all regular search results — photos,
-            reviews, phone number, hours, and a booking button visible before anyone
-            clicks anything.
-          </p>
-          <p
-            style={{
-              fontSize: "15px",
-              color: C.text2,
-              lineHeight: 1.75,
-              margin: 0,
-            }}
-          >
-            Right now, searching any of your services in Romeo returns zero results
-            for you. That position is unclaimed and it&apos;s in your own city.
-          </p>
-        </section>
-
         {/* ── 3 opportunities ── */}
         <section style={{ marginBottom: "64px" }}>
           <Label>Three moves that change everything</Label>
@@ -580,18 +565,18 @@ export function BenAuditContent(props: { exclusiveFor?: { businessName: string }
           <Opportunity
             n={1}
             title="Fix the website — it's actively sending people away"
-            body="Every person you've pointed to bensautospa.com has either gotten a blank page or a redirect to an auto racing article. All that consistent content you're posting on Instagram and TikTok has nowhere to land. A working site that Google can read turns your existing audience into actual booked jobs."
+            body="97% of consumers read reviews before booking a service, and 41% check them every single time. You have active Instagram and TikTok accounts, a Facebook page with 21 five star reviews, and a new shop opening in three weeks. People are already looking you up. Every single one of them is hitting a blank page or getting redirected to an auto racing article. All that content you're posting has nowhere to land. A working site built to convert turns the audience you've already built into actual booked jobs."
             urgent
           />
           <Opportunity
             n={2}
-            title="Claim your Google Business Profile"
-            body="Diamond Detailz has 124 Google reviews and a full GBP with photos and a live booking button. That's why they show up when someone types 'ceramic coating near me' and you don't. Claiming yours costs nothing. Your existing Facebook 5-star reviewers are the fastest path to getting on the board."
+            title="Your GBP is in progress — make sure it has somewhere to send people."
+            body="Once your profile is verified and live, Google starts sending people directly to your website. Right now that means a blank page or an auto racing article. The GBP work you're already investing in only pays off if there's a working site ready to receive it. Your existing Facebook reviewers are the fastest path to getting Google reviews on the board once it's live."
           />
           <Opportunity
             n={3}
             title="Own north Macomb before someone else does"
-            body="The major shops — Diamond Detailz, K&D Auto Spa — are clustered around Shelby Township. A site and GBP built specifically for Romeo, Washington Township, and the surrounding area gives you a clear geographic edge in searches coming from the north end of the county. The audience is there. There's no online destination built for them yet."
+            body="The major shops (Diamond Detailz and Huntz Auto Works) are clustered around Shelby Township. A site and GBP built specifically for Romeo, Washington Township, and the surrounding area gives you a clear geographic edge in searches coming from the north end of the county. The audience is there. There's no online destination built for them yet."
           />
         </section>
 
@@ -626,43 +611,11 @@ export function BenAuditContent(props: { exclusiveFor?: { businessName: string }
               maxWidth: "420px",
             }}
           >
-            The foundation is there — good work, good reviews, active content.
-            It just needs somewhere to live online. When you&apos;re ready to talk
-            through it, pick a 15‑min slot below.
+            Good work, active content, real reviews, a physical shop, and a GBP
+            on the way. You are closer than you think. If you want help getting
+            the website sorted before opening day, send me a message and we can
+            talk through it.
           </p>
-        </div>
-
-        {/* ── Book a call ── */}
-        <div
-          style={{
-            marginTop: "32px",
-            padding: "32px 36px",
-            background: "transparent",
-            borderTop: `1px solid ${C.border}`,
-            textAlign: "center",
-          }}
-        >
-          <a
-            href={AUDIT_BOOK_CALL_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              padding: "16px 32px",
-              background: C.blue,
-              color: "#fff",
-              fontSize: "15px",
-              fontWeight: 600,
-              letterSpacing: "-0.02em",
-              borderRadius: "10px",
-              textDecoration: "none",
-              whiteSpace: "nowrap",
-            }}
-          >
-            Pick a time
-          </a>
         </div>
 
       </div>

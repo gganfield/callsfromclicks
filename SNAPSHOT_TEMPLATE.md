@@ -164,7 +164,7 @@ export const pitchData = {
     {
       urgent: false,
       title: "Build a presence specifically for north Macomb",
-      body: "The major shops — Diamond Detailz, K&D Auto Spa — are clustered around Shelby Township. A site and GBP built specifically for Romeo, Washington Township, and the surrounding area gives you a clear geographic edge in searches coming from the north end of the county.",
+      body: "The major shops (Diamond Detailz, K&D Auto Spa) are clustered around Shelby Township. A site and GBP built specifically for Romeo, Washington Township, and the surrounding area gives you a clear geographic edge in searches coming from the north end of the county.",
     },
   ],
 } as const;

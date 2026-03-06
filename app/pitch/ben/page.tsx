@@ -569,7 +569,7 @@ export default function BenSnapshot() {
           <Opportunity
             n={3}
             title="Own north Macomb before someone else does"
-            body="The major shops — Diamond Detailz, K&D Auto Spa — are clustered around Shelby Township. A site and GBP built specifically for Romeo, Washington Township, and the surrounding area gives you a clear geographic edge in searches coming from the north end of the county. The audience is there. There's no online destination built for them yet."
+            body="The major shops (Diamond Detailz, K&D Auto Spa) are clustered around Shelby Township. A site and GBP built specifically for Romeo, Washington Township, and the surrounding area gives you a clear geographic edge in searches coming from the north end of the county. The audience is there. There's no online destination built for them yet."
           />
         </section>
 

@@ -282,8 +282,8 @@ export default function GGHero() {
           >
             See an example audit →
           </Link>
-          <a
-            href="#demo"
+          <Link
+            href="/demo"
             className="gg-demo-link"
             style={{
               display: "inline-flex",
@@ -296,7 +296,7 @@ export default function GGHero() {
             }}
           >
             See the demo in action →
-          </a>
+          </Link>
         </div>
       </div>
 
