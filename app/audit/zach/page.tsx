@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import { pitchData as d } from "./pitch.config";
 import AuditIntroVideo from "@/app/components/ggbuilds/AuditIntroVideo";
-import { AUDIT_BOOK_CALL_URL } from "@/app/config/audit";
 
 export const metadata = {
   title: "Big Dawgs Lawn & Landscape — Local Lead Leak Audit",
@@ -92,7 +91,7 @@ function Opportunity({ n, title, body, urgent }: OpportunityProps) {
 // ── Page ───────────────────────────────────────────────────────
 function ExclusiveNote({ businessName }: { businessName: string }) {
   return (
-    <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)", marginBottom: "24px", fontStyle: "italic" }}>
+    <p style={{ fontSize: "12px", color: C.text3, marginBottom: "24px", fontStyle: "italic" }}>
       Prepared exclusively for {businessName}. Please do not share publicly.
     </p>
   );
@@ -118,19 +117,24 @@ export function ZachAuditContent(props: { exclusiveFor?: { businessName: string 
           </p>
         </header>
 
-        {/* ── Site issues callout ── */}
-        <section className="audit-amber-callout" style={{ background: C.amberSoft, border: `1px solid rgba(245,166,35,0.22)`, borderRadius: "14px", padding: "28px 28px 24px", marginBottom: "56px" }}>
-          <div className="audit-amber-callout-label" style={{ fontSize: "9px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--gg-amber-callout-label)", marginBottom: "12px" }}>
-            Site Issues — Small Details, Real Cost
-          </div>
-          <h2 className="audit-amber-callout-title" style={{ fontSize: "18px", fontWeight: 600, letterSpacing: "-0.025em", color: "var(--gg-amber-callout-title)", margin: "0 0 20px", lineHeight: 1.3 }}>
-            Your site works. It&apos;s just quietly losing you customers.
-          </h2>
-          <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-            {d.prospect.websiteIssues.map((issue, i) => (
-              <div key={i} style={{ display: "grid", gridTemplateColumns: "20px 1fr", gap: "8px", alignItems: "start" }}>
-                <span className="audit-amber-callout-num" style={{ fontSize: "11px", color: "var(--gg-amber-callout-num)", opacity: 0.9, paddingTop: "2px", fontWeight: 600 }}>{i + 1}.</span>
-                <p className="audit-amber-callout-body" style={{ fontSize: "13px", color: "var(--gg-amber-callout-body)", lineHeight: 1.6, margin: 0 }}>{issue}</p>
+        <p style={{ fontSize: "15px", color: C.text2, lineHeight: 1.75, margin: "0 0 40px", maxWidth: "560px" }}>
+          16 years in Romeo means something. You have real clients, real work, and a service area with room to own. The one thing holding Big Dawgs back online is easy to fix — here is what the full picture looks like.
+        </p>
+
+        {/* ── What's working ── */}
+        <section style={{ marginBottom: "56px" }}>
+          <Label>What You&apos;ve Built</Label>
+          <div style={{ background: C.surface, border: `1px solid ${C.border}`, borderRadius: "14px", overflow: "hidden" }}>
+            {[
+              { label: "In business since", value: `${d.prospect.founded} — ${d.prospect.yearsInBusiness} years of real work and real clients` },
+              { label: "Website", value: `bigdawgslandscape.com — live and functional with photos, services, and a contact form` },
+              { label: "Facebook", value: `Active page · ${d.prospect.facebookReviews} review · ${d.prospect.facebookRating} stars` },
+              { label: "Services", value: d.prospect.services },
+              { label: "Credibility", value: "Fully insured · personal story · real testimonial from a named customer" },
+            ].map((item, i, arr) => (
+              <div key={item.label} style={{ display: "grid", gridTemplateColumns: "160px 1fr", gap: "16px", padding: "16px 20px", borderBottom: i < arr.length - 1 ? `1px solid ${C.border}` : "none", alignItems: "start" }}>
+                <span style={{ fontSize: "12px", color: C.text3, lineHeight: 1.5, paddingTop: "1px" }}>{item.label}</span>
+                <span style={{ fontSize: "13px", color: C.text2, lineHeight: 1.6 }}>{item.value}</span>
               </div>
             ))}
           </div>
@@ -149,27 +153,42 @@ export function ZachAuditContent(props: { exclusiveFor?: { businessName: string 
             <span style={{ fontSize: "11px", fontWeight: 600, color: C.text3, letterSpacing: "0.08em" }}>VS</span>
             <div style={{ background: C.greenSoft, border: `1px solid rgba(62,207,142,0.2)`, borderRadius: "12px", padding: "28px 20px", textAlign: "center" }}>
               <div style={{ fontSize: "clamp(52px, 12vw, 72px)", fontWeight: 700, letterSpacing: "-0.05em", color: C.green, lineHeight: 1, marginBottom: "10px", fontFamily: "'Poppins', sans-serif" }}>
-                701
+                {d.competitor.googleReviews}
               </div>
-              <p style={{ fontSize: "11px", color: C.green, fontWeight: 600, margin: 0, opacity: 0.8 }}>Big Lakes Lawncare</p>
+              <p style={{ fontSize: "11px", color: C.green, fontWeight: 600, margin: 0, opacity: 0.8 }}>{d.competitor.name}</p>
+              {d.competitor.googleRating != null && (
+                <p style={{ fontSize: "10px", color: C.green, margin: "2px 0 0", opacity: 0.9 }}>{d.competitor.googleRating} stars</p>
+              )}
             </div>
           </div>
           <p style={{ fontSize: "13px", color: C.text3, textAlign: "center", marginTop: "16px", lineHeight: 1.5 }}>
-            {d.prospect.yearsInBusiness} years of real work, real clients, and real results —
-            none of which shows up on Google yet. The reviews simply haven&apos;t been collected in a place
-            that Google can see.
+            97% of consumers read reviews before booking a lawn or landscaping service. Grant Property Service in Washington Township has 9 reviews and a claimed GBP — and is already showing up in north Macomb searches ahead of you. That is not because their work is better. It is because they did the basics first. Your past customers are ready to be your first reviews the moment you ask.
           </p>
-          <p style={{ fontSize: "13px", color: C.text3, textAlign: "center", marginTop: "12px", lineHeight: 1.5 }}>
-            Grant Property Service — your direct competitor in north Macomb — has 9 reviews and shows up
-            in search. The first 10–20 are the hardest; after that, momentum builds.
-          </p>
+        </section>
+
+        {/* ── Site issues callout ── */}
+        <section className="audit-amber-callout" style={{ background: C.amberSoft, border: `1px solid rgba(245,166,35,0.22)`, borderRadius: "14px", padding: "28px 28px 24px", marginBottom: "56px" }}>
+          <div className="audit-amber-callout-label" style={{ fontSize: "9px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--gg-amber-callout-label)", marginBottom: "12px" }}>
+            Site Issues — Small Details, Real Cost
+          </div>
+          <h2 className="audit-amber-callout-title" style={{ fontSize: "18px", fontWeight: 600, letterSpacing: "-0.025em", color: "var(--gg-amber-callout-title)", margin: "0 0 20px", lineHeight: 1.3 }}>
+            Your site works. It&apos;s just quietly losing you customers.
+          </h2>
+          <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+            {d.prospect.websiteIssues.map((issue, i) => (
+              <div key={i} style={{ display: "grid", gridTemplateColumns: "20px 1fr", gap: "8px", alignItems: "start" }}>
+                <span className="audit-amber-callout-num" style={{ fontSize: "11px", color: "var(--gg-amber-callout-num)", opacity: 0.9, paddingTop: "2px", fontWeight: 600 }}>{i + 1}.</span>
+                <p className="audit-amber-callout-body" style={{ fontSize: "13px", color: "var(--gg-amber-callout-body)", lineHeight: 1.6, margin: 0 }}>{issue}</p>
+              </div>
+            ))}
+          </div>
         </section>
 
         {/* ── Market table ── */}
         <section style={{ marginBottom: "56px" }}>
           <Label>Your market — Macomb County lawn care</Label>
           <p style={{ fontSize: "13px", color: C.text3, lineHeight: 1.65, marginBottom: "16px" }}>
-            It&apos;s not just Big Lakes. Every established lawn care company in this market
+            Every established lawn care company in this market
             has a Google presence — including one with a 3.3-star rating that still shows up
             in search ahead of Big Dawgs, purely because it has reviews on record.
           </p>
@@ -224,67 +243,26 @@ export function ZachAuditContent(props: { exclusiveFor?: { businessName: string 
           </div>
         </section>
 
-        <Divider />
-
-        {/* ── What's working ── */}
-        <section style={{ marginBottom: "56px" }}>
-          <Label>What You&apos;ve Built</Label>
-          <div style={{ background: C.surface, border: `1px solid ${C.border}`, borderRadius: "14px", overflow: "hidden" }}>
-            {[
-              { label: "In business since", value: `${d.prospect.founded} — ${d.prospect.yearsInBusiness} years of real work and real clients` },
-              { label: "Website", value: `bigdawgslandscape.com — live and functional with photos, services, and a contact form` },
-              { label: "Facebook", value: `Active page · ${d.prospect.facebookReviews} review · ${d.prospect.facebookRating} stars` },
-              { label: "Services", value: d.prospect.services },
-              { label: "Credibility", value: "Fully insured · personal story · real testimonial from a named customer" },
-            ].map((item, i, arr) => (
-              <div key={item.label} style={{ display: "grid", gridTemplateColumns: "160px 1fr", gap: "16px", padding: "16px 20px", borderBottom: i < arr.length - 1 ? `1px solid ${C.border}` : "none", alignItems: "start" }}>
-                <span style={{ fontSize: "12px", color: C.text3, lineHeight: 1.5, paddingTop: "1px" }}>{item.label}</span>
-                <span style={{ fontSize: "13px", color: C.text2, lineHeight: 1.6 }}>{item.value}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-
         {/* ── Head-to-head ── */}
         <section style={{ marginBottom: "56px" }}>
-          <Label>Head-to-Head · Big Dawgs vs. Big Lakes Lawncare</Label>
+          <Label>Head-to-Head · Big Dawgs vs. Grant Property Service</Label>
           <p style={{ fontSize: "13px", color: C.text3, lineHeight: 1.65, marginBottom: "20px" }}>
-            Big Lakes Lawncare (Macomb, on Romeo Plank Rd) is the dominant lawn care company
-            in this market — a fully indexed site, 701 Google reviews at 4.7 stars, and a GBP
-            that shows up for every local search.
+            Grant Property Service has been operating in Washington Township since 2013 — right next door to Romeo. They have a claimed GBP and 9 reviews, but no real web presence beyond that. Their site is a basic template with a PayPal link as the payment method and no real lead capture. Romeo, Washington Township, Ray Township, and Armada are wide open. A site and GBP built specifically for north Macomb means you show up first when someone in your own backyard searches for lawn care, landscaping, or snow removal. That position is unclaimed. It will not stay that way.
           </p>
           <div style={{ border: `1px solid ${C.border}`, borderRadius: "14px", overflow: "hidden" }}>
             <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr 1fr", gap: "16px", padding: "12px 20px", background: C.surface, borderBottom: `1px solid ${C.borderStrong}` }}>
               <span style={{ fontSize: "10px", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: C.text3 }}>Category</span>
               <span style={{ fontSize: "10px", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: C.blue }}>Big Dawgs</span>
-              <span style={{ fontSize: "10px", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: C.text3 }}>Big Lakes</span>
+              <span style={{ fontSize: "10px", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: C.text3 }}>Grant Property Service</span>
             </div>
             <Row category="Google Business Profile" zach="Not set up" competitor="Claimed · fully built" result="lose" />
-            <Row category="Google Reviews" zach="0 reviews" competitor="701 reviews · 4.7 stars" result="lose" />
-            <Row category="Google Search visibility" zach="No results for any service" competitor="Maps pack for all services" result="lose" />
-            <Row category="Online Booking / Quote" zach="Form (Wix)" competitor="Integrated quote system" result="neutral" />
-            <Row category="Working website" zach="Live on Wix" competitor="Custom professional site" result="neutral" />
-            <Row category="Years in business" zach="16 years · since 2009" competitor="Newer operation" result="win" />
-            <Row category="Geographic position" zach="Romeo — north Macomb" competitor="Macomb — central" result="win" />
+            <Row category="Google Reviews" zach="0 reviews" competitor="9 reviews · 4.6 stars" result="lose" />
+            <Row category="Google Search visibility" zach="No results for any service" competitor="North Macomb presence" result="lose" />
+            <Row category="Online Booking / Quote" zach="Form (Wix)" competitor="PayPal link · no lead capture" result="win" />
+            <Row category="Working website" zach="Live on Wix" competitor="Basic template" result="win" />
+            <Row category="Years in business" zach="16 years · since 2009" competitor="Since 2013" result="win" />
+            <Row category="Geographic position" zach="Romeo — north Macomb" competitor="Washington Township — north Macomb" result="neutral" />
           </div>
-        </section>
-
-        <Divider />
-
-        {/* ── Why GBP matters ── */}
-        <section style={{ marginBottom: "56px" }}>
-          <Label>Why the Google gap matters</Label>
-          <p style={{ fontSize: "15px", color: C.text2, lineHeight: 1.75, margin: "0 0 16px" }}>
-            Google Business Profiles are{" "}
-            <span style={{ color: C.text1, fontWeight: 600 }}>free to set up</span>{" "}
-            and show up as a prominent block above all regular search results — photos, reviews,
-            phone number, hours, and directions, visible before anyone clicks anything.
-          </p>
-          <p style={{ fontSize: "15px", color: C.text2, lineHeight: 1.75, margin: 0 }}>
-            Right now, searching any of your services in Romeo returns zero results for you.
-            Big Lakes is collecting every one of those customers. That position is unclaimed
-            at your address and it&apos;s free to take.
-          </p>
         </section>
 
         {/* ── 3 opportunities ── */}
@@ -298,46 +276,11 @@ export function ZachAuditContent(props: { exclusiveFor?: { businessName: string 
         {/* ── CTA ── */}
         <div style={{ background: C.greenSoft, border: `1px solid rgba(62,207,142,0.22)`, borderRadius: "18px", padding: "36px 32px" }}>
           <p style={{ fontSize: "clamp(18px, 4vw, 22px)", fontWeight: 700, letterSpacing: "-0.03em", color: C.text1, lineHeight: 1.25, margin: "0 0 12px", fontFamily: "'Poppins', -apple-system, sans-serif" }}>
-            All of this is fixable.
+            The foundation is already there.
           </p>
           <p style={{ fontSize: "14px", color: C.text3, lineHeight: 1.7, margin: 0, maxWidth: "420px" }}>
-            The foundation is solid — 16 years of real work, happy customers, and a service
-            area with room to own. Getting it visible online is the next step.
-            When you&apos;re ready to talk through it, pick a 15‑min slot below.
+            16 years of real work, happy customers, and a service area with room to own. Getting it visible online is the next step. If you want help making that happen, send me a message and we can talk through it.
           </p>
-        </div>
-
-        {/* ── Book a call ── */}
-        <div
-          style={{
-            marginTop: "32px",
-            padding: "32px 36px",
-            background: "transparent",
-            borderTop: `1px solid ${C.border}`,
-            textAlign: "center",
-          }}
-        >
-          <a
-            href={AUDIT_BOOK_CALL_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              padding: "16px 32px",
-              background: C.blue,
-              color: "#fff",
-              fontSize: "15px",
-              fontWeight: 600,
-              letterSpacing: "-0.02em",
-              borderRadius: "10px",
-              textDecoration: "none",
-              whiteSpace: "nowrap",
-            }}
-          >
-            Pick a time
-          </a>
         </div>
 
       </div>

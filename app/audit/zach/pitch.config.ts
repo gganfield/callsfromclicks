@@ -24,27 +24,22 @@ export const pitchData = {
 
   // Primary competitor — used in the hero stat block
   competitor: {
-    name: "Big Lakes Lawncare",
-    city: "Macomb, MI",
-    address: "51540 Romeo Plank Rd",
-    services: "Lawn Mowing · Fertilization · Weed Control · Aeration · Mulch · Shrub Trimming · Snow Removal",
-    website: "biglakeslawncare.com",
-    websiteStatus: "working" as const,
+    name: "Grant Property Service",
+    city: "Washington Township, MI",
     gbpClaimed: true,
-    googleReviews: 701,
-    googleRating: 4.7,
-    onlineBooking: true,
+    googleReviews: 9,
+    googleRating: 4.6,
   },
 
   // Full market table — shows the broader competitive landscape
   market: [
     {
-      name: "Big Lakes Lawncare",
-      location: "Macomb, MI",
-      googleReviews: 701,
-      googleRating: 4.7,
+      name: "Grant Property Service",
+      location: "Washington, MI",
+      googleReviews: 9,
+      googleRating: 4.6,
       gbp: true,
-      note: "Dominant — shows up for every local search",
+      note: "North Macomb — your direct geographic competitor",
     },
     {
       name: "Green Meadows Lawnscape",
@@ -53,14 +48,6 @@ export const pitchData = {
       googleRating: 3.3,
       gbp: true,
       note: "Below average rating — still appears in search",
-    },
-    {
-      name: "Grant Property Service",
-      location: "Washington, MI",
-      googleReviews: 9,
-      googleRating: 4.6,
-      gbp: true,
-      note: "North Macomb — your direct geographic competitor",
     },
     {
       name: "Big Dawgs Lawn & Landscape",
@@ -75,18 +62,18 @@ export const pitchData = {
   opportunities: [
     {
       urgent: false,
-      title: "Upgrade the site — it has small issues that quietly lose customers",
-      body: "The site works, but a few things are actively undermining trust. The testimonial carousel scrolls to two empty slots. The phone number and email aren't tappable on mobile — visitors have to manually type them out. The Wix footer branding signals a DIY build. These aren't catastrophic, but they're the difference between a visitor trusting you and bouncing to someone else.",
+      title: "Clean up the site — a few things are quietly losing you customers",
+      body: "The testimonials carousel on your homepage is empty — visitors see blank slots where social proof should be. The contact form asks for company name, address, and photo uploads just to request a quote. The Wix footer branding signals a DIY build to potential customers. These are not dealbreakers but they are the difference between someone trusting you and bouncing to whoever is next in search. Some of these may already be in progress — if so, great.",
     },
     {
       urgent: true,
-      title: "Set up a Google Business Profile — the slot is open in Romeo",
-      body: "A GBP at your address is free to create and shows up above regular search results with your phone number, photos, hours, and reviews visible before anyone clicks anything. Right now that spot sits empty in your city while every search for lawn care, snow removal, or landscaping in the area routes to someone else. Your past Facebook customers are the fastest path to getting reviews on the board.",
+      title: "Claim your GBP — the slot in Romeo is open right now",
+      body: "A Google Business Profile is free and shows up above every search result with your phone number, photos, hours, and a directions link visible before anyone clicks anything. Right now every search for lawn care, landscaping, or snow removal in Romeo routes to someone else. Grant Property Service claimed theirs with 9 reviews and is already ahead of you geographically. Your past customers are the fastest path to getting reviews on the board once you claim it.",
     },
     {
       urgent: false,
-      title: "Build something specifically for north Macomb customers",
-      body: "Big Lakes is focused on Macomb and Chesterfield — central and south county. Romeo, Washington Township, Ray Township, and Armada are a natural fit for a business based here. A site and GBP that specifically names those areas ranks organically in searches coming from customers who are already closer to your door than to theirs.",
+      title: "North Macomb is yours to own — and right now it's wide open",
+      body: "Grant Property Service has been in Washington Township since 2013 and still has no real web presence beyond a basic GBP and 9 reviews. Romeo, Washington Township, Ray Township, and Armada are wide open. A site and GBP built specifically for north Macomb means you show up first when someone in your own backyard searches for lawn care or snow removal. That position is unclaimed. It will not stay that way.",
     },
   ],
 } as const;

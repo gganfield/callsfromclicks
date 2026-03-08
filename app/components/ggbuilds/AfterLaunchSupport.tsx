@@ -1,63 +1,106 @@
 "use client";
 import { useState } from "react";
 
-const agencyItems = [
-  "Hosting + uptime monitoring",
-  "Security updates + fixes",
-  "Small content edits",
-  "Performance checks",
-  "Priority support",
-];
-
-const planItemsBase = [
-  "Agency-level support included",
-  "60 min of batched updates each month",
-  "Bug fixes covered if anything breaks",
-  "Lead response system monitoring",
+const planItems = [
+  {
+    title: "Weekly Reputation Report",
+    body: "Every Monday, new reviews from all 7 platforms — Google, Yelp, Facebook, Angi, Apple Maps, Yellow Pages, and Trustpilot/Houzz — compiled and sent with suggested reply drafts ready to copy. Negatives flagged for priority attention.",
+    badge: "Every Monday",
+    badgeColor: "var(--gg-green)",
+    badgeBg: "var(--gg-green-soft)",
+    badgeBorder: "rgba(62,207,142,0.25)",
+  },
+  {
+    title: "Monthly Content & Info Updates",
+    body: "Send us your changes — new photos, updated services, seasonal hours, copy tweaks — and we handle it in one clean batch per month. No back and forth, no extra charge.",
+    badge: "Monthly",
+    badgeColor: "var(--gg-accent)",
+    badgeBg: "var(--gg-accent-soft)",
+    badgeBorder: "var(--gg-accent-border)",
+  },
+  {
+    title: "Monthly Presence Summary",
+    body: "One email every month covering new reviews received, listing health across all 7 platforms, any updates completed, and one observation on what's working or where there's an opportunity.",
+    badge: "Monthly",
+    badgeColor: "var(--gg-accent)",
+    badgeBg: "var(--gg-accent-soft)",
+    badgeBorder: "var(--gg-accent-border)",
+  },
+  {
+    title: "GBP + Listing Health Monitoring",
+    body: "Your hours, phone number, address, and photos verified across all 7 platforms. Google silently edits listings more often than most business owners realize — we catch it before it costs you a call.",
+    badge: "Ongoing",
+    badgeColor: "var(--gg-amber)",
+    badgeBg: "var(--gg-amber-soft)",
+    badgeBorder: "rgba(245,166,35,0.25)",
+  },
+  {
+    title: "Lead Form & Click-to-Call Testing",
+    body: "Your contact form and phone link tested monthly so a broken button never silently kills a lead.",
+    badge: "Ongoing",
+    badgeColor: "var(--gg-amber)",
+    badgeBg: "var(--gg-amber-soft)",
+    badgeBorder: "rgba(245,166,35,0.25)",
+  },
+  {
+    title: "Business Line Monitoring",
+    body: "Your dedicated business line and missed-call text system kept running and checked regularly. If anything breaks, we fix it.",
+    badge: "Ongoing",
+    badgeColor: "var(--gg-amber)",
+    badgeBg: "var(--gg-amber-soft)",
+    badgeBorder: "rgba(245,166,35,0.25)",
+  },
+  {
+    title: "Hosting & Uptime",
+    body: "Your site stays live, fast, and secure. Nothing to manage on your end.",
+    badge: "Included",
+    badgeColor: "var(--gg-text3)",
+    badgeBg: "var(--gg-surface)",
+    badgeBorder: "var(--gg-border)",
+  },
+  {
+    title: "Bug Fixes Covered",
+    body: "If anything breaks on your site, we fix it. No ticket system, no extra charge.",
+    badge: "Included",
+    badgeColor: "var(--gg-text3)",
+    badgeBg: "var(--gg-surface)",
+    badgeBorder: "var(--gg-border)",
+  },
 ];
 
 const planOptions = [
   {
     id: "monthly",
     label: "Monthly",
-    price: "$79",
-    priceUpfront: null as string | null,
     perMonth: "79",
-    note: null,
-    badge: null,
-    quarterlyBonus: null as number | null,
+    priceUpfront: null as string | null,
+    badge: null as string | null,
+    subNote: null as string | null,
+    footerText: "Cancel anytime.",
   },
   {
     id: "six",
     label: "6 months",
-    price: "$395",
-    priceUpfront: "$395",
     perMonth: "65",
-    note: "Pay for 5, get 1 free",
+    priceUpfront: "$395",
     badge: "Most popular",
-    quarterlyBonus: 2,
+    subNote: "Includes 2 quarterly update sessions.",
+    footerText: "Includes 2 quarterly update sessions. Billed $395 upfront.",
   },
   {
     id: "twelve",
     label: "12 months",
-    price: "$711",
-    priceUpfront: "$711",
     perMonth: "59",
-    note: "Pay for 9, get 3 free",
+    priceUpfront: "$711",
     badge: null,
-    quarterlyBonus: 4,
+    subNote: "Includes 4 quarterly update sessions.",
+    footerText: "Includes 4 quarterly update sessions. Billed $711 upfront.",
   },
 ];
 
 export default function AfterLaunchSupport() {
   const [selected, setSelected] = useState("six");
-  const selectedOpt = planOptions.find((o) => o.id === selected);
-  const planItemsToShow = [
-    ...planItemsBase,
-    ...(selectedOpt?.quarterlyBonus != null
-      ? [`${selectedOpt.quarterlyBonus} quarterly updates (up to 2 hours each)`]
-      : []),
-  ];
+  const [openItem, setOpenItem] = useState<number | null>(null);
 
   return (
     <section
@@ -114,233 +157,187 @@ export default function AfterLaunchSupport() {
               margin: "0 0 16px",
             }}
           >
-            We don&apos;t disappear
+            Your presence doesn&apos;t stop
             <br />
-            after launch.
+            working after launch.
           </h2>
           <p style={{ fontSize: "16px", color: "var(--gg-text2)", lineHeight: 1.7, margin: 0, maxWidth: "480px" }}>
             Most agencies hand you a login and walk away. Your site is kept running, updated, and converting.
           </p>
         </div>
 
-        {/* Comparison grid */}
+        {/* Plan inclusions — expandable rows */}
         <div
           style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "20px",
-            marginBottom: "28px",
-            alignItems: "stretch",
+            background: "var(--gg-card-bg)",
+            border: "1px solid var(--gg-border-strong)",
+            borderRadius: "20px",
+            overflow: "hidden",
+            marginBottom: "20px",
           }}
-          className="gg-als-compare-grid"
         >
-          {/* Left: agency column */}
+          {/* Card header */}
           <div
             style={{
-              background: "var(--gg-card-bg)",
-              border: "1px solid var(--gg-border)",
-              borderRadius: "20px",
-              padding: "32px 28px",
-              display: "flex",
-              flexDirection: "column",
+              padding: "32px 28px 24px",
+              borderBottom: "1px solid var(--gg-border)",
             }}
           >
-            <div style={{ marginBottom: "20px" }}>
-              <p
-                style={{
-                  fontSize: "10px",
-                  fontWeight: 700,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  color: "var(--gg-text3)",
-                  margin: "0 0 8px",
-                }}
-              >
-                Typical agency
-              </p>
-              <p
-                style={{
-                  fontFamily: "'Poppins', sans-serif",
-                  fontSize: "clamp(16px, 2vw, 20px)",
-                  fontWeight: 700,
-                  color: "var(--gg-text2)",
-                  letterSpacing: "-0.02em",
-                  margin: 0,
-                  lineHeight: 1.2,
-                }}
-              >
-                $150–$300/mo
-              </p>
-            </div>
-
-            <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "12px", flex: 1 }}>
-              {agencyItems.map((text, i) => (
-                <li
-                  key={i}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "12px",
-                    fontSize: "14px",
-                    color: "var(--gg-text3)",
-                    lineHeight: 1.5,
-                  }}
-                >
-                  <span
-                    style={{
-                      width: "18px",
-                      height: "18px",
-                      borderRadius: "50%",
-                      border: "1px solid rgba(255,255,255,0.1)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexShrink: 0,
-                    }}
-                  >
-                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-                      <path d="M2 6l4-4M6 6L2 2" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" strokeLinecap="round"/>
-                    </svg>
-                  </span>
-                  {text}
-                </li>
-              ))}
-            </ul>
+            <p
+              style={{
+                fontSize: "11px",
+                fontWeight: 700,
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+                color: "var(--gg-accent)",
+                margin: "0 0 10px",
+              }}
+            >
+              Your plan includes
+            </p>
+            <p
+              style={{
+                fontFamily: "'Poppins', sans-serif",
+                fontSize: "clamp(18px, 2.5vw, 24px)",
+                fontWeight: 800,
+                color: "var(--gg-text1)",
+                letterSpacing: "-0.03em",
+                margin: "0 0 8px",
+                lineHeight: 1.15,
+              }}
+            >
+              Presence Management Plan — $79/month
+            </p>
+            <p
+              style={{
+                fontSize: "13px",
+                color: "var(--gg-text3)",
+                margin: "0 0 6px",
+                fontStyle: "italic",
+              }}
+            >
+              Active every week. Delivered every month.
+            </p>
+            <p
+              style={{
+                fontSize: "13px",
+                color: "var(--gg-text2)",
+                margin: "0 0 14px",
+              }}
+            >
+              Tap any item to see what&apos;s included.
+            </p>
           </div>
 
-          {/* Right: your plan */}
+          {/* Accordion rows — DOM order 0–7 so mobile reads correctly; 2-col grid pairs (0,1),(2,3),(4,5),(6,7) */}
           <div
             style={{
-              background: "var(--gg-card-bg)",
-              border: "1px solid var(--gg-green-border)",
-              borderRadius: "20px",
-              padding: "32px 28px",
-              position: "relative",
-              overflow: "hidden",
-              display: "flex",
-              flexDirection: "column",
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: "16px",
+              alignItems: "start",
             }}
+            className="gg-inclusions-two-col"
           >
-            {/* Green glow behind card */}
-            <div
-              aria-hidden="true"
-              style={{
-                position: "absolute",
-                top: "-40px",
-                right: "-40px",
-                width: "240px",
-                height: "240px",
-                background: "radial-gradient(ellipse at center, rgba(62,207,142,0.1) 0%, transparent 70%)",
-                pointerEvents: "none",
-                borderRadius: "50%",
-              }}
-            />
-            {/* Green top accent */}
-            <div
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                height: "2px",
-                background: "linear-gradient(90deg, var(--gg-green) 0%, rgba(62,207,142,0.2) 100%)",
-              }}
-            />
-
-            {selectedOpt?.quarterlyBonus != null && (
-              <span
-                style={{
-                  position: "absolute",
-                  top: "14px",
-                  right: "14px",
-                  fontSize: "9px",
-                  fontWeight: 700,
-                  letterSpacing: "0.1em",
-                  color: "var(--gg-green)",
-                  background: "var(--gg-green-soft)",
-                  border: "1px solid var(--gg-green-border)",
-                  borderRadius: "6px",
-                  padding: "4px 8px",
-                  textTransform: "uppercase",
-                }}
-              >
-                Bulk pricing
-              </span>
-            )}
-
-            <div style={{ marginBottom: "20px", position: "relative" }}>
-              <p
-                style={{
-                  fontSize: "10px",
-                  fontWeight: 700,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  color: "var(--gg-green)",
-                  margin: "0 0 8px",
-                }}
-              >
-                Your plan
-                <span
-                  style={{
-                    fontWeight: 600,
-                    color: "var(--gg-green)",
-                    marginLeft: "6px",
-                    letterSpacing: "0.04em",
-                  }}
-                >
-                  — {selectedOpt?.label} selected
-                </span>
-              </p>
-              <p
-                style={{
-                  fontFamily: "'Poppins', sans-serif",
-                  fontSize: "clamp(16px, 2vw, 20px)",
-                  fontWeight: 700,
-                  color: "var(--gg-text1)",
-                  letterSpacing: "-0.02em",
-                  margin: 0,
-                  lineHeight: 1.35,
-                }}
-              >
-                ${selectedOpt?.perMonth}/mo — all of it, plus more.
-              </p>
-            </div>
-
-            <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "12px", flex: 1, position: "relative" }}>
-              {planItemsToShow.map((text, i) => (
-                <li
+            {planItems.map((item, i) => {
+              const isOpen = openItem === i;
+              const isLastInCol = i >= 6;
+              return (
+                <div
                   key={i}
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "12px",
-                    fontSize: "14px",
-                    color: i === 0 ? "var(--gg-text3)" : "var(--gg-text1)",
-                    fontWeight: i === 0 ? 400 : 500,
-                    lineHeight: 1.5,
+                    borderBottom: isLastInCol ? "none" : "1px solid var(--gg-border)",
+                    background: isOpen ? "var(--gg-surface)" : "transparent",
+                    transition: "background 0.15s",
                   }}
                 >
-                  <span
+                  <button
+                    type="button"
+                    onClick={() => setOpenItem(isOpen ? null : i)}
                     style={{
-                      width: "18px",
-                      height: "18px",
-                      borderRadius: "50%",
-                      background: "var(--gg-green-soft)",
-                      border: "1px solid var(--gg-green-border)",
+                      width: "100%",
+                      padding: "20px 24px",
                       display: "flex",
                       alignItems: "center",
-                      justifyContent: "center",
-                      flexShrink: 0,
+                      gap: "12px",
+                      background: "none",
+                      border: "none",
+                      cursor: "pointer",
+                      textAlign: "left",
                     }}
                   >
-                    <svg width="9" height="9" viewBox="0 0 10 10" fill="none">
-                      <path d="M2 5l2.5 2.5 5-5" stroke="var(--gg-green)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    <span
+                      style={{
+                        flex: 1,
+                        fontSize: "14px",
+                        fontWeight: 700,
+                        color: "var(--gg-text1)",
+                        lineHeight: 1.3,
+                        minWidth: 0,
+                      }}
+                    >
+                      {item.title}
+                    </span>
+                    <span
+                      style={{
+                        flexShrink: 0,
+                        fontSize: "9px",
+                        fontWeight: 700,
+                        letterSpacing: "0.08em",
+                        textTransform: "uppercase",
+                        color: item.badgeColor,
+                        background: item.badgeBg,
+                        border: `1px solid ${item.badgeBorder}`,
+                        borderRadius: "4px",
+                        padding: "2px 7px",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {item.badge}
+                    </span>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      style={{
+                        flexShrink: 0,
+                        transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+                        transition: "transform 0.25s cubic-bezier(0.16,1,0.3,1)",
+                        color: isOpen ? "var(--gg-accent)" : "var(--gg-text3)",
+                      }}
+                    >
+                      <path
+                        d="M4 6l4 4 4-4"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
                     </svg>
-                  </span>
-                  {text}
-                </li>
-              ))}
-            </ul>
+                  </button>
+                  <div
+                    style={{
+                      maxHeight: isOpen ? "300px" : "0",
+                      overflow: "hidden",
+                      transition: "max-height 0.35s cubic-bezier(0.16,1,0.3,1)",
+                    }}
+                  >
+                    <p
+                      style={{
+                        fontSize: "13px",
+                        color: "var(--gg-text2)",
+                        lineHeight: 1.75,
+                        margin: 0,
+                        padding: "0 24px 20px",
+                      }}
+                    >
+                      {item.body}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
 
@@ -383,7 +380,7 @@ export default function AfterLaunchSupport() {
                 margin: 0,
               }}
             >
-              Ongoing Stability + Support
+              Presence Management Plan
             </p>
             <p style={{ fontSize: "12px", color: "var(--gg-text3)", margin: 0 }}>
               First 90 days included with your build.
@@ -464,7 +461,7 @@ export default function AfterLaunchSupport() {
                   >
                     ${opt.perMonth}/mo
                   </p>
-                  {opt.priceUpfront && (
+                  {isSelected && opt.priceUpfront && (
                     <p
                       style={{
                         fontSize: "11px",
@@ -477,52 +474,42 @@ export default function AfterLaunchSupport() {
                       {opt.priceUpfront} upfront
                     </p>
                   )}
-                  {opt.note && (
+                  {isSelected && opt.subNote && (
                     <p
                       style={{
                         fontSize: "11px",
-                        color: "var(--gg-green)",
+                        color: "var(--gg-text3)",
                         margin: 0,
-                        fontWeight: 600,
+                        fontWeight: 500,
+                        lineHeight: 1.3,
                       }}
                     >
-                      {opt.note}
+                      {opt.subNote}
                     </p>
                   )}
-                  {opt.quarterlyBonus != null && (
+                  {isSelected && opt.id === "monthly" && (
                     <p
                       style={{
-                        fontSize: "10px",
+                        fontSize: "11px",
                         color: "var(--gg-text3)",
-                        margin: "4px 0 0",
+                        margin: 0,
                         fontWeight: 500,
+                        lineHeight: 1.3,
                       }}
                     >
-                      Includes {opt.quarterlyBonus} quarterly update{opt.quarterlyBonus > 1 ? "s" : ""} (up to 2 hrs each)
+                      Cancel anytime.
                     </p>
                   )}
                 </button>
               );
             })}
           </div>
-
-          {/* Footer note */}
-          <div
-            style={{
-              padding: "14px 28px",
-              borderTop: "1px solid var(--gg-border)",
-            }}
-          >
-            <p style={{ fontSize: "12px", color: "var(--gg-text3)", margin: 0 }}>
-              Monthly cancels anytime. Pay 6 or 12 months upfront and 2 or 4 quarterly updates (up to 2 hours each) are included.
-            </p>
-          </div>
         </div>
       </div>
 
       <style>{`
         @media (max-width: 680px) {
-          .gg-als-compare-grid { grid-template-columns: 1fr !important; }
+          .gg-inclusions-two-col { grid-template-columns: 1fr !important; }
           .gg-plan-picker { grid-template-columns: 1fr !important; }
           .gg-plan-picker button { border-right: none !important; border-bottom: 1px solid var(--gg-border); }
           .gg-plan-picker button:last-child { border-bottom: none !important; }
