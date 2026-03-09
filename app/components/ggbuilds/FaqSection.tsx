@@ -28,32 +28,24 @@ const faqs: { q: string; a: React.ReactNode }[] = [
     a: "We set up and strengthen your business on Google Business Profile, Apple Maps, Yelp, Angi, Facebook, Yellow Pages, and Trustpilot or Houzz when relevant to your industry. We don't control verification or approval timelines on those platforms; we submit and refine, and they run on their own schedule.",
   },
   {
+    q: "What does the Presence Management Plan actually do every month?",
+    a: "Every Monday you get a reputation report — new reviews from all 7 platforms with suggested reply drafts, negatives flagged. Every month we batch your content and info updates, run a full listing health check, test your lead form and click-to-call, and send a presence summary covering what changed and what's working.",
+  },
+  {
+    q: "What if I don't need the management plan right away?",
+    a: "The first 90 days are included with your build at no charge — so you'll see exactly what it does before you decide. After that, it's $79/month, cancel anytime. Most clients keep it because the monitoring alone catches things they'd never find themselves.",
+  },
+  {
     q: "What does the 72-hour guarantee include?",
     a: "Our work: site live and business listings configured and submitted within 72 hours once assets and verification access are complete. We don't control Google, carriers, or other platforms, so their verification and approval timelines aren't part of the guarantee. We're on the hook for completion and submission; they run on their own schedule.",
   },
   {
-    q: "What does 'hosted' mean?",
-    a: "Your site lives on our hosting infrastructure so you don't have to think about it. Our Ongoing Stability + Support includes hosting, free debugging, and 60 minutes of batched updates per month. The first 90 days are included with your build. Pay 6 or 12 months upfront and you also get 2 or 4 quarterly updates (up to 2 hours each) included.",
-  },
-  {
     q: "What happens if we stop paying?",
-    a: "You own the site. If you cancel the support plan, hosting and updates stop — which means the site goes offline until it's hosted again. We can provide the full codebase and offer transfer options if needed.",
-  },
-  {
-    q: "How do I cancel the Ongoing Stability + Support plan?",
-    a: (
-      <>
-        Email us at{" "}
-        <a href="mailto:support@callsfromclicks.com" style={{ color: "var(--gg-accent)", textDecoration: "underline" }}>
-          support@callsfromclicks.com
-        </a>{" "}
-        from the business email on your account and request cancellation. Your plan will remain active until the end of your current billing period. We do not prorate or refund partial months.
-      </>
-    ),
+    a: "You own the site. If you cancel the Presence Management Plan, hosting stops at the end of your billing period. We'll help you find a hosting solution and provide the full codebase so you can keep your site running.",
   },
   {
     q: "What happens after my 6-month or 12-month plan ends?",
-    a: "Your plan automatically continues month-to-month at $79/month unless you renew with another bulk option before your term ends. You can cancel anytime by email. We will notify you before renewal.",
+    a: "Your plan automatically continues month-to-month at $79/month unless you renew with another bulk option before your term ends. You can cancel anytime by email.",
   },
   {
     q: "What's not included?",

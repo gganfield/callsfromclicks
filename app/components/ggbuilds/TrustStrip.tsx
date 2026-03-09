@@ -35,7 +35,7 @@ const items: StripItem[] = [
         <circle cx="8" cy="5.5" r="1.5" stroke="currentColor" strokeWidth="1.2"/>
       </svg>
     ),
-    text: "Listings Configured",
+    text: "Reviews Managed",
   },
   {
     icon: (

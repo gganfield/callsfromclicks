@@ -27,7 +27,7 @@ const phases = [
     num: "04",
     title: "72 Hours Guaranteed",
     timeframe: "Live + Handed Off",
-    body: "Site goes live on your domain. Listings and profile updates are submitted. Your online presence is clean, consistent, and ready to generate calls.",
+    body: "Site goes live on your domain. Listings submitted. Your Presence Management Plan activates and your online presence starts working around the clock.",
     color: "#f59e0b",
     colorSoft: "rgba(245,158,11,0.1)",
   },

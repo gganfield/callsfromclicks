@@ -4,12 +4,14 @@ import Link from "next/link";
 const fits = [
   "You're a local service business that relies on calls, Google, and referrals",
   "Your site or listings feel outdated, inconsistent, or invisible",
+  "You're getting reviews but have no system to track or respond to them",
   "You want it live fast, without weeks of back-and-forth",
   "You want a small, accountable team",
 ];
 
 const notFits = [
   "You need a large e-commerce build",
+  "Your business runs on repeat clients and doesn't need a steady flow of new leads",
   "You require complex integrations or custom software",
   "You can't provide basic assets (logo, service info, photos)",
   "You're looking for the cheapest option regardless of quality",

@@ -66,7 +66,7 @@ export default function ServiceAgreementPage() {
             Company will activate telephony services as soon as reasonably possible after verification requirements are completed.
           </p>
           <p style={pStyle}>
-            As consideration for this temporary delay, Client will receive one (1) additional month of Ongoing Stability + Support at no charge.
+            As consideration for this temporary delay, Client will receive one (1) additional month of the Presence Management Plan at no charge.
           </p>
           <p style={pStyle}>
             Telephony activation timing does not affect the 72-hour delivery guarantee described in Section 4.
@@ -154,7 +154,7 @@ export default function ServiceAgreementPage() {
         </section>
 
         <section style={sectionStyle}>
-          <h2 style={h2Style}>6. Ongoing Stability + Support (Optional After 90 Days)</h2>
+          <h2 style={h2Style}>6. Presence Management Plan (Optional After 90 Days)</h2>
           <p style={pStyle}>
             The first ninety (90) days of hosting and support are included.
           </p>
@@ -173,7 +173,7 @@ export default function ServiceAgreementPage() {
             If no plan is selected after the included support period ends, hosting and support will terminate and the site will go offline until hosting is restored or the site is transferred.
           </p>
           <p style={pStyle}>
-            Monthly plans include hosting, uptime stability, bug fixes, and up to 60 minutes of batched updates per month. Unused time does not roll over.
+            The Presence Management Plan includes: hosting and uptime, bug fixes, weekly reputation reports across all 7 platforms with suggested reply drafts, GBP and listing health monitoring, monthly content and info updates (batched), lead form and click-to-call testing, business line monitoring, and a monthly presence summary.
           </p>
           <p style={pStyle}>
             Quarterly updates cover modifications to the existing site structure and do not include full redesigns or new feature builds.
@@ -181,12 +181,12 @@ export default function ServiceAgreementPage() {
           <p style={pStyle}>
             Additional work is billed at $70/hour, prorated.
           </p>
-          <h3 style={{ fontSize: "14px", fontWeight: 600, color: "var(--gg-text1)", margin: "16px 0 8px" }}>Ongoing Stability + Support — Renewal &amp; Cancellation</h3>
+          <h3 style={{ fontSize: "14px", fontWeight: 600, color: "var(--gg-text1)", margin: "16px 0 8px" }}>Presence Management Plan — Renewal &amp; Cancellation</h3>
           <p style={pStyle}>
             <strong>Renewal after bulk term:</strong> If Client purchases a 6-month or 12-month prepaid plan, the plan will automatically continue month-to-month at $79/month at the end of the prepaid term unless Client renews with another bulk option or cancels prior to renewal.
           </p>
           <p style={pStyle}>
-            <strong>How to cancel:</strong> Client may cancel Ongoing Stability + Support at any time by emailing{" "}
+            <strong>How to cancel:</strong> Client may cancel the Presence Management Plan at any time by emailing{" "}
             <a href="mailto:support@callsfromclicks.com" style={{ color: "var(--gg-accent)", textDecoration: "underline" }}>support@callsfromclicks.com</a>.
             Cancellation takes effect at the end of the current billing period. Partial months are not prorated or refunded.
           </p>

@@ -73,7 +73,7 @@ const deliverables: Deliverable[] = [
   {
     num: "02",
     title: "Local Presence Setup",
-    detail: "We configure and align your business information across key platforms like Google Business Profile, Apple Maps, Yelp, and Angi so your business appears consistent and credible wherever customers search. We submit the necessary updates and provide a simple checklist to help you keep reviews and photos growing over time.",
+    detail: "We configure and align your business across Google Business Profile, Apple Maps, Yelp, Angi, Facebook, Yellow Pages, and Trustpilot/Houzz — then monitor them ongoing. Listings are kept accurate, GBP edits are caught before they cost you a call, and your review presence is tracked every week so nothing slips.",
     tag: "Maps + Reviews",
     tagIcon: "map",
     tagColor: "var(--gg-green)",
@@ -447,7 +447,7 @@ export default function OfferSection() {
                   textTransform: "uppercase",
                 }}
               >
-                Ongoing Stability + Support
+                Presence Management Plan
               </p>
               <p
                 style={{

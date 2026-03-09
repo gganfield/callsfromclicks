@@ -33,10 +33,10 @@ const outcomeIcons = [
 ];
 
 const outcomes = [
-  { label: "More answered calls", sub: "Clear paths to call, message, or request service fast" },
-  { label: "Stronger map presence", sub: "Profile + listing signals cleaned up and consistent" },
-  { label: "More reviews rolling in", sub: "Simple system that makes it easier for happy customers to leave feedback" },
-  { label: "Wins more comparisons", sub: "Stronger website + cleaner presence beats most local competitors" },
+  { label: "More calls, more quote requests", sub: "Clear paths to contact you on any device" },
+  { label: "A simple system that keeps reviews coming in", sub: "Simple system that makes it easier for happy customers to leave feedback" },
+  { label: "Stronger map presence, cleaned up and consistent", sub: "Profile + listing signals cleaned up and consistent" },
+  { label: "Wins more comparisons with most local competitors", sub: "Stronger website + cleaner presence beats most local competitors" },
 ];
 
 const DEMO_SCROLL_PX_PER_FRAME_DESKTOP = 80;
