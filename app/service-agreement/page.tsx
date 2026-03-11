@@ -57,19 +57,7 @@ export default function ServiceAgreementPage() {
           </p>
           <h3 style={{ fontSize: "14px", fontWeight: 600, color: "var(--gg-text1)", margin: "16px 0 8px" }}>B. Professional Business Line Setup</h3>
           <p style={pStyle}>
-            Company will provide a dedicated business number with call forwarding and missed-call auto text functionality.
-          </p>
-          <p style={pStyle}>
-            Due to carrier verification and account activation requirements, telephony services may require an additional activation period beyond the initial 72-hour website build window.
-          </p>
-          <p style={pStyle}>
-            Company will activate telephony services as soon as reasonably possible after verification requirements are completed.
-          </p>
-          <p style={pStyle}>
-            As consideration for this temporary delay, Client will receive one (1) additional month of the Presence Management Plan at no charge.
-          </p>
-          <p style={pStyle}>
-            Telephony activation timing does not affect the 72-hour delivery guarantee described in Section 4.
+            Company will provide a dedicated local business number that forwards to Client&apos;s cell phone, with call filtering and missed-call auto text functionality. When a call goes unanswered, an automatic text is sent immediately to the caller.
           </p>
           <h3 style={{ fontSize: "14px", fontWeight: 600, color: "var(--gg-text1)", margin: "16px 0 8px" }}>C. Review &amp; Listing Alignment</h3>
           <p style={pStyle}>
@@ -132,7 +120,7 @@ export default function ServiceAgreementPage() {
             If Company fails to meet this deadline, the final payment is waived. The deposit remains payable.
           </p>
           <p style={pStyle}>
-            The 72-hour guarantee applies only to the website and listing submission components. Telephony activation and third-party verification timelines are excluded.
+            The 72-hour guarantee applies only to the website and listing submission components. Third-party platform verification timelines are excluded.
           </p>
         </section>
 
@@ -159,10 +147,7 @@ export default function ServiceAgreementPage() {
             The first ninety (90) days of hosting and support are included.
           </p>
           <p style={pStyle}>
-            Due to the temporary telephony activation delay described in Section 1(B), Client will receive one (1) additional month of support at no charge.
-          </p>
-          <p style={pStyle}>
-            After the included period (90 days, plus one additional month if the telephony compensation in Section 1(B) applies) ends, Client may choose:
+            After the included 90-day period ends, Client may choose:
           </p>
           <ul style={listStyle}>
             <li>$79/month (cancel anytime)</li>

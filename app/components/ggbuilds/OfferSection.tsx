@@ -83,13 +83,12 @@ const deliverables: Deliverable[] = [
   {
     num: "03",
     title: "Professional Business Line",
-    detail: "A dedicated business number that forwards to your cell, with call filtering and missed-call auto text. We're completing our phone provider setup now, so activation will follow shortly after carrier verification. While you wait, your build includes 4 months of hosting and support instead of 3.",
-    tag: "Included — activation shortly",
+    detail: "A dedicated local business number that forwards straight to your cell. Call filtering keeps spam off your plate. Miss a call? An automatic text fires immediately, so every lead gets a response even when you're on the job.",
+    tag: "Included",
     tagIcon: "message",
-    tagColor: "var(--gg-text3)",
-    tagBg: "var(--gg-bg-section)",
-    tagBorder: "var(--gg-border)",
-    muted: true,
+    tagColor: "var(--gg-green)",
+    tagBg: "var(--gg-green-soft)",
+    tagBorder: "var(--gg-green-border)",
   },
   {
     num: "04",

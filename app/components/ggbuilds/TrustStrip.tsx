@@ -26,7 +26,6 @@ const items: StripItem[] = [
       </svg>
     ),
     text: "Business Line Included",
-    muted: true,
   },
   {
     icon: (

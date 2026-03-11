@@ -23,7 +23,7 @@ const builds = [
   {
     id: "placeholder-3",
     name: "Coming soon",
-    industry: "Lawn & Landscape",
+    industry: "Landscape",
     location: "Romeo, MI",
     result: "Case study & review coming soon",
     siteUrl: null,
@@ -55,7 +55,7 @@ const industryIcons: Record<string, React.ReactElement> = {
       <circle cx="11.5" cy="12" r="1.5" stroke="currentColor" strokeWidth="1.2"/>
     </svg>
   ),
-  "Lawn & Landscape": (
+  Landscape: (
     <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
       <path d="M8 13V7" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
       <path d="M8 7C8 5 6 3 4 3c0 2 1.5 4 4 4z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/>
