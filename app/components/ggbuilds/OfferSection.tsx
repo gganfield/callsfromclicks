@@ -103,11 +103,11 @@ const deliverables: Deliverable[] = [
 ];
 
 const pricingTiers = [
-  { spots: "Spots 1–5", price: "$499", active: true },
-  { spots: "Spots 6–10", price: "$999", active: false },
-  { spots: "Spots 11–15", price: "$1,499", active: false },
-  { spots: "Spots 16–20", price: "$1,999", active: false },
-  { spots: "Spots 21+", price: "$2,499", active: false },
+  { spots: "Spots 1–3", price: "$499", active: true },
+  { spots: "Spots 4–6", price: "$999", active: false },
+  { spots: "Spots 7–9", price: "$1,499", active: false },
+  { spots: "Spots 10–12", price: "$1,999", active: false },
+  { spots: "Spots 13+", price: "$2,499", active: false },
 ];
 
 export default function OfferSection() {
@@ -271,7 +271,7 @@ export default function OfferSection() {
                 Beta Pricing
               </p>
               <p style={{ fontSize: "12px", color: "var(--gg-text3)", margin: "0 0 4px", textDecoration: "line-through" }}>
-                $1,999
+                $2,499
               </p>
               <p
                 style={{
