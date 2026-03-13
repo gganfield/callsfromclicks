@@ -6,6 +6,7 @@ import {
 } from "@/app/config/audit-tokens";
 import { BenAuditContent } from "../ben/page";
 import { ZachAuditContent } from "../zach/page";
+import { BrockAuditContent } from "../brock/page";
 import { ExampleAuditContent } from "../example/page";
 import AuditThemeSync from "../AuditThemeSync";
 
@@ -15,6 +16,7 @@ type AuditContentProps = { exclusiveFor?: ExclusiveFor };
 const AUDIT_CONTENT: Record<AuditId, React.ComponentType<AuditContentProps>> = {
   ben: BenAuditContent,
   zach: ZachAuditContent,
+  brock: BrockAuditContent,
   example: ExampleAuditContent,
 };
 

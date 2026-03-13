@@ -20,6 +20,11 @@ export const AUDIT_PRIVATE_LINKS = {
     businessSlug: "peak-home-remodeling",
     businessName: "Peak Home Remodeling",
   },
+  brock: {
+    token: "c8d9e0f1a2b3c4d5",
+    businessSlug: "horne-residential-services",
+    businessName: "Horne Residential Services LLC",
+  },
 } as const;
 
 export type AuditId = keyof typeof AUDIT_PRIVATE_LINKS;
