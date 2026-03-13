@@ -64,11 +64,13 @@ export const pitchData = {
     },
     {
       urgent: false,
+      showUrgentTag: true,
       title: "Go from 2 Google reviews to 20",
       body: "Your 5.0 rating is a real asset — don't let it sit at 2 reviews. The way to build it is simple: text every client after a completed job with a direct Google review link, while the work is still fresh. No awkward ask in person, no chasing. Just a short message with a link. The clients who hired you already like you, they just need to be pointed at where to say it. Getting to 20 reviews does two things: it makes your 5.0 credible to homeowners who are comparing you against established operators, and it improves where you show up in local search. Google factors review velocity into rankings. Consistent new reviews over time outperform a big batch followed by silence.",
     },
     {
       urgent: false,
+      showUrgentTag: true,
       title: "Get your name consistent everywhere homeowners look",
       body: "Yelp, Angi, Apple Maps, Yellow Pages — these aren't where the bulk of your leads will come from, but they matter for two reasons. First, homeowners use them as a secondary check when they're vetting someone. If you don't show up anywhere except Google, it creates doubt. Second, having consistent information (same business name, same phone number, same service area) across multiple platforms is a signal Google uses when deciding who to surface in local search. The inconsistencies between your Facebook page and your GBP (Detroit vs. Rochester Hills) are exactly the kind of thing that quietly costs you ranking. Getting them claimed and aligned is the hard part. After that it's just keeping them accurate.",
     },
