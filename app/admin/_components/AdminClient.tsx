@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import type { Client, Code } from '@prisma/client';
+
 
 // ── Admin Login Form ────────────────────────────────────────────────────────
 
