@@ -2,6 +2,9 @@
 
 import { useState } from 'react';
 
+interface Client { id: number; clientNumber: string; slug: string; name: string; phone: string; status: string; createdAt: string; }
+interface Code { id: number; clientId: number; code: string; jobType: string; jobTypeShort: string; clientName: string; amount: number; status: string; createdAt: string; expiresAt: string; usedAt: string | null; }
+
 
 // ── Admin Login Form ────────────────────────────────────────────────────────
 
