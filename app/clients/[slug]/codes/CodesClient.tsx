@@ -136,7 +136,7 @@ function CodeCard({
       >
         <Detail label="Customer" value={code.clientName} />
         <Detail label="Job Type" value={code.jobType} />
-        <Detail label="Amount" value={`$${parseFloat(code.amount || '0').toLocaleString()}`} />
+        <Detail label="Amount" value={`$${Number(code.amount ?? 0).toLocaleString()}`} />
         <Detail label="Created" value={fmt(code.createdAt)} />
         <Detail label="Expires" value={fmt(code.expiresAt)} />
         {code.usedAt && <Detail label="Used" value={fmt(code.usedAt)} />}

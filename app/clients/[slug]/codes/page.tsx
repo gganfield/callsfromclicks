@@ -22,7 +22,7 @@ export default async function CodesPage({
     orderBy: { createdAt: 'desc' },
   });
 
-  const codes = rawCodes.map(serializeCode);
+  const codes = rawCodes.map(serializeCode) as any[];
 
   return <CodesClient codes={codes} slug={slug} />;
 }

@@ -26,7 +26,7 @@ export default async function AdminPage() {
     createdAt: c.createdAt.toISOString() as unknown as Date,
   }));
 
-  const serializedCodes = codes.map((c) => ({
+  const serializedCodes = codes.map((c: (typeof codes)[0]) => ({
     ...c,
     createdAt: c.createdAt.toISOString() as unknown as Date,
     expiresAt: c.expiresAt.toISOString() as unknown as Date,
