@@ -38,16 +38,16 @@ const metrics = ["In-house crew only", "Fixed-price quotes", "10-year warranty"]
 
 export default function WhyUs() {
   return (
-    <section id="about" style={{ background: "#070b14", padding: "100px 24px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+    <section id="about" style={{ background: "var(--dt-bg)", padding: "100px 24px", borderTop: "1px solid var(--dt-border)" }}>
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
         <div className="reveal" style={{ maxWidth: "560px", marginBottom: "64px" }}>
           <p style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--primary)", marginBottom: "14px" }}>
             Why {config.business.name}
           </p>
-          <h2 style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(28px, 4.5vw, 42px)", fontWeight: 800, letterSpacing: "-0.04em", color: "#fff", lineHeight: 1.1, margin: "0 0 16px" }}>
+          <h2 style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(28px, 4.5vw, 42px)", fontWeight: 800, letterSpacing: "-0.04em", color: "var(--dt-text1)", lineHeight: 1.1, margin: "0 0 16px" }}>
             The difference you&apos;ll feel on day one.
           </h2>
-          <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.5)", lineHeight: 1.75, margin: 0 }}>
+          <p style={{ fontSize: "15px", color: "var(--dt-text2)", lineHeight: 1.75, margin: 0 }}>
             Most contractors subcontract your job out, give you a moving-target invoice, and disappear. We don&apos;t.
           </p>
         </div>
@@ -60,8 +60,8 @@ export default function WhyUs() {
                 key={item.claim}
                 className={`reveal reveal-delay-${i + 1} demo-why-card`}
                 style={{
-                  background: "rgba(255,255,255,0.03)",
-                  border: "1px solid rgba(255,255,255,0.08)",
+                  background: "var(--dt-card-bg)",
+                  border: "1px solid var(--dt-border)",
                   borderRadius: "18px",
                   padding: "32px 28px",
                   position: "relative",
@@ -84,10 +84,10 @@ export default function WhyUs() {
                 <p style={{ fontSize: "10px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--primary)", margin: "0 0 8px" }}>
                   {metrics[i]}
                 </p>
-                <h3 style={{ fontFamily: "'Poppins', sans-serif", fontSize: "18px", fontWeight: 700, color: "#fff", margin: "0 0 10px", letterSpacing: "-0.02em" }}>
+                <h3 style={{ fontFamily: "'Poppins', sans-serif", fontSize: "18px", fontWeight: 700, color: "var(--dt-text1)", margin: "0 0 10px", letterSpacing: "-0.02em" }}>
                   {item.claim}
                 </h3>
-                <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.5)", lineHeight: 1.75, margin: 0 }}>
+                <p style={{ fontSize: "13px", color: "var(--dt-text2)", lineHeight: 1.75, margin: 0 }}>
                   {item.proof}
                 </p>
               </div>

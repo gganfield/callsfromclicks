@@ -3,13 +3,13 @@ import Image from "next/image";
 
 export default function Gallery() {
   return (
-    <section id="gallery" style={{ background: "#070b14", padding: "100px 24px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+    <section id="gallery" style={{ background: "var(--dt-bg)", padding: "100px 24px", borderTop: "1px solid var(--dt-border)" }}>
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
         <div className="reveal" style={{ textAlign: "center", maxWidth: "520px", margin: "0 auto 56px" }}>
           <p style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--primary)", marginBottom: "14px" }}>
             Our Work
           </p>
-          <h2 style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(28px, 4.5vw, 42px)", fontWeight: 800, letterSpacing: "-0.04em", color: "#fff", lineHeight: 1.1, margin: 0 }}>
+          <h2 style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(28px, 4.5vw, 42px)", fontWeight: 800, letterSpacing: "-0.04em", color: "var(--dt-text1)", lineHeight: 1.1, margin: 0 }}>
             Recent Projects
           </h2>
         </div>
@@ -24,8 +24,8 @@ export default function Gallery() {
                 overflow: "hidden",
                 borderRadius: "14px",
                 aspectRatio: "4/3",
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.06)",
+                background: "var(--dt-card-bg)",
+                border: "1px solid var(--dt-border)",
               }}
             >
               <Image

@@ -66,16 +66,16 @@ const serviceIcons: Record<string, () => React.ReactElement> = {
 
 export default function Services() {
   return (
-    <section id="services" style={{ background: "var(--bg-dark)", padding: "100px 24px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+    <section id="services" style={{ background: "var(--dt-bg-alt)", padding: "100px 24px", borderTop: "1px solid var(--dt-border)" }}>
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
         <div className="reveal" style={{ textAlign: "center", maxWidth: "560px", margin: "0 auto 64px" }}>
           <p style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--primary)", marginBottom: "14px" }}>
             What We Do
           </p>
-          <h2 style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(28px, 4.5vw, 42px)", fontWeight: 800, letterSpacing: "-0.04em", color: "#fff", lineHeight: 1.1, margin: "0 0 16px" }}>
+          <h2 style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(28px, 4.5vw, 42px)", fontWeight: 800, letterSpacing: "-0.04em", color: "var(--dt-text1)", lineHeight: 1.1, margin: "0 0 16px" }}>
             Services Built Around Your Vision
           </h2>
-          <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.5)", lineHeight: 1.75, margin: 0 }}>
+          <p style={{ fontSize: "15px", color: "var(--dt-text2)", lineHeight: 1.75, margin: 0 }}>
             From small upgrades to full home transformations. One crew, one contract, zero surprises.
           </p>
         </div>
@@ -88,8 +88,8 @@ export default function Services() {
                 key={service.name}
                 className={`reveal reveal-delay-${(i % 5) + 1} demo-service-card`}
                 style={{
-                  background: "rgba(255,255,255,0.03)",
-                  border: "1px solid rgba(255,255,255,0.08)",
+                  background: "var(--dt-card-bg)",
+                  border: "1px solid var(--dt-border)",
                   borderRadius: "18px",
                   padding: "32px 28px",
                   cursor: "default",
@@ -113,11 +113,11 @@ export default function Services() {
                 </div>
                 <h3 style={{
                   fontFamily: "'Poppins', sans-serif", fontSize: "17px", fontWeight: 700,
-                  color: "#fff", margin: "0 0 8px", letterSpacing: "-0.02em",
+                  color: "var(--dt-text1)", margin: "0 0 8px", letterSpacing: "-0.02em",
                 }}>
                   {service.name}
                 </h3>
-                <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.5)", lineHeight: 1.75, margin: 0 }}>
+                <p style={{ fontSize: "13px", color: "var(--dt-text2)", lineHeight: 1.75, margin: 0 }}>
                   {service.description}
                 </p>
               </div>

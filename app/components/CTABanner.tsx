@@ -4,7 +4,7 @@ export default function CTABanner() {
   return (
     <section
       style={{
-        background: "var(--bg-dark)",
+        background: "#0f172a",
         padding: "100px 24px",
         textAlign: "center",
         position: "relative",
@@ -16,13 +16,13 @@ export default function CTABanner() {
         <div style={{
           position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)",
           width: "700px", height: "350px",
-          background: "radial-gradient(ellipse at center, rgba(180,83,9,0.2) 0%, transparent 65%)",
+          background: "radial-gradient(ellipse at center, rgba(180,83,9,0.22) 0%, transparent 65%)",
           borderRadius: "50%", filter: "blur(40px)",
         }} />
         <div style={{
           position: "absolute", top: "30%", left: "25%",
           width: "200px", height: "200px",
-          background: "radial-gradient(circle, rgba(180,83,9,0.1) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(180,83,9,0.12) 0%, transparent 70%)",
           borderRadius: "50%", filter: "blur(60px)",
         }} />
       </div>
@@ -72,7 +72,7 @@ export default function CTABanner() {
             style={{
               fontFamily: "'Poppins', sans-serif", fontWeight: 600, fontSize: "15px",
               color: "#fff",
-              background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.15)",
+              background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.18)",
               padding: "16px 36px", borderRadius: "12px", textDecoration: "none",
               display: "inline-flex", alignItems: "center", gap: "8px",
             }}

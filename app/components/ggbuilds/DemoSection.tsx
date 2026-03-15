@@ -57,8 +57,8 @@ const outcomes = [
     sub: "Auto-text fires the moment you don't pick up, so every lead gets a response",
   },
   {
-    label: "You look more credible online",
-    sub: "Stronger site, cleaner presence, consistent info everywhere. You win the comparison before anyone calls",
+    label: "You look more credible online — and referrals start coming in",
+    sub: "Stronger site, cleaner presence, consistent info everywhere. Happy customers start passing your name along automatically.",
   },
 ];
 

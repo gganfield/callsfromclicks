@@ -46,7 +46,7 @@ export const config = {
   hero: {
     headline: "Your Home, Built Better.",
     subline:
-      "Kitchen remodels, bathroom renovations, decks, and full home transformations — done right the first time by a crew that's been trusted in Macomb County for over 10 years.",
+      "Licensed & insured. Written quotes. 10-year warranty on labor. Serving Macomb and Oakland County since 2012.",
     ctaPrimary: "Get a Free Quote",
     ctaSecondary: "See Our Work",
     // Replace with a real before/after or finished remodel photo

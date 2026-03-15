@@ -6,13 +6,13 @@ const fits = [
   "Your site or listings feel outdated, inconsistent, or invisible",
   "You're getting reviews but have no system to track or respond to them",
   "You want it live fast, without weeks of back-and-forth",
-  "You want a small, accountable team",
+  "You want your happy customers doing some of the selling for you",
 ];
 
 const notFits = [
   "You need a large e-commerce build",
   "Your business runs on repeat clients and doesn't need a steady flow of new leads",
-  "You require complex integrations or custom software",
+  "You want results without being an active participant in your own growth",
   "You can't provide basic assets (logo, service info, photos)",
   "You're looking for the cheapest option regardless of quality",
 ];
