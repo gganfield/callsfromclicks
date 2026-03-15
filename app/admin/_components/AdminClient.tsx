@@ -456,7 +456,7 @@ export function CodesTable({ codes: initialCodes }: { codes: CodeWithClient[] })
                   </Td>
                   <Td>{c.jobType}</Td>
                   <Td>{c.clientName}</Td>
-                  <Td>${parseFloat(c.amount || '0').toLocaleString()}</Td>
+                  <Td>${Number(c.amount ?? 0).toLocaleString()}</Td>
                   <Td>
                     <span
                       style={{
