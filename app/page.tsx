@@ -3,6 +3,7 @@ import GGHero from "./components/ggbuilds/GGHero";
 import TrustStrip from "./components/ggbuilds/TrustStrip";
 import ProblemSection from "./components/ggbuilds/ProblemSection";
 import OfferSection from "./components/ggbuilds/OfferSection";
+import ImplicationSection from "./components/ggbuilds/ImplicationSection";
 import AfterLaunchSupport from "./components/ggbuilds/AfterLaunchSupport";
 import ProcessSection from "./components/ggbuilds/ProcessSection";
 import DemoSection from "./components/ggbuilds/DemoSection";
@@ -20,6 +21,7 @@ export default function Home() {
       <GGHero />
       <TrustStrip />
       <ProblemSection />
+      <ImplicationSection />
       <OfferSection />
       <AfterLaunchSupport />
       <ProcessSection />

@@ -18,7 +18,7 @@ function Avatar({ name }: { name: string }) {
   return (
     <div style={{
       width: "44px", height: "44px", borderRadius: "50%",
-      background: "rgba(180,83,9,0.15)", border: "1.5px solid rgba(180,83,9,0.4)",
+      background: "var(--dt-avatar-bg)", border: "1.5px solid var(--dt-avatar-border)",
       display: "flex", alignItems: "center", justifyContent: "center",
       fontSize: "14px", fontWeight: 700, color: "var(--primary)", flexShrink: 0,
     }}>
@@ -29,7 +29,7 @@ function Avatar({ name }: { name: string }) {
 
 export default function Reviews() {
   return (
-    <section id="reviews" style={{ background: "var(--bg-dark)", padding: "100px 24px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+    <section id="reviews" style={{ background: "var(--dt-bg-alt)", padding: "100px 24px", borderTop: "1px solid var(--dt-border)" }}>
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
         {/* Header */}
         <div className="reveal" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "24px", marginBottom: "56px" }}>
@@ -37,7 +37,7 @@ export default function Reviews() {
             <p style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--primary)", marginBottom: "14px" }}>
               Client Reviews
             </p>
-            <h2 style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(28px, 4.5vw, 42px)", fontWeight: 800, letterSpacing: "-0.04em", color: "#fff", lineHeight: 1.1, margin: 0 }}>
+            <h2 style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(28px, 4.5vw, 42px)", fontWeight: 800, letterSpacing: "-0.04em", color: "var(--dt-text1)", lineHeight: 1.1, margin: 0 }}>
               What our clients say.
             </h2>
           </div>
@@ -46,11 +46,11 @@ export default function Reviews() {
           <div style={{
             display: "flex", alignItems: "center", gap: "16px",
             padding: "18px 24px",
-            background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)",
+            background: "var(--dt-agg-bg)", border: "1px solid var(--dt-agg-border)",
             borderRadius: "14px",
           }}>
             <div>
-              <p style={{ fontFamily: "'Poppins', sans-serif", fontSize: "32px", fontWeight: 800, color: "#fff", letterSpacing: "-0.04em", margin: "0 0 2px", lineHeight: 1 }}>
+              <p style={{ fontFamily: "'Poppins', sans-serif", fontSize: "32px", fontWeight: 800, color: "var(--dt-text1)", letterSpacing: "-0.04em", margin: "0 0 2px", lineHeight: 1 }}>
                 {config.business.reviewRating}
               </p>
               <div style={{ display: "flex", gap: "2px" }}>
@@ -59,12 +59,12 @@ export default function Reviews() {
                 ))}
               </div>
             </div>
-            <div style={{ width: "1px", height: "40px", background: "rgba(255,255,255,0.1)" }} />
+            <div style={{ width: "1px", height: "40px", background: "var(--dt-agg-divider)" }} />
             <div>
-              <p style={{ fontFamily: "'Poppins', sans-serif", fontSize: "24px", fontWeight: 800, color: "#fff", letterSpacing: "-0.04em", margin: "0 0 2px", lineHeight: 1 }}>
+              <p style={{ fontFamily: "'Poppins', sans-serif", fontSize: "24px", fontWeight: 800, color: "var(--dt-text1)", letterSpacing: "-0.04em", margin: "0 0 2px", lineHeight: 1 }}>
                 {config.business.reviewCount}+
               </p>
-              <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", margin: 0 }}>Google reviews</p>
+              <p style={{ fontSize: "11px", color: "var(--dt-text3)", margin: 0 }}>Google reviews</p>
             </div>
           </div>
         </div>
@@ -76,8 +76,8 @@ export default function Reviews() {
               key={review.name}
               className={`reveal reveal-delay-${i + 1} demo-review-card`}
               style={{
-                background: "rgba(255,255,255,0.03)",
-                border: "1px solid rgba(255,255,255,0.08)",
+                background: "var(--dt-card-bg)",
+                border: "1px solid var(--dt-border)",
                 borderRadius: "18px",
                 padding: "28px",
                 transition: "border-color 0.25s, transform 0.25s",
@@ -89,17 +89,17 @@ export default function Reviews() {
                 ))}
               </div>
 
-              <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.65)", lineHeight: 1.8, margin: "0 0 24px", fontStyle: "italic" }}>
+              <p style={{ fontSize: "14px", color: "var(--dt-text2)", lineHeight: 1.8, margin: "0 0 24px", fontStyle: "italic" }}>
                 &ldquo;{review.text}&rdquo;
               </p>
 
-              <div style={{ display: "flex", alignItems: "center", gap: "12px", paddingTop: "16px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "12px", paddingTop: "16px", borderTop: "1px solid var(--dt-border)" }}>
                 <Avatar name={review.name} />
                 <div>
-                  <p style={{ fontSize: "14px", fontWeight: 700, color: "#fff", margin: "0 0 2px" }}>
+                  <p style={{ fontSize: "14px", fontWeight: 700, color: "var(--dt-text1)", margin: "0 0 2px" }}>
                     {review.name}
                   </p>
-                  <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)", margin: 0 }}>
+                  <p style={{ fontSize: "12px", color: "var(--dt-text3)", margin: 0 }}>
                     {review.location}
                   </p>
                 </div>

@@ -57,9 +57,9 @@ const iconComponents: Record<string, React.FC> = {
 export default function TrustBar() {
   return (
     <div style={{
-      background: "rgba(7,11,20,0.95)",
-      borderTop: "1px solid rgba(255,255,255,0.06)",
-      borderBottom: "1px solid rgba(255,255,255,0.06)",
+      background: "var(--dt-trustbar-bg)",
+      borderTop: "1px solid var(--dt-border)",
+      borderBottom: "1px solid var(--dt-border)",
       padding: "14px 24px",
     }}>
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
@@ -73,7 +73,7 @@ export default function TrustBar() {
                     <Icon />
                   </span>
                 )}
-                <span style={{ fontSize: "11px", fontWeight: 600, color: "rgba(255,255,255,0.5)", letterSpacing: "0.02em" }}>
+                <span style={{ fontSize: "11px", fontWeight: 600, color: "var(--dt-text2)", letterSpacing: "0.02em" }}>
                   {item.label}
                 </span>
               </div>

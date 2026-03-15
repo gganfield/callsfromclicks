@@ -92,6 +92,16 @@ const deliverables: Deliverable[] = [
   },
   {
     num: "04",
+    title: "Referral Engine",
+    detail: "After every completed job, your happy customers become your next lead source. A system that turns a 5-star review into a referral — automatically. Every satisfied customer gets a gift card to pass to a friend who needs the same work done.",
+    tag: "Included",
+    tagIcon: "gift",
+    tagColor: "var(--gg-green)",
+    tagBg: "var(--gg-green-soft)",
+    tagBorder: "var(--gg-green-border)",
+  },
+  {
+    num: "05",
     title: "72-Hour Delivery Guarantee",
     detail: "After we receive your required assets (business name, phone/email, services, service area, logo or text logo, at least 5 photos or placeholders) and complete the verification call, your site is live within 72 hours. If we miss our deadline, your final 50% is waived.",
     tag: "Or final 50% waived",

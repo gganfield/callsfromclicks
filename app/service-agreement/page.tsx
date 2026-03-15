@@ -75,6 +75,10 @@ export default function ServiceAgreementPage() {
           <p style={pStyle}>
             Company completes submission within 72 hours. Approval timelines by third-party platforms are outside Company&apos;s control.
           </p>
+          <h3 style={{ fontSize: "14px", fontWeight: 600, color: "var(--gg-text1)", margin: "16px 0 8px" }}>D. Referral Engine Setup</h3>
+          <p style={pStyle}>
+            Company will configure a referral code system for Client accessible at callsfromclicks.com/clients/[client-slug]. Upon a customer leaving a review, Client may generate a unique referral code to send as a gift card to that customer for forwarding to a friend. Codes expire 30 days from generation. Client manages code distribution and redemption through their dedicated dashboard.
+          </p>
         </section>
 
         <section style={sectionStyle}>

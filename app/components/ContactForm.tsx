@@ -37,10 +37,10 @@ export default function ContactForm() {
 
   const inputStyle: React.CSSProperties = {
     width: "100%",
-    background: "rgba(255,255,255,0.04)",
-    border: "1px solid rgba(255,255,255,0.1)",
+    background: "var(--dt-input-bg)",
+    border: "1px solid var(--dt-input-border)",
     borderRadius: "10px",
-    color: "#fff",
+    color: "var(--dt-input-text)",
     fontSize: "14px",
     padding: "13px 16px",
     outline: "none",
@@ -54,17 +54,17 @@ export default function ContactForm() {
     fontWeight: 600,
     letterSpacing: "0.06em",
     textTransform: "uppercase" as const,
-    color: "rgba(255,255,255,0.4)",
+    color: "var(--dt-label)",
     marginBottom: "6px",
   };
 
   return (
-    <section id="contact" style={{ background: "var(--bg-dark)", padding: "100px 24px", borderTop: "1px solid rgba(255,255,255,0.06)", position: "relative", overflow: "hidden" }}>
+    <section id="contact" style={{ background: "var(--dt-bg-alt)", padding: "100px 24px", borderTop: "1px solid var(--dt-border)", position: "relative", overflow: "hidden" }}>
       {/* Subtle glow */}
       <div aria-hidden="true" style={{
         position: "absolute", top: "30%", left: "50%", transform: "translateX(-50%)",
         width: "600px", height: "400px",
-        background: "radial-gradient(ellipse at center, rgba(180,83,9,0.06) 0%, transparent 70%)",
+        background: "radial-gradient(ellipse at center, rgba(180,83,9,0.05) 0%, transparent 70%)",
         borderRadius: "50%",
       }} />
 
@@ -73,17 +73,17 @@ export default function ContactForm() {
           <p style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--primary)", marginBottom: "14px" }}>
             Free Quote
           </p>
-          <h2 style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(28px, 4.5vw, 42px)", fontWeight: 800, letterSpacing: "-0.04em", color: "#fff", lineHeight: 1.1, margin: "0 0 14px" }}>
+          <h2 style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(28px, 4.5vw, 42px)", fontWeight: 800, letterSpacing: "-0.04em", color: "var(--dt-text1)", lineHeight: 1.1, margin: "0 0 14px" }}>
             Let&apos;s Talk About Your Project
           </h2>
-          <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.5)", lineHeight: 1.75, margin: 0 }}>
+          <p style={{ fontSize: "15px", color: "var(--dt-text2)", lineHeight: 1.75, margin: 0 }}>
             No pushy sales calls. Just a straight conversation about what you need.
           </p>
         </div>
 
         {status === "success" ? (
           <div className="reveal" style={{
-            background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.1)",
+            background: "var(--dt-form-bg)", border: "1px solid var(--dt-form-border)",
             borderRadius: "20px", padding: "48px 32px", textAlign: "center",
           }}>
             <div style={{
@@ -96,10 +96,10 @@ export default function ContactForm() {
                 <path d="M4 10.5l4 4 8-8" stroke="#34d399" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
-            <h3 style={{ fontFamily: "'Poppins', sans-serif", fontSize: "20px", fontWeight: 700, color: "#fff", margin: "0 0 8px" }}>
-              Got it \u2014 we&apos;ll be in touch soon.
+            <h3 style={{ fontFamily: "'Poppins', sans-serif", fontSize: "20px", fontWeight: 700, color: "var(--dt-text1)", margin: "0 0 8px" }}>
+              Got it — we&apos;ll be in touch soon.
             </h3>
-            <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.5)", margin: 0 }}>
+            <p style={{ fontSize: "14px", color: "var(--dt-text2)", margin: 0 }}>
               We typically follow up within a few hours during business hours.
             </p>
           </div>
@@ -108,8 +108,8 @@ export default function ContactForm() {
             onSubmit={handleSubmit}
             className="reveal"
             style={{
-              background: "rgba(255,255,255,0.03)",
-              border: "1px solid rgba(255,255,255,0.1)",
+              background: "var(--dt-form-bg)",
+              border: "1px solid var(--dt-form-border)",
               borderRadius: "20px",
               padding: "32px 28px",
               display: "flex",
@@ -164,7 +164,7 @@ export default function ContactForm() {
               {status === "sending" ? "Sending..." : "Send My Request"}
             </button>
 
-            <label style={{ display: "flex", alignItems: "flex-start", gap: "12px", cursor: "pointer", fontSize: "13px", color: "rgba(255,255,255,0.5)", lineHeight: 1.5 }}>
+            <label style={{ display: "flex", alignItems: "flex-start", gap: "12px", cursor: "pointer", fontSize: "13px", color: "var(--dt-text3)", lineHeight: 1.5 }}>
               <input
                 type="checkbox"
                 className="demo-checkbox"
@@ -183,7 +183,7 @@ export default function ContactForm() {
               </p>
             )}
 
-            <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.3)", textAlign: "center", margin: 0 }}>
+            <p style={{ fontSize: "12px", color: "var(--dt-text3)", textAlign: "center", margin: 0 }}>
               Or call directly: <a href={`tel:${config.business.phoneRaw}`} style={{ color: "var(--primary)", textDecoration: "none" }}>{config.business.phone}</a>
             </p>
           </form>
@@ -193,7 +193,7 @@ export default function ContactForm() {
       <style>{`
         #contact input:focus, #contact textarea:focus, #contact select:focus {
           border-color: var(--primary) !important;
-          box-shadow: 0 0 0 3px rgba(180,83,9,0.15);
+          box-shadow: 0 0 0 3px rgba(180,83,9,0.12);
         }
         .demo-checkbox {
           appearance: none;
@@ -201,7 +201,7 @@ export default function ContactForm() {
           width: 18px;
           height: 18px;
           border-radius: 4px;
-          border: 1px solid rgba(255,255,255,0.2);
+          border: 1px solid var(--dt-checkbox-border);
           background: transparent;
           flex-shrink: 0;
           cursor: pointer;
