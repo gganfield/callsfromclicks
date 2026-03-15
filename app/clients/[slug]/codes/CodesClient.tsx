@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import type { SerializedCode } from '@/lib/codes';
+import type { SerializedCode } from '@/lib/code-utils';
 
 type Tab = 'active' | 'used' | 'voided';
 

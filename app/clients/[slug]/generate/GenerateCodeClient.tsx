@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { suggestJobTypeShort } from '@/lib/codes';
+import { suggestJobTypeShort } from '@/lib/code-utils';
 
 type Phase = 'form' | 'preview' | 'success';
 
