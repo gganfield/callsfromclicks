@@ -12,11 +12,20 @@ export const metadata: Metadata = {
     url: "https://callsfromclicks.com",
     siteName: "Calls From Clicks",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Calls From Clicks",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Calls From Clicks — 72-Hour Websites for Local Service Businesses",
     description: "Custom-built, mobile-first websites that turn visitors into calls. Live in 72 hours — guaranteed.",
+    images: ["/og-image.png"],
   },
 };
 
