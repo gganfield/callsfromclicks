@@ -21,7 +21,7 @@ export default async function AdminPage() {
   ]);
 
   // Serialize dates for client components
-  const serializedClients = clients.map((c) => ({
+  const serializedClients = clients.map((c: (typeof clients)[0]) => ({
     ...c,
     createdAt: c.createdAt.toISOString() as unknown as Date,
   }));
